@@ -20,7 +20,8 @@ function minifyCSS(cssContent) {
 function minifyJS(jsContent) {
   return jsContent
     .replace(/\/\*[\s\S]*?\*\//g, '') // Remove block comments
-    .replace(/\/\/.*$/gm, '') // Remove line comments
+    // Remove line comments but preserve URLs like http:// or https://
+    .replace(/(?<!:)\/\/.*$/gm, '')
     .replace(/\s+/g, ' ') // Collapse whitespace
     .replace(/;\s*}/g, '}') // Clean up
     .trim();
