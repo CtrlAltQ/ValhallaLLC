@@ -17,7 +17,7 @@ export const STUDIO_INFO = {
   
   // Contact information
   phone: '931-451-5313',
-  email: 'valhallatattoo931@gmail.com',
+  email: 'inkedbyvalhalla@gmail.com',
   
   // Address
   address: '404 Mclemore Ave. Suite 4',
@@ -41,8 +41,8 @@ export const STUDIO_INFO = {
 // 📱 SOCIAL MEDIA LINKS
 // ==========================================
 export const SOCIAL_MEDIA = {
-  instagram: 'https://instagram.com/valhallatattoo',
-  facebook: 'https://facebook.com/valhallatattoo',
+  instagram: 'https://www.instagram.com/valhallatattoollc/',
+  facebook: 'https://www.facebook.com/Valhallatattoollc',
   tiktok: '', // Leave empty to hide TikTok link
   twitter: '', // Leave empty to hide Twitter link
   
@@ -80,18 +80,18 @@ export const SOCIAL_MEDIA = {
 // ==========================================
 export const CONTACT_FORM = {
   // Which service to use: 'formspree' or 'netlify'
-  service: 'formspree',
+  service: 'netlify',
   
   // FOR FORMSPREE USERS:
   // 1. Sign up at https://formspree.io
   // 2. Create a form and get your form ID
   // 3. Replace 'YOUR_FORM_ID' below
-  formspreeId: 'xpwzgqpv', // Change this to your actual form ID
+  formspreeId: 'xpwzgqpv', // Not needed for Netlify Forms
   
   // Where to send different types of inquiries
   emailRouting: {
-    general: 'valhallatattoo931@gmail.com',
-    booking: 'valhallatattoo931@gmail.com',
+    general: 'inkedbyvalhalla@gmail.com',
+    booking: 'inkedbyvalhalla@gmail.com',
     // You can set different emails for specific artists:
     // pagan: 'pagan@valhallatattoo.com',
     // jimmy: 'jimmy@valhallatattoo.com',
