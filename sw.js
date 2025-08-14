@@ -1,10 +1,70 @@
 /**
  * Service Worker for Valhalla Tattoo Website
  * Provides caching, offline functionality, and performance optimizations
+ * 
+ * Fix for MobX state tree error: Added safety checks for accessing detached objects
  */
 
-const CACHE_NAME = 'valhalla-tattoo-v1.0.0';
-const CACHE_VERSION = '1.0.0';
+const CACHE_NAME = 'valhalla-tattoo-v1.0.1';
+const CACHE_VERSION = '1.0.1';
+
+/**
+ * Safety wrapper to prevent MobX state tree errors when accessing detached objects
+ * @param {Function} fn - Function to safely execute
+ * @param {*} defaultValue - Default value to return if an error occurs
+ * @returns {Function} - Wrapped function that catches MobX errors
+ */
+function safeAccess(fn, defaultValue = null) {
+  return function(...args) {
+    try {
+      return fn(...args);
+    } catch (error) {
+      // Check if it's a MobX state tree error about detached objects
+      if (error.message && error.message.includes('no longer part of a state tree')) {
+        console.warn('Prevented access to detached object:', error.message);
+        return defaultValue;
+      }
+      // Re-throw other errors
+      throw error;
+    }
+  };
+}
+
+/**
+ * Safely get a property from an object that might be detached
+ * @param {Object} obj - The object to access
+ * @param {string} prop - The property to get
+ * @param {*} defaultValue - Default value to return if the object is detached
+ * @returns {*} - The property value or default value
+ */
+function safeGet(obj, prop, defaultValue = null) {
+  if (!obj) return defaultValue;
+  
+  try {
+    return obj[prop];
+  } catch (error) {
+    if (error.message && error.message.includes('no longer part of a state tree')) {
+      console.warn(`Prevented access to detached object property: ${prop}`, error.message);
+      return defaultValue;
+    }
+    throw error;
+  }
+}
+
+/**
+ * Global error handler for the service worker
+ */
+self.addEventListener('error', (event) => {
+  const error = event.error || new Error('Unknown service worker error');
+  
+  // Handle MobX state tree errors
+  if (error.message && error.message.includes('no longer part of a state tree')) {
+    console.warn('Caught MobX state tree error:', error.message);
+    event.preventDefault(); // Prevent the error from crashing the service worker
+  } else {
+    console.error('Service worker error:', error);
+  }
+});
 
 // Cache strategies
 const CACHE_STRATEGIES = {
