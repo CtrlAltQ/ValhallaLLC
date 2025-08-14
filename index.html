@@ -432,7 +432,7 @@
                     <div class="newsletter-content">
                         <h3 class="newsletter-title">Stay in the Loop</h3>
                         <p class="newsletter-description">Get the latest studio news, artist spotlights, and tattoo tips delivered to your inbox.</p>
-                        <form class="newsletter-form" id="newsletterForm" novalidate>
+                        <form class="newsletter-form" id="newsletterForm" name="newsletter-signup" method="POST" data-netlify="true" novalidate>
                             <div class="newsletter-form-group">
                                 <label for="newsletter-email" class="sr-only">Email address</label>
                                 <input type="email" id="newsletter-email" name="email" class="newsletter-input" placeholder="Enter your email address" required aria-describedby="newsletter-help">
@@ -716,22 +716,20 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script type="module" src="js/main.js"></script>
+    <!-- JavaScript - Using minimal version with core modules -->
+    <script type="module" src="js/main-minimal.js"></script>
+    <!-- Original: <script type="module" src="js/main.js"></script> -->
     
-    <!-- Initialize SEO -->
+    <!-- Sitemap Generator - Temporarily disabled for debugging -->
+    <!--
     <script type="module">
-        import SEOManager from './js/modules/seo.js';
         import SitemapGenerator from './js/modules/sitemap.js';
-        
-        // Initialize SEO for homepage
-        const seoManager = new SEOManager();
-        seoManager.initHomepage();
         
         // Generate sitemap (for development - can be called from console)
         const sitemapGenerator = new SitemapGenerator();
         window.generateSitemap = () => sitemapGenerator.generateCompleteSitemap();
         window.downloadSitemap = () => sitemapGenerator.downloadSitemap();
     </script>
+    -->
 </body>
 </html>

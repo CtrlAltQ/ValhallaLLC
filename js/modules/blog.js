@@ -256,7 +256,11 @@ export class BlogManager {
 
     // Update category objects
     this.categories.forEach(category => {
-      category.count = counts[category.id] || 0;
+      if (category.id === 'all') {
+        category.count = this.posts.length;
+      } else {
+        category.count = counts[category.id] || 0;
+      }
     });
   }
 

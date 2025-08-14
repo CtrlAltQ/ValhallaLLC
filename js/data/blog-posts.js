@@ -96,12 +96,12 @@ export const blogPosts = [
 
 // Blog categories for filtering
 export const blogCategories = [
-  "All",
-  "Studio News", 
-  "Artist Spotlight",
-  "Tattoo Care",
-  "Events",
-  "Style Guide"
+  { id: "all", name: "All", count: 0 },
+  { id: "studio-news", name: "Studio News", count: 0 },
+  { id: "artist-spotlight", name: "Artist Spotlight", count: 0 },
+  { id: "tattoo-care", name: "Tattoo Care", count: 0 },
+  { id: "events", name: "Events", count: 0 },
+  { id: "style-guide", name: "Style Guide", count: 0 }
 ];
 
 /**

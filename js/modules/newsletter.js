@@ -11,13 +11,15 @@ export class NewsletterManager {
     this.statusElement = null;
     this.isSubmitting = false;
     
-    // Configuration for email service
+    // Configuration for email service (using Netlify Forms)
     this.config = {
-      service: 'mailerlite', // or 'convertkit', 'formspree'
-      apiEndpoint: this.getApiEndpoint(),
+      service: 'netlify', // 'mailerlite', 'convertkit', 'formspree', 'netlify', or 'disabled'
       listId: 'newsletter-subscribers',
       successRedirect: null
     };
+    
+    // Set API endpoint after config is initialized
+    this.config.apiEndpoint = this.getApiEndpoint();
   }
 
   /**
@@ -141,10 +143,26 @@ export class NewsletterManager {
       referrer: document.referrer || 'direct'
     };
 
-    // For now, we'll use Formspree as a simple solution
-    // In production, this would integrate with MailerLite, ConvertKit, etc.
+    // Handle different service types
+    if (this.config.service === 'disabled') {
+      this.storeSubscriptionLocally(subscriptionData);
+      console.log('Newsletter subscription (disabled mode):', subscriptionData);
+      return true;
+    }
+    
+    if (this.config.service === 'netlify') {
+      return this.submitToNetlify(subscriptionData);
+    }
+    
+    if (!this.config.apiEndpoint) {
+      this.storeSubscriptionLocally(subscriptionData);
+      console.log('Newsletter subscription (no API configured):', subscriptionData);
+      return true;
+    }
+
+    // Use configured API endpoint
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID', {
+      const response = await fetch(this.config.apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -166,6 +184,42 @@ export class NewsletterManager {
       // Fallback: Store subscription locally for manual processing
       this.storeSubscriptionLocally(subscriptionData);
       return true; // Return true to show success message
+    }
+  }
+
+  /**
+   * Submit to Netlify Forms
+   * @param {Object} subscriptionData - Subscription data
+   * @returns {Promise<boolean>} Success status
+   */
+  async submitToNetlify(subscriptionData) {
+    try {
+      // Create form data for Netlify Forms submission
+      const formData = new FormData();
+      formData.append('form-name', 'newsletter-signup');
+      formData.append('email', subscriptionData.email);
+      formData.append('source', subscriptionData.source);
+      formData.append('page', subscriptionData.page);
+      formData.append('timestamp', subscriptionData.timestamp);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        console.log('Newsletter subscription submitted to Netlify:', subscriptionData);
+        return true;
+      } else {
+        console.warn('Netlify form submission failed, storing locally as fallback');
+        this.storeSubscriptionLocally(subscriptionData);
+        return true; // Still show success to user
+      }
+    } catch (error) {
+      console.error('Netlify form submission error:', error);
+      this.storeSubscriptionLocally(subscriptionData);
+      return true; // Still show success to user
     }
   }
 
@@ -302,15 +356,20 @@ export class NewsletterManager {
    * @returns {string} API endpoint URL
    */
   getApiEndpoint() {
+    // Using placeholder endpoints for now - replace with actual APIs when ready
     switch (this.config.service) {
       case 'mailerlite':
-        return 'https://api.mailerlite.com/api/v2/subscribers';
+        return 'https://api.mailerlite.com/api/v2/subscribers'; // Add your MailerLite API key
       case 'convertkit':
-        return 'https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe';
+        return 'https://api.convertkit.com/v3/forms/PLACEHOLDER_FORM_ID/subscribe'; // Replace PLACEHOLDER_FORM_ID
       case 'formspree':
-        return 'https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID';
+        return 'https://formspree.io/f/PLACEHOLDER_NEWSLETTER_ID'; // Replace PLACEHOLDER_NEWSLETTER_ID  
+      case 'netlify':
+        return null; // Netlify Forms use built-in form submission
+      case 'disabled':
+        return null; // Disabled for development - will store locally only
       default:
-        return 'https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID';
+        return null; // No API configured
     }
   }
 
