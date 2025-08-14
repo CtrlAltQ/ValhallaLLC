@@ -7,35 +7,52 @@
   <meta name="keywords" content="Pagan tattoo portfolio, tattoo artist, Valhalla Tattoo, Spring Hill TN">
   <meta name="author" content="Valhalla Tattoo">
   <title>Pagan's Portfolio | Valhalla Tattoo</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/artists.css">
-  <link rel="stylesheet" href="../css/portfolio.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/portfolio-pages.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Navbar -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <ul class="nav-left">
-        <li><a href="../index.html#artists">Artists</a></li>
-        <li><a href="../studio.html">Studio</a></li>
-        <li class="dropdown">
-          <a href="../index.html#support" aria-haspopup="true" aria-expanded="false">Support</a>
-          <ul class="dropdown-menu" aria-label="Support submenu">
-            <li><a href="../index.html#faq">FAQ</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+  <!-- Navigation -->
+  <header role="banner">
+    <nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <div class="main-nav__content">
+          <div class="main-nav__logo">
+            <a href="../index.html" aria-label="Valhalla Tattoo - Go to homepage">
+              <img src="../images/logo.jpg" alt="Valhalla Tattoo" class="main-nav__logo-img">
+              <span class="main-nav__logo-text">VALHALLA</span>
+            </a>
+          </div>
+          <ul class="main-nav__menu" role="menubar">
+            <li class="main-nav__item" role="none">
+              <a href="../index.html" class="main-nav__link" role="menuitem">Home</a>
+            </li>
+            <li class="main-nav__item" role="none">
+              <a href="../index.html#artists" class="main-nav__link" role="menuitem">Artists</a>
+            </li>
+            <li class="main-nav__item main-nav__item--active" role="none">
+              <a href="../index.html#portfolio" class="main-nav__link" role="menuitem">Portfolio</a>
+            </li>
+            <li class="main-nav__item" role="none">
+              <a href="../index.html#about" class="main-nav__link" role="menuitem">About</a>
+            </li>
+            <li class="main-nav__item" role="none">
+              <a href="../index.html#news" class="main-nav__link" role="menuitem">News</a>
+            </li>
+            <li class="main-nav__item" role="none">
+              <a href="../index.html#contact" class="main-nav__link" role="menuitem">Contact</a>
+            </li>
           </ul>
-        </li>
-      </ul>
-      <ul class="nav-right">
-        <li class="logo"><a href="../index.html#main"><img src="../images/logo.jpg" alt="Valhalla Tattoo Logo"></a></li>
-        <li><a href="../index.html#book" class="btn-cta">Book Now</a></li>
-      </ul>
-    </div>
-  </nav>
+          <button class="main-nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav-menu">
+            <span class="main-nav__toggle-line"></span>
+            <span class="main-nav__toggle-line"></span>
+            <span class="main-nav__toggle-line"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <!-- Breadcrumb Navigation -->
   <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -302,7 +319,7 @@
         <h4>Explore</h4>
         <ul>
           <li><a href="../index.html#about">About</a></li>
-          <li><a href="../studio.html">Studio News</a></li>
+          <li><a href="../index.html#news">News</a></li>
         </ul>
       </div>
     </div>
