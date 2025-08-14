@@ -2,7 +2,7 @@
 
 A premium, interactive website for Valhalla Tattoo studio in Spring Hill, TN featuring smooth animations, artist portfolios, and modern web technologies.
 
-🌐 **Live Site**: [Deploy to Netlify](https://netlify.com)
+🌐 **Live Site**: [Coming Soon](https://valhallatattoo.com) <!-- Replace with actual URL when site is deployed -->
 📧 **Contact**: inkedbyvalhalla@gmail.com
 📱 **Instagram**: [@valhallatattoollc](https://www.instagram.com/valhallatattoollc/)
 📘 **Facebook**: [Valhalla Tattoo LLC](https://www.facebook.com/Valhallatattoollc)
