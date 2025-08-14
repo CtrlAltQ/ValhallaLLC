@@ -1,0 +1,146 @@
+/**
+ * Main CSS Entry Point
+ * Imports all stylesheets in the correct order
+ */
+
+/* 1. Variables and Configuration */
+@import url('./variables.css');
+
+/* 2. Base Styles and Reset */
+@import url('./base.css');
+
+/* 3. Layout System */
+@import url('./layout.css');
+
+/* 4. Component Styles */
+@import url('./components.css');
+
+/* 5. Animation System */
+@import url('./animations.css');
+
+/* 6. Consent Banner */
+@import url('./consent-banner.css');
+
+/* 6. Social Media Components */
+@import url('./social.css');
+
+/* 7. Image Optimization System */
+@import url('./image-optimization.css');
+
+/* 8. Accessibility Enhancements */
+@import url('./accessibility.css');
+
+/* 9. Browser Compatibility Fixes */
+@import url('./browser-fixes.css');
+
+/* 10. Mobile Optimization */
+@import url('./mobile-optimization.css');
+
+/* 11. Progressive Web App */
+@import url('./pwa-styles.css');
+
+/* 12. Utility Classes */
+@import url('./utilities.css');
+
+/* 9. Responsive Styles */
+@media (max-width: 768px) {
+  .main-nav__menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(var(--color-background-rgb), 0.98);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-border);
+    flex-direction: column;
+    padding: var(--space-4);
+    gap: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+  }
+  
+  .main-nav__menu--open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .main-nav__toggle {
+    display: flex;
+  }
+  
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero__cta-primary,
+  .hero__cta-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .artist-grid__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .artist-card {
+    height: 350px;
+  }
+  
+  .artist-card__actions {
+    flex-direction: column;
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-12);
+  }
+  
+  .container {
+    padding: 0 var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-screen__logo-img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .loading-screen__title {
+    font-size: var(--text-3xl);
+  }
+  
+  .main-nav__logo-img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .main-nav__logo-text {
+    font-size: var(--text-lg);
+  }
+  
+  .hero__title-line {
+    font-size: clamp(2rem, 12vw, 4rem);
+  }
+  
+  .hero__subtitle {
+    font-size: var(--text-lg);
+  }
+  
+  .artist-card {
+    height: 300px;
+  }
+  
+  .artist-card__name {
+    font-size: var(--text-2xl);
+  }
+  
+  .btn-xl {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--text-lg);
+  }
+}

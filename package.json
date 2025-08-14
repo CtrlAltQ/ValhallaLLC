@@ -1,0 +1,42 @@
+{
+  "name": "valhalla-tattoo-website",
+  "version": "1.0.0",
+  "description": "Premium tattoo studio website with interactive animations and portfolio system",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "npm run build:env && npm run build:optimize",
+    "build:env": "node scripts/build-env.js",
+    "build:optimize": "node scripts/build-optimize.js",
+    "test": "node scripts/test-runner.js",
+    "test:e2e": "node scripts/e2e-tests.js",
+    "test:performance": "node scripts/performance-test.js",
+    "lint": "node scripts/lint-check.js",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod",
+    "preview": "npx live-server --port=3000 --no-browser"
+  },
+  "keywords": [
+    "tattoo",
+    "studio",
+    "portfolio",
+    "animations",
+    "gsap",
+    "responsive"
+  ],
+  "author": "Valhalla Tattoo",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valhallatattoo/website.git"
+  }
+}

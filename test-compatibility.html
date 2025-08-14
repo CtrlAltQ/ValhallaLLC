@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Browser Compatibility Test - Valhalla Tattoo</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .test-results {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .test-category {
+            margin-bottom: 2rem;
+        }
+        
+        .test-category h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .test-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .test-item:last-child {
+            border-bottom: none;
+        }
+        
+        .test-status {
+            font-weight: bold;
+        }
+        
+        .test-passed {
+            color: #28a745;
+        }
+        
+        .test-failed {
+            color: #dc3545;
+        }
+        
+        .run-tests-btn {
+            background: var(--color-primary);
+            color: var(--color-background);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .run-tests-btn:hover {
+            background: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+        
+        .browser-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(212, 175, 55, 0.3);
+            border-top: 4px solid var(--color-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Cross-Browser Compatibility Test</h1>
+            <p>Test the website's compatibility across different browsers and features</p>
+            <button class="run-tests-btn" onclick="runCompatibilityTests()">Run Tests</button>
+        </div>
+        
+        <div class="browser-info" id="browserInfo">
+            <h3>Browser Information</h3>
+            <p id="browserDetails">Loading browser information...</p>
+        </div>
+        
+        <div class="test-results" id="testResults" style="display: none;">
+            <div class="loading" id="testLoading">
+                <div class="spinner"></div>
+                <p>Running compatibility tests...</p>
+            </div>
+            <div id="testOutput"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import CrossBrowserTest from './js/utils/cross-browser-test.js';
+        import browserCompatibility from './js/utils/browser-compatibility.js';
+        
+        // Display browser information
+        document.getElementById('browserDetails').innerHTML = `
+            <strong>Browser:</strong> ${browserCompatibility.browser.name} ${browserCompatibility.browser.version}<br>
+            <strong>User Agent:</strong> ${navigator.userAgent}<br>
+            <strong>Platform:</strong> ${navigator.platform}<br>
+            <strong>Language:</strong> ${navigator.language}
+        `;
+        
+        window.runCompatibilityTests = async function() {
+            const testResults = document.getElementById('testResults');
+            const testLoading = document.getElementById('testLoading');
+            const testOutput = document.getElementById('testOutput');
+            
+            testResults.style.display = 'block';
+            testLoading.style.display = 'block';
+            testOutput.innerHTML = '';
+            
+            try {
+                const tester = new CrossBrowserTest();
+                const results = await tester.runAllTests();
+                
+                testLoading.style.display = 'none';
+                
+                // Group results by category
+                const categories = {};
+                results.forEach(test => {
+                    if (!categories[test.category]) {
+                        categories[test.category] = [];
+                    }
+                    categories[test.category].push(test);
+                });
+                
+                // Display results
+                Object.entries(categories).forEach(([category, tests]) => {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'test-category';
+                    
+                    const categoryTitle = document.createElement('h3');
+                    categoryTitle.textContent = category;
+                    categoryDiv.appendChild(categoryTitle);
+                    
+                    tests.forEach(test => {
+                        const testItem = document.createElement('div');
+                        testItem.className = 'test-item';
+                        
+                        const testName = document.createElement('span');
+                        testName.textContent = test.name;
+                        
+                        const testStatus = document.createElement('span');
+                        testStatus.className = `test-status ${test.passed ? 'test-passed' : 'test-failed'}`;
+                        testStatus.textContent = test.passed ? '✅ ' + test.details : '❌ ' + test.details;
+                        
+                        testItem.appendChild(testName);
+                        testItem.appendChild(testStatus);
+                        categoryDiv.appendChild(testItem);
+                    });
+                    
+                    testOutput.appendChild(categoryDiv);
+                });
+                
+                // Add summary
+                const summary = document.createElement('div');
+                summary.className = 'test-category';
+                summary.innerHTML = `
+                    <h3>Summary</h3>
+                    <div class="test-item">
+                        <span>Total Tests</span>
+                        <span class="test-status">${results.length}</span>
+                    </div>
+                    <div class="test-item">
+                        <span>Passed</span>
+                        <span class="test-status test-passed">${results.filter(t => t.passed).length}</span>
+                    </div>
+                    <div class="test-item">
+                        <span>Failed</span>
+                        <span class="test-status test-failed">${results.filter(t => !t.passed).length}</span>
+                    </div>
+                `;
+                testOutput.insertBefore(summary, testOutput.firstChild);
+                
+            } catch (error) {
+                testLoading.style.display = 'none';
+                testOutput.innerHTML = `<div class="test-category"><h3>Error</h3><p>Failed to run tests: ${error.message}</p></div>`;
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://valhallatattoo.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all image files
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Block access to sensitive directories
+Disallow: /js/
+Disallow: /assets/css/
+Disallow: /.git/
+Disallow: /.kiro/
+
+# Allow specific CSS and JS files that might be needed for rendering
+Allow: /assets/css/main.css
+Allow: /js/main.js

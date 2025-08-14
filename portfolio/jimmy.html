@@ -3,35 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="View Jimmy's tattoo portfolio at Valhalla Tattoo in Spring Hill, TN. Browse artwork and book your consultation.">
-  <meta name="keywords" content="Jimmy tattoo portfolio, tattoo artist, Valhalla Tattoo, Spring Hill TN">
+  <meta name="description" content="View Jimmy's tattoo portfolio at Valhalla Tattoo in Spring Hill, TN. Specializing in realism and black & grey tattoos. Browse artwork and book your consultation.">
+  <meta name="keywords" content="Jimmy tattoo portfolio, realism tattoos, black and grey tattoos, tattoo artist, Valhalla Tattoo, Spring Hill TN">
   <meta name="author" content="Valhalla Tattoo">
-  <title>Jimmy's Portfolio | Valhalla Tattoo</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/artists.css">
-  <link rel="stylesheet" href="../css/portfolio.css">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://valhallatattoo.com/portfolio/jimmy.html">
+  <meta property="og:title" content="Jimmy's Portfolio | Valhalla Tattoo - Realism & Black & Grey Specialist">
+  <meta property="og:description" content="View Jimmy's tattoo portfolio at Valhalla Tattoo. Specializing in realism and black & grey tattoos with 10+ years experience.">
+  <meta property="og:image" content="https://valhallatattoo.com/images/gallery/jimmy.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://valhallatattoo.com/portfolio/jimmy.html">
+  <meta property="twitter:title" content="Jimmy's Portfolio | Valhalla Tattoo - Realism & Black & Grey Specialist">
+  <meta property="twitter:description" content="View Jimmy's tattoo portfolio at Valhalla Tattoo. Specializing in realism and black & grey tattoos with 10+ years experience.">
+  <meta property="twitter:image" content="https://valhallatattoo.com/images/gallery/jimmy.jpg">
+  
+  <title>Jimmy's Portfolio | Valhalla Tattoo - Realism & Black & Grey Specialist</title>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://valhallatattoo.com/portfolio/jimmy.html">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jimmy",
+    "jobTitle": "Tattoo Artist",
+    "description": "Realism and Black & Grey tattoo artist at Valhalla Tattoo in Spring Hill, TN with 10+ years experience",
+    "image": "https://valhallatattoo.com/images/gallery/jimmy.jpg",
+    "worksFor": {
+      "@type": "LocalBusiness",
+      "@id": "https://valhallatattoo.com/#business",
+      "name": "Valhalla Tattoo",
+      "url": "https://valhallatattoo.com"
+    },
+    "sameAs": [
+      "https://instagram.com/jimmy_illustrative",
+      "https://facebook.com/jimmy.valhalla.tattoo"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Navbar -->
-  <nav class="main-nav">
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
-      <ul class="nav-left">
-        <li><a href="../index.html#artists">Artists</a></li>
-        <li><a href="../studio.html">Studio</a></li>
-        <li class="dropdown">
-          <a href="../index.html#support" aria-haspopup="true" aria-expanded="false">Support</a>
-          <ul class="dropdown-menu" aria-label="Support submenu">
-            <li><a href="../index.html#faq">FAQ</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+      <ul class="nav-left" role="menubar">
+        <li role="none"><a href="../index.html#artists" role="menuitem">Artists</a></li>
+        <li role="none"><a href="../studio.html" role="menuitem">Studio</a></li>
+        <li class="dropdown" role="none">
+          <a href="../index.html#support" role="menuitem" aria-haspopup="true" aria-expanded="false">Support</a>
+          <ul class="dropdown-menu" role="menu" aria-label="Support submenu">
+            <li role="none"><a href="../index.html#faq" role="menuitem">FAQ</a></li>
+            <li role="none"><a href="../index.html#contact" role="menuitem">Contact</a></li>
           </ul>
         </li>
       </ul>
-      <ul class="nav-right">
-        <li class="logo"><a href="../index.html#main"><img src="../images/logo.jpg" alt="Valhalla Tattoo Logo"></a></li>
-        <li><a href="../index.html#book" class="btn-cta">Book Now</a></li>
+      <ul class="nav-right" role="menubar">
+        <li class="logo" role="none"><a href="../index.html#main" role="menuitem" aria-label="Valhalla Tattoo - Go to homepage"><img src="../images/logo.jpg" alt="Valhalla Tattoo Logo"></a></li>
+        <li role="none"><a href="../index.html#book" class="btn-cta" role="menuitem">Book Now</a></li>
       </ul>
     </div>
   </nav>
@@ -47,44 +86,45 @@
   </nav>
 
   <!-- Portfolio Content -->
-  <main id="main" class="portfolio-main">
+  <main id="main" class="portfolio-main" role="main">
     <!-- Artist Hero Section -->
-    <section class="artist-hero">
+    <section class="artist-hero" aria-labelledby="artist-name">
       <div class="artist-hero-content">
         <div class="artist-hero-image">
-          <img src="../images/gallery/jimmy.jpg" alt="Jimmy - Tattoo Artist">
+          <img src="../images/gallery/jimmy.jpg" alt="Jimmy - Professional tattoo artist specializing in realism and black & grey work">
         </div>
         <div class="artist-hero-info">
-          <h1>Jimmy</h1>
-          <div class="artist-stats">
-            <span class="rating">★★★★★</span>
+          <h1 id="artist-name">Jimmy</h1>
+          <p class="artist-specialty">Realism & Black & Grey Specialist</p>
+          <p class="artist-experience">10+ Years Experience</p>
+          <div class="artist-stats" role="group" aria-label="Artist rating">
+            <span class="rating" aria-label="5 star rating">★★★★★</span>
           </div>
-          <a href="#portfolio-booking" class="btn-primary book-with-artist" data-artist="jimmy">Book with Jimmy</a>
+          <a href="#portfolio-booking" class="btn-primary book-with-artist" data-artist="jimmy" aria-describedby="artist-name">Book with Jimmy</a>
         </div>
       </div>
     </section>
 
     <!-- Artist Social Media -->
-    <section class="artist-social" id="artist-social">
+    <section class="artist-social" id="artist-social" aria-labelledby="social-heading">
       <div class="social-container">
-        <h2>Follow Jimmy's Work</h2>
-        <p>Stay updated with Jimmy's latest work and pieces</p>
-        <div class="social-links">
-          <a href="https://instagram.com/jimmy_illustrative" class="social-link instagram" target="_blank" rel="noopener noreferrer" aria-label="Follow Jimmy on Instagram">
-            <span class="social-icon instagram-icon"></span>
-            <div class="social-info">
-              <span class="social-platform">Instagram</span>
-              <span class="social-handle">@jimmy_illustrative</span>
-            </div>
-          </a>
-          <a href="https://facebook.com/jimmy.valhalla.tattoo" class="social-link facebook" target="_blank" rel="noopener noreferrer" aria-label="Follow Jimmy on Facebook">
-            <span class="social-icon facebook-icon"></span>
-            <div class="social-info">
-              <span class="social-platform">Facebook</span>
-              <span class="social-handle">jimmy.valhalla.tattoo</span>
-            </div>
-          </a>
-        </div>
+        <header>
+          <h2 id="social-heading">Follow Jimmy's Work</h2>
+          <p>Stay updated with Jimmy's latest work and pieces</p>
+        </header>
+        
+        <!-- Artist Social Links Component -->
+        <div 
+          data-social-links="jimmy-social"
+          data-social-links-type="artist"
+          data-social-links-artist-slug="jimmy"
+          data-social-links-layout="horizontal"
+          data-social-links-style="filled"
+          data-social-links-size="large"
+          data-social-links-show-labels="true"
+          data-social-links-show-follow-text="false"
+          data-social-links-platforms='["instagram", "facebook"]'
+        ></div>
         <div class="social-cta">
           <p>See fresh artwork, creative process, and booking updates</p>
         </div>
@@ -92,10 +132,40 @@
     </section>
 
     <!-- Portfolio Gallery -->
-    <section class="portfolio-gallery" id="portfolio-gallery" aria-labelledby="portfolio-heading">
-      <h2 id="portfolio-heading">Portfolio</h2>
-      <div class="portfolio-grid" role="grid" aria-label="Jimmy's tattoo portfolio">
-        <!-- Portfolio images will be dynamically loaded by JavaScript -->
+    <section class="portfolio-section" id="portfolio-gallery" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="portfolio-heading" class="section-title">Jimmy's Portfolio</h2>
+          <p class="section-subtitle">Explore Jimmy's mastery in realism and black & grey tattoo artistry</p>
+        </header>
+        <div class="portfolio-gallery" role="grid" aria-label="Jimmy's tattoo portfolio gallery" aria-busy="true">
+          <!-- Portfolio images will be dynamically loaded by JavaScript -->
+          <div class="gallery-loading" role="status" aria-live="polite">
+            <div class="gallery-loading-spinner" aria-hidden="true"></div>
+            <p>Loading Jimmy's portfolio...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jimmy's Recent Instagram Posts -->
+    <section class="artist-instagram section-padding" id="jimmy-instagram" aria-labelledby="jimmy-instagram-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="jimmy-instagram-title">Jimmy's Recent Work</h2>
+          <p class="section-subtitle">See Jimmy's latest tattoos and work in progress</p>
+        </header>
+        
+        <!-- Instagram Feed Component for Jimmy -->
+        <div 
+          data-instagram-feed="jimmy-feed"
+          data-instagram-feed-max-posts="4"
+          data-instagram-feed-show-captions="true"
+          data-instagram-feed-show-dates="false"
+          data-instagram-feed-caption-length="80"
+          data-instagram-feed-animate-on-scroll="true"
+          data-instagram-feed-fallback-message="Follow @jimmy_illustrative for Jimmy's latest tattoo work and behind-the-scenes content!"
+        ></div>
       </div>
     </section>
 
@@ -283,9 +353,15 @@
     </div>
   </footer>
 
-  <script src="../js/artist-data.js"></script>
-  <script src="../js/main.js"></script>
-  <script src="../js/artists.js"></script>
-  <script src="../js/portfolio.js"></script>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module">
+    import { Portfolio } from '../js/modules/portfolio.js';
+    
+    // Initialize portfolio when DOM is loaded
+    document.addEventListener('DOMContentLoaded', async () => {
+      const portfolio = new Portfolio();
+      await portfolio.init();
+    });
+  </script>
 </body>
 </html>

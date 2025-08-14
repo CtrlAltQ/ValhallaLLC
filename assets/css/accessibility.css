@@ -1,0 +1,482 @@
+/**
+ * Accessibility Styles
+ * Comprehensive accessibility enhancements and utilities
+ */
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip Links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Focus Management */
+body.using-mouse *:focus {
+  outline: none !important;
+}
+
+body:not(.using-mouse) *:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Enhanced Focus Styles */
+.focused,
+*:focus-visible {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/* Button Focus Styles */
+button:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+
+/* Link Focus Styles */
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
+/* Form Focus Styles */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-text: #000000;
+    --color-background: #ffffff;
+    --color-primary: #0066cc;
+    --color-secondary: #333333;
+  }
+  
+  .hero__overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .portfolio-overlay,
+  .artist-card__overlay {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .hero__video {
+    display: none;
+  }
+  
+  .hero__background-fallback {
+    display: block;
+  }
+  
+  .loading-screen {
+    display: none !important;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Live Regions */
+[aria-live] {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Form Accessibility */
+.form-error {
+  border-color: #dc3545 !important;
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.form-success {
+  border-color: #28a745 !important;
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.form-error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  padding: 4px 0;
+}
+
+.form-error-message svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* Form Message Styles */
+.form-message {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.form-message--success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  color: #155724;
+}
+
+.form-message--error {
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #721c24;
+}
+
+.form-message__content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-message svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* Loading States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(212, 175, 55, 0.3);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+    border: 3px solid var(--color-primary);
+  }
+}
+
+/* Error States */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  color: #721c24;
+  background-color: rgba(220, 53, 69, 0.05);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+  border-radius: 8px;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.error-content svg {
+  width: 48px;
+  height: 48px;
+  color: #dc3545;
+}
+
+/* Lightbox Accessibility */
+.lightbox-overlay[aria-hidden="true"] {
+  display: none;
+}
+
+.lightbox-overlay[aria-hidden="false"] {
+  display: flex;
+}
+
+/* Navigation Accessibility */
+.main-nav__menu[aria-expanded="false"] {
+  display: none;
+}
+
+.main-nav__menu[aria-expanded="true"] {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .main-nav__menu {
+    display: flex !important;
+  }
+}
+
+/* Interactive Element States */
+button[aria-busy="true"] {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Keyboard Navigation Indicators */
+.keyboard-user button:focus,
+.keyboard-user a:focus,
+.keyboard-user input:focus,
+.keyboard-user textarea:focus,
+.keyboard-user select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Touch Target Sizes */
+@media (pointer: coarse) {
+  button,
+  .btn,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .lightbox-nav,
+  .lightbox-close,
+  .zoom-in,
+  .zoom-out,
+  .zoom-reset {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Color Contrast Improvements */
+.portfolio-overlay .portfolio-info h4,
+.artist-card__overlay .artist-card__name {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.portfolio-overlay .portfolio-info p,
+.artist-card__overlay .artist-card__specialty,
+.artist-card__overlay .artist-card__experience {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Status and Alert Styling */
+[role="status"],
+[role="alert"] {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+[role="alert"] {
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #721c24;
+}
+
+[role="status"] {
+  background-color: rgba(23, 162, 184, 0.1);
+  border: 1px solid rgba(23, 162, 184, 0.3);
+  color: #0c5460;
+}
+
+/* Improved Link Styling */
+a[href^="http"]:not([href*="valhallatattoo.com"])::after {
+  content: " ↗";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* Gallery Accessibility */
+.gallery-item:focus-within .gallery-overlay,
+.portfolio-item:focus-within .portfolio-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Form Field Groups */
+.form-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group label[for] {
+  cursor: pointer;
+}
+
+/* Required Field Indicators */
+.form-group label[aria-required="true"]::after,
+.form-group label[required]::after {
+  content: " *";
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Fieldset and Legend Styling */
+fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 8px;
+  color: var(--color-primary);
+}
+
+/* Progress Indicators */
+.progress-indicator {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-indicator__bar {
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-indicator__bar {
+    transition: none;
+  }
+}
+
+/* Tooltip Accessibility */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 8px;
+}
+
+/* Print Styles */
+@media print {
+  .skip-link,
+  .lightbox-overlay,
+  .loading-screen,
+  .main-nav__toggle,
+  button,
+  .btn {
+    display: none !important;
+  }
+  
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  .hero {
+    height: auto !important;
+    min-height: 200px;
+  }
+  
+  .hero__video,
+  .hero__background-fallback {
+    display: none;
+  }
+}

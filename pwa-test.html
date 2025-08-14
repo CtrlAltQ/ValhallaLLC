@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA Test - Valhalla Tattoo</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#d4af37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Valhalla Tattoo">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/icons/icon-192x192.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/icon-16x16.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #444;
+        }
+        
+        .test-button {
+            background: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 8px 8px 8px 0;
+            transition: all 0.2s ease;
+        }
+        
+        .test-button:hover {
+            background: #b8941f;
+            transform: translateY(-2px);
+        }
+        
+        .status {
+            background: #333;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        
+        .share-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .share-btn:hover {
+            background: #45a049;
+        }
+        
+        h1 {
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #d4af37;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 8px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-indicator.active {
+            background: #4CAF50;
+        }
+        
+        .status-indicator.inactive {
+            background: #f44336;
+        }
+        
+        .status-indicator.unknown {
+            background: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏺 Valhalla Tattoo PWA Test</h1>
+        
+        <div class="test-section">
+            <h2>PWA Status</h2>
+            <div id="pwa-status" class="status">Loading PWA status...</div>
+            <button class="test-button" onclick="refreshStatus()">Refresh Status</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>Installation</h2>
+            <p>Test PWA installation functionality:</p>
+            <button class="test-button" onclick="testInstall()">Trigger Install Prompt</button>
+            <button class="test-button" onclick="checkInstallation()">Check Installation Status</button>
+            <div id="install-status" class="status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Share API</h2>
+            <p>Test native sharing functionality:</p>
+            <button class="test-button share-btn" data-url="https://valhallatattoo.com" data-title="Valhalla Tattoo Studio" data-text="Check out this amazing tattoo studio!">Share This Page</button>
+            <button class="test-button share-btn" data-url="https://valhallatattoo.com/portfolio" data-title="Tattoo Portfolio" data-text="Amazing tattoo work from talented artists!">Share Portfolio</button>
+            <div id="share-status" class="status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Offline Functionality</h2>
+            <p>Test offline capabilities:</p>
+            <button class="test-button" onclick="testOffline()">Simulate Offline</button>
+            <button class="test-button" onclick="testOnline()">Simulate Online</button>
+            <div id="offline-status" class="status">
+                Online Status: <span id="online-indicator">🟢 Online</span>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>App Features</h2>
+            <ul class="feature-list">
+                <li><span class="status-indicator" id="manifest-indicator"></span>Web App Manifest</li>
+                <li><span class="status-indicator" id="sw-indicator"></span>Service Worker</li>
+                <li><span class="status-indicator" id="install-indicator"></span>Install Prompt</li>
+                <li><span class="status-indicator" id="share-indicator"></span>Web Share API</li>
+                <li><span class="status-indicator" id="badge-indicator"></span>App Badge API</li>
+                <li><span class="status-indicator" id="notification-indicator"></span>Notifications</li>
+                <li><span class="status-indicator" id="standalone-indicator"></span>Standalone Mode</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h2>Mobile Features</h2>
+            <p>Test mobile-specific functionality:</p>
+            <button class="test-button" onclick="testTouchFeedback()">Test Touch Feedback</button>
+            <button class="test-button" onclick="testPullRefresh()">Test Pull to Refresh</button>
+            <button class="test-button" onclick="testMobileNav()">Test Mobile Navigation</button>
+            <div id="mobile-status" class="status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Performance</h2>
+            <div id="performance-status" class="status">Loading performance metrics...</div>
+            <button class="test-button" onclick="testPerformance()">Run Performance Test</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        import pwaManager from './js/utils/pwa-manager.js';
+        import mobileOptimization from './js/utils/mobile-optimization.js';
+        import iconGenerator from './js/utils/icon-generator.js';
+        
+        // Make available globally for testing
+        window.pwaManager = pwaManager;
+        window.mobileOptimization = mobileOptimization;
+        window.iconGenerator = iconGenerator;
+        
+        // Initialize status on load
+        document.addEventListener('DOMContentLoaded', () => {
+            refreshStatus();
+            updateFeatureIndicators();
+            updatePerformanceStatus();
+            
+            // Update online status
+            updateOnlineStatus();
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+        });
+        
+        // Global functions for testing
+        window.refreshStatus = function() {
+            const status = pwaManager.getStatus();
+            const deviceInfo = mobileOptimization.getDeviceInfo();
+            
+            document.getElementById('pwa-status').innerHTML = `
+                <strong>PWA Status:</strong><br>
+                • Installed: ${status.isInstalled ? '✅' : '❌'}<br>
+                • Standalone: ${status.isStandalone ? '✅' : '❌'}<br>
+                • Install Prompt Available: ${status.hasInstallPrompt ? '✅' : '❌'}<br>
+                • Update Available: ${status.updateAvailable ? '✅' : '❌'}<br>
+                • Supports Share: ${status.supportsShare ? '✅' : '❌'}<br>
+                • Supports App Badge: ${status.supportsAppBadge ? '✅' : '❌'}<br>
+                • Online: ${status.isOnline ? '✅' : '❌'}<br><br>
+                <strong>Device Info:</strong><br>
+                • Mobile: ${deviceInfo.isMobile ? '✅' : '❌'}<br>
+                • Touch: ${deviceInfo.isTouch ? '✅' : '❌'}<br>
+                • Screen: ${deviceInfo.screenWidth}x${deviceInfo.screenHeight}<br>
+                • Viewport: ${deviceInfo.viewportWidth}x${deviceInfo.viewportHeight}<br>
+                • DPR: ${deviceInfo.devicePixelRatio}<br>
+                • Connection: ${deviceInfo.connection ? deviceInfo.connection.effectiveType : 'Unknown'}
+            `;
+        };
+        
+        window.testInstall = function() {
+            pwaManager.promptInstall();
+            document.getElementById('install-status').textContent = 'Install prompt triggered (if available)';
+        };
+        
+        window.checkInstallation = function() {
+            const status = pwaManager.getStatus();
+            document.getElementById('install-status').innerHTML = `
+                Installation Status:<br>
+                • Installed: ${status.isInstalled}<br>
+                • Standalone: ${status.isStandalone}<br>
+                • Install Prompt: ${status.hasInstallPrompt}
+            `;
+        };
+        
+        window.testOffline = function() {
+            // Simulate offline
+            Object.defineProperty(navigator, 'onLine', {
+                writable: true,
+                value: false
+            });
+            window.dispatchEvent(new Event('offline'));
+            updateOnlineStatus();
+        };
+        
+        window.testOnline = function() {
+            // Simulate online
+            Object.defineProperty(navigator, 'onLine', {
+                writable: true,
+                value: true
+            });
+            window.dispatchEvent(new Event('online'));
+            updateOnlineStatus();
+        };
+        
+        window.testTouchFeedback = function() {
+            const button = event.target;
+            button.classList.add('haptic-feedback');
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+            setTimeout(() => {
+                button.classList.remove('haptic-feedback');
+            }, 200);
+            document.getElementById('mobile-status').textContent = 'Touch feedback triggered';
+        };
+        
+        window.testPullRefresh = function() {
+            document.getElementById('mobile-status').textContent = 'Pull to refresh is active (try pulling down on mobile)';
+        };
+        
+        window.testMobileNav = function() {
+            document.getElementById('mobile-status').textContent = 'Mobile navigation optimizations active';
+        };
+        
+        window.testPerformance = function() {
+            const start = performance.now();
+            
+            // Simulate some work
+            for (let i = 0; i < 1000000; i++) {
+                Math.random();
+            }
+            
+            const end = performance.now();
+            const duration = end - start;
+            
+            document.getElementById('performance-status').innerHTML = `
+                Performance Test Results:<br>
+                • Test Duration: ${duration.toFixed(2)}ms<br>
+                • Memory Usage: ${(performance.memory ? performance.memory.usedJSHeapSize / 1024 / 1024 : 'N/A')} MB<br>
+                • Connection: ${navigator.connection ? navigator.connection.effectiveType : 'Unknown'}
+            `;
+        };
+        
+        function updateOnlineStatus() {
+            const indicator = document.getElementById('online-indicator');
+            if (navigator.onLine) {
+                indicator.textContent = '🟢 Online';
+            } else {
+                indicator.textContent = '🔴 Offline';
+            }
+        }
+        
+        function updateFeatureIndicators() {
+            // Manifest
+            const manifestIndicator = document.getElementById('manifest-indicator');
+            manifestIndicator.className = 'status-indicator ' + (document.querySelector('link[rel="manifest"]') ? 'active' : 'inactive');
+            
+            // Service Worker
+            const swIndicator = document.getElementById('sw-indicator');
+            swIndicator.className = 'status-indicator ' + ('serviceWorker' in navigator ? 'active' : 'inactive');
+            
+            // Install Prompt
+            const installIndicator = document.getElementById('install-indicator');
+            installIndicator.className = 'status-indicator ' + (pwaManager.getStatus().hasInstallPrompt ? 'active' : 'inactive');
+            
+            // Share API
+            const shareIndicator = document.getElementById('share-indicator');
+            shareIndicator.className = 'status-indicator ' + ('share' in navigator ? 'active' : 'inactive');
+            
+            // App Badge
+            const badgeIndicator = document.getElementById('badge-indicator');
+            badgeIndicator.className = 'status-indicator ' + ('setAppBadge' in navigator ? 'active' : 'inactive');
+            
+            // Notifications
+            const notificationIndicator = document.getElementById('notification-indicator');
+            notificationIndicator.className = 'status-indicator ' + ('Notification' in window ? 'active' : 'inactive');
+            
+            // Standalone
+            const standaloneIndicator = document.getElementById('standalone-indicator');
+            standaloneIndicator.className = 'status-indicator ' + (pwaManager.getStatus().isStandalone ? 'active' : 'inactive');
+        }
+        
+        function updatePerformanceStatus() {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            if (perfData) {
+                document.getElementById('performance-status').innerHTML = `
+                    Performance Metrics:<br>
+                    • Page Load: ${Math.round(perfData.loadEventEnd - perfData.fetchStart)}ms<br>
+                    • DOM Content Loaded: ${Math.round(perfData.domContentLoadedEventEnd - perfData.fetchStart)}ms<br>
+                    • First Paint: ${getFirstPaint()}ms<br>
+                    • Memory: ${performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1024 / 1024) + ' MB' : 'N/A'}
+                `;
+            }
+        }
+        
+        function getFirstPaint() {
+            const paintEntries = performance.getEntriesByType('paint');
+            const fcpEntry = paintEntries.find(entry => entry.name === 'first-contentful-paint');
+            return fcpEntry ? Math.round(fcpEntry.startTime) : 0;
+        }
+    </script>
+</body>
+</html>

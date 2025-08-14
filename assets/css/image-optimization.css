@@ -1,0 +1,471 @@
+/**
+ * Image Optimization and Lazy Loading Styles
+ * Enhanced styles for optimized images with loading states and animations
+ */
+
+/* Base optimized image styles */
+.optimized-image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.optimized-image__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all var(--transition-base) var(--ease-out-cubic);
+  border-radius: inherit;
+}
+
+/* Lazy loading states */
+.optimized-image__img.lazy {
+  opacity: 0.8;
+  filter: blur(0px);
+  transition: all var(--animation-duration-base) var(--ease-out-cubic);
+}
+
+.optimized-image__img.blur-placeholder {
+  filter: blur(10px);
+  transform: scale(1.05);
+}
+
+.optimized-image__img.loaded {
+  opacity: 1;
+  filter: blur(0px);
+  transform: scale(1);
+}
+
+/* Loading animation */
+.optimized-image__img.lazy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+  pointer-events: none;
+}
+
+.optimized-image__img.loaded::after {
+  display: none;
+}
+
+/* Error state */
+.optimized-image__img.image-error {
+  opacity: 0.6;
+  filter: grayscale(100%);
+  background: var(--color-surface);
+  border: 2px dashed var(--color-border);
+}
+
+/* Progressive enhancement for WebP support */
+.webp .optimized-image source[type="image/webp"] {
+  display: block;
+}
+
+.no-webp .optimized-image source[type="image/webp"] {
+  display: none;
+}
+
+/* Responsive image containers */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.image-container--aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.image-container--aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.image-container--aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.image-container--aspect-landscape {
+  aspect-ratio: 4 / 3;
+}
+
+/* Image overlay for loading states */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--color-background-rgb), 0.8);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.optimized-image__img.lazy + .image-overlay {
+  opacity: 1;
+}
+
+.optimized-image__img.loaded + .image-overlay {
+  opacity: 0;
+}
+
+/* Loading spinner */
+.image-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Portfolio-specific image styles */
+.portfolio-image {
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out-cubic);
+}
+
+.portfolio-image:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio-image .optimized-image__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Gallery grid with masonry layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 20px;
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out-cubic);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-accent);
+}
+
+/* Masonry item sizing */
+.gallery-item--small {
+  grid-row-end: span 15;
+}
+
+.gallery-item--medium {
+  grid-row-end: span 20;
+}
+
+.gallery-item--large {
+  grid-row-end: span 25;
+}
+
+.gallery-item--xlarge {
+  grid-row-end: span 30;
+}
+
+/* Gallery overlay */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base) var(--ease-out-cubic);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-info {
+  text-align: center;
+  color: var(--color-text-primary);
+  padding: var(--space-4);
+  transform: translateY(20px);
+  transition: transform var(--transition-base) var(--ease-out-cubic);
+}
+
+.gallery-item:hover .gallery-info {
+  transform: translateY(0);
+}
+
+.gallery-info h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+}
+
+.gallery-info p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* View button */
+.gallery-view-btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 40px;
+  height: 40px;
+  background: rgba(var(--color-accent-rgb), 0.9);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all var(--transition-base) var(--ease-out-cubic);
+}
+
+.gallery-item:hover .gallery-view-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gallery-view-btn:hover {
+  background: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.gallery-view-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Social media image styles */
+.social-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.social-image .optimized-image__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+/* Instagram feed specific styles */
+.instagram-post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base) var(--ease-out-cubic);
+}
+
+.instagram-post:hover .instagram-post-image {
+  transform: scale(1.05);
+}
+
+/* Hero image styles */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-image .optimized-image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Artist card image styles */
+.artist-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.artist-card-image .optimized-image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--animation-duration-slower) var(--ease-out-cubic);
+}
+
+.artist-card:hover .artist-card-image .optimized-image__img {
+  transform: scale(1.1);
+}
+
+/* Performance optimizations */
+.optimized-image__img {
+  /* Enable hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform, opacity, filter;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .optimized-image__img,
+  .gallery-item,
+  .portfolio-image,
+  .social-image {
+    transition: none;
+    animation: none;
+  }
+  
+  .optimized-image__img.blur-placeholder {
+    filter: none;
+    transform: none;
+  }
+  
+  .optimized-image__img.lazy::after {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .optimized-image__img.image-error {
+    border-color: currentColor;
+    border-width: 3px;
+  }
+  
+  .gallery-overlay {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Print styles */
+@media print {
+  .optimized-image__img.lazy::after,
+  .image-overlay,
+  .gallery-overlay {
+    display: none;
+  }
+  
+  .optimized-image__img {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+  
+  .gallery-item--small {
+    grid-row-end: span 12;
+  }
+  
+  .gallery-item--medium {
+    grid-row-end: span 16;
+  }
+  
+  .gallery-item--large {
+    grid-row-end: span 20;
+  }
+  
+  .gallery-item--xlarge {
+    grid-row-end: span 24;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+  
+  .gallery-item {
+    aspect-ratio: 1 / 1;
+    grid-row-end: auto;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .optimized-image__img.lazy::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+  }
+  
+  .image-overlay {
+    background: rgba(var(--color-background-rgb), 0.9);
+  }
+}
