@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/artists.css">
   <link rel="stylesheet" href="../css/portfolio.css">
+  <link rel="stylesheet" href="../assets/css/portfolio-pages.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -91,11 +92,44 @@
       </div>
     </section>
 
+    <!-- Artist Bio Section -->
+    <section class="artist-bio-section" id="artist-bio" aria-labelledby="bio-heading">
+      <div class="container">
+        <div 
+          data-artist-bio="pagan"
+          id="bio-heading"
+          aria-live="polite"
+        ></div>
+      </div>
+    </section>
+
     <!-- Portfolio Gallery -->
     <section class="portfolio-gallery" id="portfolio-gallery" aria-labelledby="portfolio-heading">
       <h2 id="portfolio-heading">Portfolio</h2>
       <div class="portfolio-grid" role="grid" aria-label="Pagan's tattoo portfolio">
         <!-- Portfolio images will be dynamically loaded by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Style Showcase Section -->
+    <section class="style-showcase-section" id="style-showcase" aria-labelledby="showcase-heading">
+      <div class="container">
+        <div 
+          data-style-showcase="pagan"
+          id="showcase-heading"
+          aria-live="polite"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section class="testimonials-section" id="client-testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div 
+          data-testimonials="pagan"
+          id="testimonials-heading"
+          aria-live="polite"
+        ></div>
       </div>
     </section>
 
@@ -178,7 +212,7 @@
           <div class="booking-info">
             <div class="artist-booking-card">
               <div class="artist-booking-image">
-                <img src="../images/gallery/james.jpg" alt="Pagan - Tattoo Artist">
+                <img src="../images/gallery/pagan.jpg" alt="Pagan - Tattoo Artist">
               </div>
               <div class="artist-booking-details">
                 <h3>Pagan</h3>
@@ -198,7 +232,7 @@
                   <span class="step-number">1</span>
                   <div class="step-content">
                     <strong>Review</strong>
-                    <p>James will review your request and reference materials</p>
+                    <p>Pagan will review your request and reference materials</p>
                   </div>
                 </li>
                 <li>
@@ -283,9 +317,18 @@
     </div>
   </footer>
 
-  <script src="../js/artist-data.js"></script>
-  <script src="../js/main.js"></script>
-  <script src="../js/artists.js"></script>
-  <script src="../js/portfolio.js"></script>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../components/portfolio/artist-bio.js"></script>
+  <script type="module" src="../components/portfolio/style-showcase.js"></script>
+  <script type="module" src="../components/portfolio/testimonials.js"></script>
+  <script type="module">
+    import { Portfolio } from '../js/modules/portfolio.js';
+    
+    // Initialize portfolio when DOM is loaded
+    document.addEventListener('DOMContentLoaded', async () => {
+      const portfolio = new Portfolio();
+      await portfolio.init();
+    });
+  </script>
 </body>
 </html>

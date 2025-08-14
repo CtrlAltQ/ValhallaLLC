@@ -28,6 +28,7 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/portfolio-pages.css">
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -131,6 +132,17 @@
       </div>
     </section>
 
+    <!-- Artist Bio Section -->
+    <section class="artist-bio-section" id="artist-bio" aria-labelledby="bio-heading">
+      <div class="container">
+        <div 
+          data-artist-bio="jimmy"
+          id="bio-heading"
+          aria-live="polite"
+        ></div>
+      </div>
+    </section>
+
     <!-- Portfolio Gallery -->
     <section class="portfolio-section" id="portfolio-gallery" aria-labelledby="portfolio-heading">
       <div class="container">
@@ -145,6 +157,17 @@
             <p>Loading Jimmy's portfolio...</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Style Showcase Section -->
+    <section class="style-showcase-section" id="style-showcase" aria-labelledby="showcase-heading">
+      <div class="container">
+        <div 
+          data-style-showcase="jimmy"
+          id="showcase-heading"
+          aria-live="polite"
+        ></div>
       </div>
     </section>
 
@@ -165,6 +188,17 @@
           data-instagram-feed-caption-length="80"
           data-instagram-feed-animate-on-scroll="true"
           data-instagram-feed-fallback-message="Follow @jimmy_illustrative for Jimmy's latest tattoo work and behind-the-scenes content!"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section class="testimonials-section" id="client-testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div 
+          data-testimonials="jimmy"
+          id="testimonials-heading"
+          aria-live="polite"
         ></div>
       </div>
     </section>
@@ -354,6 +388,9 @@
   </footer>
 
   <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../components/portfolio/artist-bio.js"></script>
+  <script type="module" src="../components/portfolio/style-showcase.js"></script>
+  <script type="module" src="../components/portfolio/testimonials.js"></script>
   <script type="module">
     import { Portfolio } from '../js/modules/portfolio.js';
     
