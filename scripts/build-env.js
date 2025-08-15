@@ -53,6 +53,26 @@ fs.writeFileSync(envConfigPath, envConfigContent);
 console.log('✅ Environment configuration built successfully');
 console.log('📍 Configuration written to:', envConfigPath);
 
+// Replace Google Analytics measurement ID in source files
+const GA_PLACEHOLDER = 'GA_MEASUREMENT_ID';
+const gaId = envConfig.GA_TRACKING_ID;
+
+function replaceAnalyticsId(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  const content = fs.readFileSync(filePath, 'utf8');
+  let updated = content;
+  updated = updated.replace(/'GA_MEASUREMENT_ID'/g, gaId ? `'${gaId}'` : `'GA_MEASUREMENT_ID'`);
+  updated = updated.replace(/"GA_MEASUREMENT_ID"/g, gaId ? `"${gaId}"` : '"GA_MEASUREMENT_ID"');
+  fs.writeFileSync(filePath, updated);
+  console.log(`🔄 Updated GA ID in ${path.relative(path.join(__dirname, '..'), filePath)}`);
+}
+
+[
+  path.join(__dirname, '../index.html'),
+  path.join(__dirname, '../js/config/analytics.js'),
+  path.join(__dirname, '../js/modules/analytics.js')
+].forEach(replaceAnalyticsId);
+
 // Log feature status
 console.log('\n🎯 Feature Status:');
 console.log(`   Instagram Integration: ${envConfig.INSTAGRAM_ACCESS_TOKEN ? '✅ Enabled' : '❌ Disabled'}`);

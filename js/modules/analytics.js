@@ -35,24 +35,30 @@ class AnalyticsManager {
   
   async initGoogleAnalytics() {
     const { trackingId } = this.config.analytics.googleAnalytics;
-    
+
+    if (!trackingId || trackingId === 'GA_MEASUREMENT_ID') {
+      window.gtag = function() {};
+      console.warn('Google Analytics disabled: tracking ID not provided.');
+      return;
+    }
+
     // Load Google Analytics
     const script = document.createElement('script');
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
     document.head.appendChild(script);
-    
+
     // Initialize gtag
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     window.gtag = gtag;
-    
+
     gtag('js', new Date());
     gtag('config', trackingId, {
       anonymize_ip: true,
       cookie_flags: 'SameSite=None;Secure'
     });
-    
+
     console.log('📊 Google Analytics initialized');
   }
   
