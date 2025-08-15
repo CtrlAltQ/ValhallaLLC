@@ -5,15 +5,6 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx live-server --port=3000 --open=/",
-    "build": "npm run build:env && npm run build:optimize",
-    "build:env": "node scripts/build-env.js",
-    "build:optimize": "node scripts/build-optimize.js",
-    "test": "node scripts/test-runner.js",
-    "test:e2e": "node scripts/e2e-tests.js",
-    "test:performance": "node scripts/performance-test.js",
-    "lint": "node scripts/lint-check.js",
-    "deploy:netlify": "netlify deploy --prod",
-    "deploy:vercel": "vercel --prod",
     "preview": "npx live-server --port=3000 --no-browser"
   },
   "keywords": [
@@ -28,9 +19,6 @@
   "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2"
-  },
-  "dependencies": {
-    "gsap": "^3.13.0"
   },
   "browserslist": [
     "> 1%",
