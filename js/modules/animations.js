@@ -926,7 +926,7 @@ export class AnimationSystem {
       });
 
       // Typing animation
-      input.addEventListener('input', ().
+      input.addEventListener('input', () => {
         if (this.gsap && input.value) {
           this.gsap.fromTo(input, 
             { scale: 1.01 },
