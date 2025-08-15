@@ -3,109 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium tattoo artistry in Spring Hill, Tennessee. Expert artists specializing in traditional, realism, and custom tattoo designs.">
-    <meta name="keywords" content="tattoo studio, Spring Hill TN, tattoo artists, custom tattoos">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://valhallatattoo.com/">
-    <meta property="og:title" content="Valhalla Tattoo - Professional Tattoo Studio in Spring Hill, TN">
-    <meta property="og:description" content="Premium tattoo artistry in Spring Hill, Tennessee. Expert artists specializing in traditional, realism, and custom tattoo designs.">
-    <meta property="og:image" content="/images/og-image.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://valhallatattoo.com/">
-    <meta property="twitter:title" content="Valhalla Tattoo - Professional Tattoo Studio in Spring Hill, TN">
-    <meta property="twitter:description" content="Premium tattoo artistry in Spring Hill, Tennessee. Expert artists specializing in traditional, realism, and custom tattoo designs.">
-    <meta property="twitter:image" content="/images/og-image.jpg">
-    
     <title>Valhalla Tattoo - Professional Tattoo Studio in Spring Hill, TN</title>
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://valhallatattoo.com/">
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="author" content="Valhalla Tattoo">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="geo.region" content="US-TN">
-    <meta name="geo.placename" content="Spring Hill, Tennessee">
-    <meta name="geo.position" content="35.7518;-86.9306">
-    <meta name="ICBM" content="35.7518, -86.9306">
-    
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Critical CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#d4af37">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Valhalla Tattoo">
-    <meta name="msapplication-TileColor" content="#d4af37">
-    <meta name="msapplication-config" content="/browserconfig.xml">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Valhalla Tattoo",
-        "description": "Professional tattoo studio in Spring Hill, Tennessee",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "404 Mclemore Ave. Suite 4",
-            "addressLocality": "Spring Hill",
-            "addressRegion": "TN",
-            "postalCode": "37174"
-        },
-        "telephone": "931-451-5313",
-        "url": "https://valhallatattoo.com",
-        "openingHours": [
-            "Tu-Sa 12:00-20:00"
-        ],
-        "priceRange": "$$"
-    }
-    </script>
-    
-    <!-- Google Analytics -->
-    <script>
-        (function() {
-            const GA_MEASUREMENT_ID = 'GA_MEASUREMENT_ID';
-
-            if (GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== 'GA_MEASUREMENT_ID') {
-                const gtagScript = document.createElement('script');
-                gtagScript.async = true;
-                gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-                document.head.appendChild(gtagScript);
-
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = gtag;
-
-                gtag('js', new Date());
-                gtag('config', GA_MEASUREMENT_ID, {
-                    anonymize_ip: true,
-                    cookie_flags: 'SameSite=None;Secure'
-                });
-            } else {
-                window.gtag = function() {};
-                console.warn('Google Analytics disabled: GA measurement ID not provided.');
-            }
-        })();
-    </script>
+    <style>
+        /* Override loading screen to ensure it hides */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loading-screen--hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .main-nav {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .main-nav--visible {
+            opacity: 1;
+        }
+        /* Ensure content is visible */
+        main {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Animation -->
@@ -124,41 +54,35 @@
         </div>
     </div>
 
-    <!-- Skip to main content link for accessibility -->
-    <a href="#main" class="skip-link">Skip to main content</a>
-
     <!-- Navigation -->
     <header role="banner">
         <nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">
             <div class="container">
                 <div class="main-nav__content">
                     <div class="main-nav__logo">
-                        <a href="#hero" data-scroll-to="hero" aria-label="Valhalla Tattoo - Go to homepage">
+                        <a href="#hero" aria-label="Valhalla Tattoo - Go to homepage">
                             <img src="images/logo.jpg" alt="Valhalla Tattoo" class="main-nav__logo-img">
                             <span class="main-nav__logo-text">VALHALLA</span>
                         </a>
                     </div>
                     <ul class="main-nav__menu" role="menubar">
                         <li class="main-nav__item" role="none">
-                            <a href="#hero" class="main-nav__link" data-scroll-to="hero" role="menuitem">Home</a>
+                            <a href="#hero" class="main-nav__link" role="menuitem">Home</a>
                         </li>
                         <li class="main-nav__item" role="none">
-                            <a href="#artists" class="main-nav__link" data-scroll-to="artists" role="menuitem">Artists</a>
+                            <a href="#artists" class="main-nav__link" role="menuitem">Artists</a>
                         </li>
                         <li class="main-nav__item" role="none">
-                            <a href="#portfolio" class="main-nav__link" data-scroll-to="portfolio" role="menuitem">Portfolio</a>
+                            <a href="#portfolio" class="main-nav__link" role="menuitem">Portfolio</a>
                         </li>
                         <li class="main-nav__item" role="none">
-                            <a href="#about" class="main-nav__link" data-scroll-to="about" role="menuitem">About</a>
+                            <a href="#about" class="main-nav__link" role="menuitem">About</a>
                         </li>
                         <li class="main-nav__item" role="none">
-                            <a href="#news" class="main-nav__link" data-scroll-to="news" role="menuitem">News</a>
-                        </li>
-                        <li class="main-nav__item" role="none">
-                            <a href="#contact" class="main-nav__link" data-scroll-to="contact" role="menuitem">Contact</a>
+                            <a href="#contact" class="main-nav__link" role="menuitem">Contact</a>
                         </li>
                     </ul>
-                    <button class="main-nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav-menu">
+                    <button class="main-nav__toggle" id="navToggle" aria-label="Toggle navigation menu">
                         <span class="main-nav__toggle-line"></span>
                         <span class="main-nav__toggle-line"></span>
                         <span class="main-nav__toggle-line"></span>
@@ -171,19 +95,19 @@
     <!-- Main Content -->
     <main id="main" role="main">
         <!-- Hero Section -->
-        <section class="hero" id="hero" aria-labelledby="hero-title">
+        <section class="hero" id="hero">
             <div class="hero__background">
-                <video class="hero__video" autoplay muted loop playsinline aria-hidden="true">
+                <video class="hero__video" autoplay muted loop playsinline>
                     <source src="images/videos/hero.mp4" type="video/mp4">
                 </video>
                 <div class="hero__background-fallback">
                     <img src="images/valhalla_heropic.jpg" alt="Valhalla Tattoo Studio interior" class="hero__background-img">
                 </div>
             </div>
-            <div class="hero__overlay" aria-hidden="true"></div>
+            <div class="hero__overlay"></div>
             <div class="hero__content">
                 <div class="hero__text">
-                    <h1 class="hero__title" id="hero-title">
+                    <h1 class="hero__title">
                         <span class="hero__title-line">LEGENDS</span>
                         <span class="hero__title-line">FORGED IN</span>
                         <span class="hero__title-line hero__title-line--accent">INK</span>
@@ -191,119 +115,111 @@
                     <p class="hero__subtitle">Premium tattoo artistry in Spring Hill, Tennessee. Where your story becomes legendary.</p>
                 </div>
                 <div class="hero__cta">
-                    <a href="#contact" class="btn btn-primary btn-xl hero__cta-primary" data-scroll-to="contact" aria-describedby="hero-subtitle">
-                        Book Consultation
-                    </a>
-                    <a href="#artists" class="btn btn-secondary btn-xl hero__cta-secondary" data-scroll-to="artists">
-                        Meet Our Artists
-                    </a>
+                    <a href="#contact" class="btn btn-primary btn-xl">Book Consultation</a>
+                    <a href="#artists" class="btn btn-secondary btn-xl">Meet Our Artists</a>
                 </div>
-            </div>
-            <div class="hero__scroll-indicator" aria-hidden="true">
-                <div class="hero__scroll-text">Scroll to explore</div>
-                <div class="hero__scroll-arrow"></div>
             </div>
         </section>
 
         <!-- Artist Grid -->
-        <section class="artist-grid" id="artists" aria-labelledby="artists-title">
+        <section class="artist-grid" id="artists">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title" id="artists-title">Our Master Artists</h2>
+                    <h2 class="section-title">Our Master Artists</h2>
                     <p class="section-subtitle">Meet the legends behind the ink</p>
                 </header>
-                <div class="artist-grid__container" role="grid" aria-label="Tattoo artists at Valhalla Tattoo">
-                    <article class="artist-card" data-artist="pagan" role="gridcell">
+                <div class="artist-grid__container">
+                    <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/pagan.jpg" alt="Pagan - Traditional and Neo-Traditional tattoo artist" class="artist-card__img" loading="lazy">
+                            <img src="images/gallery/pagan.jpg" alt="Pagan - Traditional and Neo-Traditional tattoo artist" class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Pagan</h3>
                                     <p class="artist-card__specialty">Traditional & Neo-Traditional</p>
                                     <p class="artist-card__experience">8+ Years Experience</p>
                                     <div class="artist-card__actions">
-                                        <a href="portfolio/pagan.html" class="btn btn-primary btn-sm" aria-label="View Pagan's portfolio">View Portfolio</a>
-                                        <a href="#contact" class="btn btn-secondary btn-sm" data-scroll-to="contact" data-artist="pagan" aria-label="Book appointment with Pagan">Book Now</a>
+                                        <a href="portfolio/pagan.html" class="btn btn-primary btn-sm">View Portfolio</a>
+                                        <a href="#contact" class="btn btn-secondary btn-sm">Book Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <article class="artist-card" data-artist="jimmy" role="gridcell">
+                    <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/jimmy.jpg" alt="Jimmy - Realism and Black & Grey tattoo artist" class="artist-card__img" loading="lazy">
+                            <img src="images/gallery/jimmy.jpg" alt="Jimmy - Realism and Black & Grey tattoo artist" class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Jimmy</h3>
                                     <p class="artist-card__specialty">Realism & Black & Grey</p>
                                     <p class="artist-card__experience">10+ Years Experience</p>
                                     <div class="artist-card__actions">
-                                        <a href="portfolio/jimmy.html" class="btn btn-primary btn-sm" aria-label="View Jimmy's portfolio">View Portfolio</a>
-                                        <a href="#contact" class="btn btn-secondary btn-sm" data-scroll-to="contact" data-artist="jimmy" aria-label="Book appointment with Jimmy">Book Now</a>
+                                        <a href="portfolio/jimmy.html" class="btn btn-primary btn-sm">View Portfolio</a>
+                                        <a href="#contact" class="btn btn-secondary btn-sm">Book Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <article class="artist-card" data-artist="micah" role="gridcell">
+                    <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/micah.jpg" alt="Micah - Fine Line and Geometric tattoo artist" class="artist-card__img" loading="lazy">
+                            <img src="images/gallery/micah.jpg" alt="Micah - Fine Line and Geometric tattoo artist" class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Micah</h3>
                                     <p class="artist-card__specialty">Fine Line & Geometric</p>
                                     <p class="artist-card__experience">6+ Years Experience</p>
                                     <div class="artist-card__actions">
-                                        <a href="portfolio/micah.html" class="btn btn-primary btn-sm" aria-label="View Micah's portfolio">View Portfolio</a>
-                                        <a href="#contact" class="btn btn-secondary btn-sm" data-scroll-to="contact" data-artist="micah" aria-label="Book appointment with Micah">Book Now</a>
+                                        <a href="portfolio/micah.html" class="btn btn-primary btn-sm">View Portfolio</a>
+                                        <a href="#contact" class="btn btn-secondary btn-sm">Book Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <article class="artist-card" data-artist="sarah" role="gridcell">
+                    <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/sarah.jpg" alt="Sarah - Watercolor and Illustrative tattoo artist" class="artist-card__img" loading="lazy">
+                            <img src="images/gallery/sarah.jpg" alt="Sarah - Watercolor and Illustrative tattoo artist" class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Sarah</h3>
                                     <p class="artist-card__specialty">Watercolor & Illustrative</p>
                                     <p class="artist-card__experience">7+ Years Experience</p>
                                     <div class="artist-card__actions">
-                                        <a href="portfolio/sarah.html" class="btn btn-primary btn-sm" aria-label="View Sarah's portfolio">View Portfolio</a>
-                                        <a href="#contact" class="btn btn-secondary btn-sm" data-scroll-to="contact" data-artist="sarah" aria-label="Book appointment with Sarah">Book Now</a>
+                                        <a href="portfolio/sarah.html" class="btn btn-primary btn-sm">View Portfolio</a>
+                                        <a href="#contact" class="btn btn-secondary btn-sm">Book Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <article class="artist-card" data-artist="kason" role="gridcell">
+                    <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/kason.jpg" alt="Kason - Japanese and Oriental tattoo artist" class="artist-card__img" loading="lazy">
+                            <img src="images/gallery/kason.jpg" alt="Kason - Japanese and Oriental tattoo artist" class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Kason</h3>
                                     <p class="artist-card__specialty">Japanese & Oriental</p>
                                     <p class="artist-card__experience">12+ Years Experience</p>
                                     <div class="artist-card__actions">
-                                        <a href="portfolio/kason.html" class="btn btn-primary btn-sm" aria-label="View Kason's portfolio">View Portfolio</a>
-                                        <a href="#contact" class="btn btn-secondary btn-sm" data-scroll-to="contact" data-artist="kason" aria-label="Book appointment with Kason">Book Now</a>
+                                        <a href="portfolio/kason.html" class="btn btn-primary btn-sm">View Portfolio</a>
+                                        <a href="#contact" class="btn btn-secondary btn-sm">Book Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <article class="artist-card" data-artist="heather" role="gridcell">
+                    <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/heather.jpg" alt="Heather - Botanical and Nature tattoo artist" class="artist-card__img" loading="lazy">
+                            <img src="images/gallery/heather.jpg" alt="Heather - Botanical and Nature tattoo artist" class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Heather</h3>
                                     <p class="artist-card__specialty">Botanical & Nature</p>
                                     <p class="artist-card__experience">9+ Years Experience</p>
                                     <div class="artist-card__actions">
-                                        <a href="portfolio/heather.html" class="btn btn-primary btn-sm" aria-label="View Heather's portfolio">View Portfolio</a>
-                                        <a href="#contact" class="btn btn-secondary btn-sm" data-scroll-to="contact" data-artist="heather" aria-label="Book appointment with Heather">Book Now</a>
+                                        <a href="portfolio/heather.html" class="btn btn-primary btn-sm">View Portfolio</a>
+                                        <a href="#contact" class="btn btn-secondary btn-sm">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -314,10 +230,10 @@
         </section>
 
         <!-- About Section -->
-        <section class="about-section" id="about" aria-labelledby="about-title">
+        <section class="about-section" id="about">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title" id="about-title">About Valhalla</h2>
+                    <h2 class="section-title">About Valhalla</h2>
                     <p class="section-subtitle">Where legends are born in ink</p>
                 </header>
                 <div class="about-content">
@@ -326,21 +242,21 @@
                         <p>Our team of master artists brings decades of combined experience, specializing in everything from traditional American tattoos to intricate realism, fine line work, and custom designs. We pride ourselves on maintaining the highest standards of cleanliness, professionalism, and artistic excellence.</p>
                         <p>Step into our world, where Norse mythology meets modern artistry, and let us help you forge your legend in ink.</p>
                     </div>
-                    <div class="about-stats" role="group" aria-label="Studio statistics">
+                    <div class="about-stats">
                         <div class="stat-item">
-                            <div class="stat-number" aria-label="6 master artists">6</div>
+                            <div class="stat-number">6</div>
                             <div class="stat-label">Master Artists</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" aria-label="Over 10 years experience">10+</div>
+                            <div class="stat-number">10+</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" aria-label="Over 1000 happy clients">1000+</div>
+                            <div class="stat-number">1000+</div>
                             <div class="stat-label">Happy Clients</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" aria-label="100 percent custom work">100%</div>
+                            <div class="stat-number">100%</div>
                             <div class="stat-label">Custom Work</div>
                         </div>
                     </div>
@@ -349,15 +265,15 @@
         </section>
 
         <!-- Portfolio Preview Section -->
-        <section class="portfolio-preview" id="portfolio" aria-labelledby="portfolio-title">
+        <section class="portfolio-preview" id="portfolio">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title" id="portfolio-title">Featured Work</h2>
+                    <h2 class="section-title">Featured Work</h2>
                     <p class="section-subtitle">A glimpse into our artistic mastery</p>
                 </header>
-                <div class="portfolio-grid" role="grid" aria-label="Featured tattoo portfolio">
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="images/portfolio/jimmy/FB_IMG_1754792182200.jpg" alt="Traditional sleeve tattoo featuring bold colors and classic American traditional design by Jimmy" class="portfolio-img" loading="lazy">
+                <div class="portfolio-grid">
+                    <article class="portfolio-item">
+                        <img src="images/portfolio/jimmy/FB_IMG_1754792182200.jpg" alt="Traditional sleeve tattoo by Jimmy" class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Traditional Sleeve</h4>
@@ -365,8 +281,8 @@
                             </div>
                         </div>
                     </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="images/portfolio/jimmy/FB_IMG_1754792184630.jpg" alt="Realistic portrait tattoo showcasing detailed black and grey work by Jimmy" class="portfolio-img" loading="lazy">
+                    <article class="portfolio-item">
+                        <img src="images/portfolio/jimmy/FB_IMG_1754792184630.jpg" alt="Portrait realism tattoo by Jimmy" class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Portrait Realism</h4>
@@ -374,8 +290,8 @@
                             </div>
                         </div>
                     </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="images/portfolio/jimmy/FB_IMG_1754792186833.jpg" alt="Black and grey tattoo with intricate shading and detail work by Jimmy" class="portfolio-img" loading="lazy">
+                    <article class="portfolio-item">
+                        <img src="images/portfolio/jimmy/FB_IMG_1754792186833.jpg" alt="Black and grey tattoo by Jimmy" class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Black & Grey</h4>
@@ -383,8 +299,8 @@
                             </div>
                         </div>
                     </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="images/portfolio/jimmy/FB_IMG_1754792189094.jpg" alt="Custom tattoo design featuring unique artistic elements by Jimmy" class="portfolio-img" loading="lazy">
+                    <article class="portfolio-item">
+                        <img src="images/portfolio/jimmy/FB_IMG_1754792189094.jpg" alt="Custom design tattoo by Jimmy" class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Custom Design</h4>
@@ -394,87 +310,16 @@
                     </article>
                 </div>
                 <div class="portfolio-cta">
-                    <a href="#artists" class="btn btn-primary btn-lg" data-scroll-to="artists" aria-label="View all artist portfolios">View All Portfolios</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Instagram Feed Section -->
-        <section class="instagram-section section-padding" id="instagram" aria-labelledby="instagram-title">
-            <div class="container">
-                <header class="section-header">
-                    <h2 class="section-title" id="instagram-title">Latest from Instagram</h2>
-                    <p class="section-subtitle">Follow our journey and see our latest work</p>
-                </header>
-                
-                <!-- Instagram Feed Component -->
-                <div 
-                    data-instagram-feed="homepage-feed"
-                    data-instagram-feed-max-posts="6"
-                    data-instagram-feed-show-captions="true"
-                    data-instagram-feed-show-dates="true"
-                    data-instagram-feed-caption-length="120"
-                    data-instagram-feed-animate-on-scroll="true"
-                    data-instagram-feed-fallback-message="Follow us @valhallatattoo for daily tattoo inspiration and behind-the-scenes content!"
-                ></div>
-            </div>
-        </section>
-
-        <!-- Studio News Section -->
-        <section class="studio-news" id="news" aria-labelledby="news-title">
-            <div class="container">
-                <header class="section-header">
-                    <h2 class="section-title" id="news-title">Studio News</h2>
-                    <p class="section-subtitle">Stay updated with the latest from Valhalla</p>
-                </header>
-                
-                <div class="blog-categories" role="tablist" aria-label="Blog post categories">
-                    <!-- Categories will be populated by JavaScript -->
-                </div>
-                
-                <div class="blog-posts" role="grid" aria-label="Studio news and blog posts">
-                    <!-- Blog posts will be populated by JavaScript -->
-                </div>
-                
-                <div class="blog-actions">
-                    <button class="blog-load-more btn btn-secondary btn-lg" style="display: none;">
-                        Load More Posts
-                    </button>
-                </div>
-                
-                <!-- Newsletter Signup -->
-                <div class="newsletter-signup">
-                    <div class="newsletter-content">
-                        <h3 class="newsletter-title">Stay in the Loop</h3>
-                        <p class="newsletter-description">Get the latest studio news, artist spotlights, and tattoo tips delivered to your inbox.</p>
-                        <form class="newsletter-form" id="newsletterForm" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-                            <input type="hidden" name="form-name" value="newsletter-signup">
-                            <input type="text" name="bot-field" style="display:none">
-                            <div class="newsletter-form-group">
-                                <label for="newsletter-email" class="sr-only">Email address</label>
-                                <input type="email" id="newsletter-email" name="email" class="newsletter-input" placeholder="Enter your email address" required aria-describedby="newsletter-help">
-                                <button type="submit" class="newsletter-submit btn btn-primary">
-                                    Subscribe
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="newsletter-help" id="newsletter-help">
-                                <small>We respect your privacy. Unsubscribe at any time.</small>
-                            </div>
-                            <div class="newsletter-status" role="status" aria-live="polite"></div>
-                        </form>
-                    </div>
+                    <a href="#artists" class="btn btn-primary btn-lg">View All Portfolios</a>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <section class="contact-section" id="contact">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title" id="contact-title">Start Your Legend</h2>
+                    <h2 class="section-title">Start Your Legend</h2>
                     <p class="section-subtitle">Ready to create something extraordinary?</p>
                 </header>
                 <div class="contact-content">
@@ -487,194 +332,57 @@
                             </div>
                             <div class="contact-item">
                                 <strong>Phone:</strong>
-                                <p><a href="tel:931-451-5313" aria-label="Call Valhalla Tattoo">931-451-5313</a></p>
+                                <p><a href="tel:931-451-5313">931-451-5313</a></p>
                             </div>
                             <div class="contact-item">
                                 <strong>Hours:</strong>
-                                <p>
-                                    <time datetime="Tu-Sa 12:00-20:00">Tuesday - Saturday: 12:00 PM - 8:00 PM</time><br>
-                                    Sunday & Monday: Closed
-                                </p>
+                                <p>Tuesday - Saturday: 12:00 PM - 8:00 PM<br>Sunday & Monday: Closed</p>
                             </div>
                         </address>
-                        <div class="social-links" role="group" aria-label="Social media links">
-                            <a href="https://instagram.com/valhallatattoo" class="social-link" aria-label="Follow Valhalla Tattoo on Instagram">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/valhallatattoollc/" class="social-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                 </svg>
                             </a>
-                            <a href="https://facebook.com/valhallatattoo" class="social-link" aria-label="Follow Valhalla Tattoo on Facebook">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <a href="https://www.facebook.com/Valhallatattoollc" class="social-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                                 </svg>
                             </a>
                         </div>
                     </div>
                     <div class="contact-form-container">
-                        <form class="contact-form" name="contact" action="/thank-you.html" method="POST" data-netlify="true" data-netlify-honeypot="honeypot" enctype="multipart/form-data" novalidate>
-                            <input type="hidden" name="form-name" value="contact">
-                            <div class="form-header">
-                                <h3>Book Your Consultation</h3>
-                                <p>Ready to start your tattoo journey? Fill out the form below and we'll get back to you within 24 hours.</p>
+                        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
                             </div>
-
-                            <!-- Personal Information -->
-                            <div class="form-section">
-                                <h4 class="form-section-title">Personal Information</h4>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="contact-name" class="form-label">Full Name *</label>
-                                        <input type="text" id="contact-name" name="name" class="form-input" required aria-describedby="name-help">
-                                        <div class="form-help" id="name-help">Your full name as you'd like us to address you</div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="contact-email" class="form-label">Email Address *</label>
-                                        <input type="email" id="contact-email" name="email" class="form-input" required aria-describedby="email-help">
-                                        <div class="form-help" id="email-help">We'll use this to send you appointment confirmations</div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contact-phone" class="form-label">Phone Number</label>
-                                    <input type="tel" id="contact-phone" name="phone" class="form-input" aria-describedby="phone-help">
-                                    <div class="form-help" id="phone-help">Optional - for urgent communications about your appointment</div>
-                                </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
                             </div>
-
-                            <!-- Tattoo Details -->
-                            <div class="form-section">
-                                <h4 class="form-section-title">Tattoo Details</h4>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="contact-artist" class="form-label">Preferred Artist</label>
-                                        <select id="contact-artist" name="artist" class="form-select">
-                                            <option value="">Any Artist</option>
-                                            <option value="pagan">Pagan - Traditional & Neo-Traditional</option>
-                                            <option value="jimmy">Jimmy - Realism & Black & Grey</option>
-                                            <option value="micah">Micah - Fine Line & Geometric</option>
-                                            <option value="sarah">Sarah - Watercolor & Illustrative</option>
-                                            <option value="kason">Kason - Japanese & Oriental</option>
-                                            <option value="heather">Heather - Botanical & Nature</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="contact-tattoo-type" class="form-label">Tattoo Style</label>
-                                        <select id="contact-tattoo-type" name="tattoo_type" class="form-select">
-                                            <option value="">Select a style</option>
-                                            <option value="traditional">Traditional</option>
-                                            <option value="neo-traditional">Neo-Traditional</option>
-                                            <option value="realism">Realism</option>
-                                            <option value="black-grey">Black & Grey</option>
-                                            <option value="fine-line">Fine Line</option>
-                                            <option value="geometric">Geometric</option>
-                                            <option value="watercolor">Watercolor</option>
-                                            <option value="illustrative">Illustrative</option>
-                                            <option value="japanese">Japanese</option>
-                                            <option value="oriental">Oriental</option>
-                                            <option value="botanical">Botanical</option>
-                                            <option value="nature">Nature</option>
-                                            <option value="custom">Custom Design</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="contact-placement" class="form-label">Placement</label>
-                                        <select id="contact-placement" name="placement" class="form-select">
-                                            <option value="">Select placement</option>
-                                            <option value="arm">Arm</option>
-                                            <option value="forearm">Forearm</option>
-                                            <option value="shoulder">Shoulder</option>
-                                            <option value="back">Back</option>
-                                            <option value="chest">Chest</option>
-                                            <option value="leg">Leg</option>
-                                            <option value="thigh">Thigh</option>
-                                            <option value="calf">Calf</option>
-                                            <option value="hand">Hand</option>
-                                            <option value="foot">Foot</option>
-                                            <option value="neck">Neck</option>
-                                            <option value="ribs">Ribs</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="contact-size" class="form-label">Approximate Size</label>
-                                        <select id="contact-size" name="size" class="form-select">
-                                            <option value="">Select size</option>
-                                            <option value="small">Small (2-4 inches)</option>
-                                            <option value="medium">Medium (4-8 inches)</option>
-                                            <option value="large">Large (8-12 inches)</option>
-                                            <option value="extra-large">Extra Large (12+ inches)</option>
-                                            <option value="sleeve">Sleeve</option>
-                                            <option value="back-piece">Back Piece</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contact-budget" class="form-label">Budget Range</label>
-                                    <select id="contact-budget" name="budget" class="form-select">
-                                        <option value="">Select budget range</option>
-                                        <option value="under-200">Under $200</option>
-                                        <option value="200-500">$200 - $500</option>
-                                        <option value="500-1000">$500 - $1,000</option>
-                                        <option value="1000-2000">$1,000 - $2,000</option>
-                                        <option value="2000-plus">$2,000+</option>
-                                        <option value="discuss">Let's discuss</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
                             </div>
-
-                            <!-- Message and References -->
-                            <div class="form-section">
-                                <h4 class="form-section-title">Tell Us More</h4>
-                                
-                                <div class="form-group">
-                                    <label for="contact-message" class="form-label">Describe Your Tattoo Idea *</label>
-                                    <textarea id="contact-message" name="message" class="form-textarea" rows="6" required placeholder="Tell us about your tattoo idea, inspiration, any specific details, and when you'd like to get it done..." aria-describedby="message-help"></textarea>
-                                    <div class="form-help" id="message-help">The more details you provide, the better we can help you</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contact-reference" class="form-label">Reference Images</label>
-                                    <div class="file-upload-wrapper">
-                                        <input type="file" id="contact-reference" name="reference_images" class="file-upload-input" multiple accept="image/*" aria-describedby="reference-help">
-                                        <label for="contact-reference" class="file-upload-label">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                                            </svg>
-                                            <span>Choose Images</span>
-                                            <small>or drag and drop</small>
-                                        </label>
-                                        <div class="file-upload-list"></div>
-                                    </div>
-                                    <div class="form-help" id="reference-help">Upload up to 5 reference images (max 10MB each). JPEG, PNG, WebP formats supported.</div>
-                                </div>
+                            <div class="form-group">
+                                <label for="artist">Preferred Artist</label>
+                                <select id="artist" name="artist">
+                                    <option value="">Any Artist</option>
+                                    <option value="pagan">Pagan</option>
+                                    <option value="jimmy">Jimmy</option>
+                                    <option value="micah">Micah</option>
+                                    <option value="sarah">Sarah</option>
+                                    <option value="kason">Kason</option>
+                                    <option value="heather">Heather</option>
+                                </select>
                             </div>
-
-                            <!-- Honeypot for spam protection -->
-                            <input type="text" id="contact-honeypot" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-                            <!-- Submit Button -->
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary btn-lg form-submit">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
-                                    </svg>
-                                    Send Message
-                                </button>
-                                <p class="form-disclaimer">
-                                    By submitting this form, you agree to be contacted by Valhalla Tattoo regarding your inquiry. 
-                                    We respect your privacy and will never share your information.
-                                </p>
+                            <div class="form-group">
+                                <label for="message">Tell us about your tattoo idea *</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
+                            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -682,65 +390,68 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="images/logo.jpg" alt="Valhalla Tattoo" class="footer-logo-img" loading="lazy">
-                        <span class="footer-logo-text">VALHALLA TATTOO</span>
-                    </div>
-                    <p class="footer-tagline">Crafting Legends in Ink</p>
-                </div>
-                <div class="footer-info">
-                    <h4>Contact Info</h4>
-                    <address>
-                        <p>404 Mclemore Ave. Suite 4<br>Spring Hill, TN 37174</p>
-                        <p><a href="tel:931-451-5313" aria-label="Call Valhalla Tattoo">931-451-5313</a></p>
-                    </address>
-                </div>
-                <div class="footer-hours">
-                    <h4>Studio Hours</h4>
-                    <p>
-                        <time datetime="Tu-Sa 12:00-20:00">Tuesday - Saturday<br>12:00 PM - 8:00 PM</time>
-                    </p>
-                    <p>Sunday & Monday<br>Closed</p>
-                </div>
-                <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <!-- Social Media Links Component -->
-                    <div 
-                        data-social-links="footer-social"
-                        data-social-links-type="studio"
-                        data-social-links-layout="horizontal"
-                        data-social-links-style="minimal"
-                        data-social-links-size="medium"
-                        data-social-links-show-labels="false"
-                        data-social-links-show-follow-text="false"
-                        data-social-links-platforms='["instagram", "facebook", "tiktok"]'
-                    ></div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Valhalla Tattoo. All rights reserved.</p>
-                <p>Crafted with ⚡ in Spring Hill, TN</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript - Using minimal version with core modules -->
-    <script type="module" src="js/main-minimal.js"></script>
-    <!-- Original: <script type="module" src="js/main.js"></script> -->
-    
-    <!-- Sitemap Generator -->
-    <script type="module">
-        import SitemapGenerator from './js/modules/sitemap.js';
-        
-        // Generate sitemap (for development - can be called from console)
-        const sitemapGenerator = new SitemapGenerator();
-        window.generateSitemap = () => sitemapGenerator.generateCompleteSitemap();
-        window.downloadSitemap = () => sitemapGenerator.downloadSitemap();
+    <script>
+        // Minimal JavaScript for loading screen and basic functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const navigation = document.getElementById('mainNav');
+            const navToggle = document.getElementById('navToggle');
+            
+            // Hide loading screen after 1.5 seconds
+            setTimeout(() => {
+                if (loadingScreen) {
+                    loadingScreen.classList.add('loading-screen--hidden');
+                    if (navigation) {
+                        navigation.classList.add('main-nav--visible');
+                    }
+                    
+                    // Remove from DOM after animation
+                    setTimeout(() => {
+                        if (loadingScreen.parentNode) {
+                            loadingScreen.remove();
+                        }
+                    }, 1000);
+                }
+            }, 1500);
+            
+            // Emergency fallback
+            setTimeout(() => {
+                if (loadingScreen && !loadingScreen.classList.contains('loading-screen--hidden')) {
+                    console.warn('Loading screen timeout - forcing hide');
+                    loadingScreen.style.display = 'none';
+                    if (navigation) {
+                        navigation.classList.add('main-nav--visible');
+                    }
+                }
+            }, 3000);
+            
+            // Mobile menu toggle
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    const navMenu = navigation.querySelector('.main-nav__menu');
+                    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', String(!expanded));
+                    navToggle.classList.toggle('main-nav__toggle--active');
+                    if (navMenu) {
+                        navMenu.classList.toggle('main-nav__menu--open');
+                    }
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
