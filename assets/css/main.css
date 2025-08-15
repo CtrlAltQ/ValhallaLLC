@@ -21,25 +21,25 @@
 /* 6. Consent Banner */
 @import url('./consent-banner.css');
 
-/* 6. Social Media Components */
+/* 7. Social Media Components */
 @import url('./social.css');
 
-/* 7. Image Optimization System */
+/* 8. Image Optimization System */
 @import url('./image-optimization.css');
 
-/* 8. Accessibility Enhancements */
+/* 9. Accessibility Enhancements */
 @import url('./accessibility.css');
 
-/* 9. Browser Compatibility Fixes */
+/* 10. Browser Compatibility Fixes */
 @import url('./browser-fixes.css');
 
-/* 10. Mobile Optimization */
+/* 11. Mobile Optimization */
 @import url('./mobile-optimization.css');
 
-/* 11. Progressive Web App */
+/* 12. Progressive Web App */
 @import url('./pwa-styles.css');
 
-/* 12. Utility Classes */
+/* 13. Utility Classes */
 @import url('./utilities.css');
 
 /* 9. Responsive Styles */
