@@ -19,6 +19,9 @@ export class PortfolioGallery {
     this.images = [];
     this.currentFilter = 'all';
     this.lightbox = null;
+    this.boundHandleLightboxKeydown = null;
+    this.portfolioItems = [];
+    this.currentImageIndex = 0;
   }
 
   /**
@@ -224,11 +227,16 @@ export class PortfolioGallery {
   openLightbox(imgElement) {
     const src = imgElement.getAttribute('data-src') || imgElement.src;
     const alt = imgElement.alt;
-    
+
     // Find associated image data
     const portfolioItem = imgElement.closest('.portfolio-item');
     const imageData = this.getImageDataFromElement(portfolioItem);
-    
+
+    // Track current items and index for navigation
+    this.portfolioItems = Array.from(this.container.querySelectorAll('.portfolio-item'))
+      .filter(item => item.style.display !== 'none');
+    this.currentImageIndex = this.portfolioItems.indexOf(portfolioItem);
+
     this.lightbox = document.createElement('div');
     this.lightbox.className = 'lightbox-overlay';
     this.lightbox.innerHTML = `
@@ -236,7 +244,7 @@ export class PortfolioGallery {
         <div class="lightbox-image-container">
           <img src="${src}" alt="${alt}" class="lightbox-img">
         </div>
-        
+
         ${imageData ? `
           <div class="lightbox-info">
             <h3 class="lightbox-title">${imageData.title}</h3>
@@ -245,20 +253,20 @@ export class PortfolioGallery {
             ${imageData.description ? `<p class="lightbox-description">${imageData.description}</p>` : ''}
           </div>
         ` : ''}
-        
+
         <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
-        
+
         <button class="lightbox-prev" aria-label="Previous image">‹</button>
         <button class="lightbox-next" aria-label="Next image">›</button>
       </div>
     `;
-    
+
     document.body.appendChild(this.lightbox);
     document.body.style.overflow = 'hidden';
-    
+
     // Event listeners for lightbox
     this.setupLightboxEvents();
-    
+
     // Focus management for accessibility
     this.lightbox.querySelector('.lightbox-close').focus();
   }
@@ -280,9 +288,12 @@ export class PortfolioGallery {
         this.closeLightbox();
       }
     });
-    
+
     // Keyboard navigation
-    document.addEventListener('keydown', this.handleLightboxKeydown.bind(this));
+    if (!this.boundHandleLightboxKeydown) {
+      this.boundHandleLightboxKeydown = this.handleLightboxKeydown.bind(this);
+    }
+    document.addEventListener('keydown', this.boundHandleLightboxKeydown);
   }
 
   /**
@@ -297,10 +308,10 @@ export class PortfolioGallery {
         this.closeLightbox();
         break;
       case 'ArrowLeft':
-        // TODO: Navigate to previous image
+        this.navigateLightbox(-1);
         break;
       case 'ArrowRight':
-        // TODO: Navigate to next image
+        this.navigateLightbox(1);
         break;
     }
   }
@@ -312,9 +323,57 @@ export class PortfolioGallery {
     if (this.lightbox) {
       document.body.removeChild(this.lightbox);
       document.body.style.overflow = '';
-      document.removeEventListener('keydown', this.handleLightboxKeydown.bind(this));
+      if (this.boundHandleLightboxKeydown) {
+        document.removeEventListener('keydown', this.boundHandleLightboxKeydown);
+      }
       this.lightbox = null;
     }
+  }
+
+  /**
+   * Navigate between images in the lightbox
+   * @param {number} direction -1 for previous, 1 for next
+   */
+  navigateLightbox(direction) {
+    if (!this.portfolioItems.length) return;
+
+    const total = this.portfolioItems.length;
+    let newIndex = this.currentImageIndex + direction;
+
+    if (newIndex < 0) {
+      newIndex = total - 1;
+    } else if (newIndex >= total) {
+      newIndex = 0;
+    }
+
+    const nextItem = this.portfolioItems[newIndex];
+    const nextImg = nextItem.querySelector('.portfolio-img');
+    const src = nextImg.getAttribute('data-src') || nextImg.src;
+    const alt = nextImg.alt;
+    const imageData = this.getImageDataFromElement(nextItem);
+
+    const lightboxImg = this.lightbox.querySelector('.lightbox-img');
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+
+    const existingInfo = this.lightbox.querySelector('.lightbox-info');
+    if (existingInfo) {
+      existingInfo.innerHTML = imageData ? `
+        <h3 class="lightbox-title">${imageData.title}</h3>
+        ${imageData.style ? `<p class="lightbox-style">${imageData.style}</p>` : ''}
+        ${imageData.artist ? `<p class="lightbox-artist">By ${imageData.artist}</p>` : ''}
+        ${imageData.description ? `<p class="lightbox-description">${imageData.description}</p>` : ''}` : '';
+    } else if (imageData) {
+      const infoContainer = document.createElement('div');
+      infoContainer.className = 'lightbox-info';
+      infoContainer.innerHTML = `
+        <h3 class="lightbox-title">${imageData.title}</h3>
+        ${imageData.style ? `<p class="lightbox-style">${imageData.style}</p>` : ''}
+        ${imageData.artist ? `<p class="lightbox-artist">By ${imageData.artist}</p>` : ''}
+        ${imageData.description ? `<p class="lightbox-description">${imageData.description}</p>` : ''}`;
+      this.lightbox.querySelector('.lightbox-content').insertBefore(infoContainer, this.lightbox.querySelector('.lightbox-close'))
+
+    this.currentImageIndex = newIndex;
   }
 
   /**
