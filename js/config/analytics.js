@@ -5,8 +5,8 @@
 
 export const analyticsConfig = {
     // Google Analytics 4 Measurement ID
-    // Replace with actual measurement ID from Google Analytics
-    measurementId: 'G-PLACEHOLDER',
+    // Replaced at build time with actual ID
+    measurementId: 'GA_MEASUREMENT_ID',
     
     // Debug mode (set to false in production)
     debugMode: false,
@@ -90,7 +90,6 @@ export const analyticsConfig = {
 // Environment-specific overrides
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     analyticsConfig.debugMode = true;
-    analyticsConfig.measurementId = 'G-PLACEHOLDER-DEV'; // Use test measurement ID for development
 }
 
 export default analyticsConfig;
