@@ -1004,3 +1004,6 @@ class PortfolioCache {
 }
 
 export const portfolioCache = new PortfolioCache();
+
+// Provide default export for convenience when importing the entire dataset
+export default artistsData;
