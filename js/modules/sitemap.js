@@ -3,7 +3,8 @@
  * Generates dynamic sitemap for SEO optimization
  */
 
-class SitemapGenerator {
+// Export the generator as the default class to ensure proper module parsing
+export default class SitemapGenerator {
     constructor() {
         this.baseUrl = 'https://valhallatattoo.com';
         this.pages = [];
@@ -153,6 +154,3 @@ class SitemapGenerator {
         return this.generateXML();
     }
 }
-
-// Export for use in other modules
-export default SitemapGenerator;
