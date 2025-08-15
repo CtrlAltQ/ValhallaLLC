@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valhalla Tattoo - Professional Tattoo Studio in Spring Hill, TN</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Simple loading screen styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loading-screen--hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .main-nav--visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-screen__content">
+            <div class="loading-screen__logo">
+                <img src="images/logo.jpg" alt="Valhalla Tattoo" class="loading-screen__logo-img">
+            </div>
+            <div class="loading-screen__text">
+                <h2 class="loading-screen__title">VALHALLA TATTOO</h2>
+                <p class="loading-screen__subtitle">Crafting Legends in Ink</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header role="banner">
+        <nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">
+            <div class="container">
+                <div class="main-nav__content">
+                    <div class="main-nav__logo">
+                        <a href="#hero" aria-label="Valhalla Tattoo - Go to homepage">
+                            <img src="images/logo.jpg" alt="Valhalla Tattoo" class="main-nav__logo-img">
+                            <span class="main-nav__logo-text">VALHALLA</span>
+                        </a>
+                    </div>
+                    <ul class="main-nav__menu" role="menubar">
+                        <li class="main-nav__item" role="none">
+                            <a href="#hero" class="main-nav__link" role="menuitem">Home</a>
+                        </li>
+                        <li class="main-nav__item" role="none">
+                            <a href="#artists" class="main-nav__link" role="menuitem">Artists</a>
+                        </li>
+                        <li class="main-nav__item" role="none">
+                            <a href="#contact" class="main-nav__link" role="menuitem">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" role="main">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero__background">
+                <div class="hero__background-fallback">
+                    <img src="images/valhalla_heropic.jpg" alt="Valhalla Tattoo Studio interior" class="hero__background-img">
+                </div>
+            </div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title">
+                        <span class="hero__title-line">LEGENDS</span>
+                        <span class="hero__title-line">FORGED IN</span>
+                        <span class="hero__title-line hero__title-line--accent">INK</span>
+                    </h1>
+                    <p class="hero__subtitle">Premium tattoo artistry in Spring Hill, Tennessee. Where your story becomes legendary.</p>
+                </div>
+                <div class="hero__cta">
+                    <a href="#contact" class="btn btn-primary btn-xl">Book Consultation</a>
+                    <a href="#artists" class="btn btn-secondary btn-xl">Meet Our Artists</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Start Your Legend</h2>
+                    <p class="section-subtitle">Ready to create something extraordinary?</p>
+                </header>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Visit Our Studio</h3>
+                        <address class="contact-details">
+                            <div class="contact-item">
+                                <strong>Address:</strong>
+                                <p>404 Mclemore Ave. Suite 4<br>Spring Hill, TN 37174</p>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Phone:</strong>
+                                <p><a href="tel:931-451-5313">931-451-5313</a></p>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Hours:</strong>
+                                <p>Tuesday - Saturday: 12:00 PM - 8:00 PM<br>Sunday & Monday: Closed</p>
+                            </div>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple loading screen handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const navigation = document.getElementById('mainNav');
+            
+            // Hide loading screen after 2 seconds
+            setTimeout(() => {
+                if (loadingScreen) {
+                    loadingScreen.classList.add('loading-screen--hidden');
+                    if (navigation) {
+                        navigation.classList.add('main-nav--visible');
+                    }
+                    
+                    // Remove from DOM after animation
+                    setTimeout(() => {
+                        loadingScreen.remove();
+                    }, 1000);
+                }
+            }, 2000);
+            
+            // Emergency fallback
+            setTimeout(() => {
+                if (loadingScreen && !loadingScreen.classList.contains('loading-screen--hidden')) {
+                    console.warn('Loading screen timeout - forcing hide');
+                    loadingScreen.style.display = 'none';
+                    if (navigation) {
+                        navigation.classList.add('main-nav--visible');
+                    }
+                }
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
