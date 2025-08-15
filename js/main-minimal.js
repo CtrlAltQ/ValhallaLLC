@@ -53,11 +53,6 @@ class ValhallaTattooMinimalApp {
       this.modules.portfolio.init();
       this.modules.contact.init();
 
-      // Trigger initial animations after a short delay
-      setTimeout(() => {
-        this.modules.homepage.triggerHeroAnimations();
-      }, 100);
-
       this.initialized = true;
       console.log('Valhalla Tattoo minimal app initialized successfully');
 
