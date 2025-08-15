@@ -3,6 +3,9 @@
  * Imports all stylesheets in the correct order
  */
 
+/* 0. Font Imports - Load fonts first for consistent display */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Bebas+Neue&display=swap');
+
 /* 1. Variables and Configuration */
 @import url('./variables.css');
 
