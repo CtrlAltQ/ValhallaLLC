@@ -87,6 +87,9 @@ export class Homepage {
     // Mobile menu toggle
     if (navToggle && navMenu) {
       navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        document.documentElement.classList.toggle('nav-open', !expanded);
         navToggle.classList.toggle('main-nav__toggle--active');
         navMenu.classList.toggle('main-nav__menu--open');
       });
@@ -123,36 +126,7 @@ export class Homepage {
   }
 
   setupHeroAnimations() {
-    if (!this.heroSection) return;
-
-    // Parallax effect for hero background
-    window.addEventListener('scroll', () => {
-      if (this.isScrolling) return;
-      
-      this.isScrolling = true;
-      requestAnimationFrame(() => {
-        const scrolled = window.pageYOffset;
-        const heroVideo = this.heroSection.querySelector('.hero__video');
-        const heroImg = this.heroSection.querySelector('.hero__background-img');
-        
-        if (heroVideo) {
-          heroVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-        if (heroImg) {
-          heroImg.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-        
-        this.isScrolling = false;
-      });
-    });
-
-    // Hero scroll indicator click
-    const scrollIndicator = this.heroSection.querySelector('.hero__scroll-indicator');
-    if (scrollIndicator) {
-      scrollIndicator.addEventListener('click', () => {
-        this.smoothScrollTo(this.artistGrid);
-      });
-    }
+    // This is now handled by the main AnimationSystem
   }
 
   setupArtistGridInteractions() {
@@ -228,44 +202,7 @@ export class Homepage {
   }
 
   setupScrollReveal() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          
-          // Add stagger effect for artist cards
-          if (entry.target.classList.contains('artist-grid__container')) {
-            const cards = entry.target.querySelectorAll('.artist-card');
-            cards.forEach((card, index) => {
-              setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-              }, index * 150);
-            });
-          }
-        }
-      });
-    }, observerOptions);
-
-    // Observe elements for scroll reveal
-    const revealElements = document.querySelectorAll('.section-header, .artist-grid__container');
-    revealElements.forEach(el => {
-      el.classList.add('scroll-reveal');
-      observer.observe(el);
-    });
-
-    // Initially hide artist cards for stagger effect
-    const artistCards = document.querySelectorAll('.artist-card');
-    artistCards.forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(40px)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
+    // This is now handled by the main AnimationSystem
   }
 
   smoothScrollTo(element, offset = 80) {
