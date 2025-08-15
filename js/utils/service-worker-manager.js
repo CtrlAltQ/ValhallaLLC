@@ -11,6 +11,7 @@ export class ServiceWorkerManager {
       updateCheckInterval: 60000, // 1 minute
       showUpdateNotification: true,
       autoUpdate: false,
+      disabled: true, // Temporarily disable for debugging
       ...options
     };
     
@@ -19,7 +20,12 @@ export class ServiceWorkerManager {
     this.updateAvailable = false;
     this.updateCheckTimer = null;
     
-    this.init();
+    // Only init if not disabled
+    if (!this.options.disabled) {
+      this.init();
+    } else {
+      console.log('Service Worker disabled for debugging');
+    }
   }
 
   /**
