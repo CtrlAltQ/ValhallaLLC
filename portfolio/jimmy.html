@@ -26,6 +26,11 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://valhallatattoo.com/portfolio/jimmy.html">
   
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/portfolio-pages.css">
@@ -155,11 +160,27 @@
     <!-- Artist Bio Section -->
     <section class="artist-bio-section" id="artist-bio" aria-labelledby="bio-heading">
       <div class="container">
-        <div 
-          data-artist-bio="jimmy"
-          id="bio-heading"
-          aria-live="polite"
-        ></div>
+        <header class="section-header">
+          <h2 id="bio-heading" class="section-title">About Jimmy</h2>
+          <p class="section-subtitle">Master of Realism & Black & Grey</p>
+        </header>
+        <div class="artist-bio-content">
+          <div class="artist-bio-text">
+            <p class="lead">With over 10 years of experience in the tattoo industry, Jimmy has established himself as one of the premier realism and black & grey artists in Tennessee.</p>
+            <p>Jimmy's passion for detailed, photorealistic work shines through in every piece he creates. Specializing in portraits, wildlife, and intricate black & grey compositions, he brings a unique artistic vision that transforms skin into living art.</p>
+            <p>His dedication to perfection and attention to detail has earned him a loyal following of clients who trust him with their most meaningful tattoo ideas.</p>
+          </div>
+          <div class="artist-specialties">
+            <h3>Specialties</h3>
+            <ul>
+              <li>Photorealistic Portraits</li>
+              <li>Black & Grey Realism</li>
+              <li>Wildlife & Nature</li>
+              <li>Memorial Pieces</li>
+              <li>Custom Designs</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -170,11 +191,60 @@
           <h2 id="portfolio-heading" class="section-title">Jimmy's Portfolio</h2>
           <p class="section-subtitle">Explore Jimmy's mastery in realism and black & grey tattoo artistry</p>
         </header>
-        <div class="portfolio-gallery" role="grid" aria-label="Jimmy's tattoo portfolio gallery" aria-busy="true">
-          <!-- Portfolio images will be dynamically loaded by JavaScript -->
-          <div class="gallery-loading" role="status" aria-live="polite">
-            <div class="gallery-loading-spinner" aria-hidden="true"></div>
-            <p>Loading Jimmy's portfolio...</p>
+        <div class="portfolio-gallery" role="grid" aria-label="Jimmy's tattoo portfolio gallery">
+          <div class="portfolio-item">
+            <img src="../images/portfolio/jimmy/FB_IMG_1754792182200.jpg" alt="Traditional sleeve tattoo by Jimmy" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Traditional Sleeve</h4>
+                <p>Realism & Black & Grey</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="../images/portfolio/jimmy/FB_IMG_1754792184630.jpg" alt="Portrait realism tattoo by Jimmy" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Portrait Realism</h4>
+                <p>Black & Grey</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="../images/portfolio/jimmy/FB_IMG_1754792186833.jpg" alt="Black and grey tattoo by Jimmy" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Black & Grey Detail</h4>
+                <p>Realism</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="../images/portfolio/jimmy/FB_IMG_1754792189094.jpg" alt="Custom design tattoo by Jimmy" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Custom Design</h4>
+                <p>Realism</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="../images/portfolio/jimmy/FB_IMG_1754792191890.jpg" alt="Detailed realism tattoo by Jimmy" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Detailed Realism</h4>
+                <p>Black & Grey</p>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="../images/portfolio/jimmy/FB_IMG_1754792208078.jpg" alt="Portrait work by Jimmy" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Portrait Work</h4>
+                <p>Realism</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -233,7 +303,7 @@
         
         <div class="booking-content">
           <div class="booking-form-container">
-            <form class="enhanced-booking-form" action="../submit-booking.php" method="POST">
+            <form class="enhanced-booking-form" name="artist-booking" method="POST" data-netlify="true">
               <div class="form-group">
                 <label for="booking-name">Name *</label>
                 <input type="text" id="booking-name" name="name" required>
@@ -358,45 +428,6 @@
   </main>
 
   <!-- Footer -->
-<<<<<<< HEAD
-  <footer class="site-footer">
-    <div class="footer-nav">
-      <div class="footer-col">
-        <h4>Artists</h4>
-        <ul>
-          <li><a href="micah.html">Micah</a></li>
-          <li><a href="pagan.html">Pagan</a></li>
-          <li><a href="jimmy.html">Jimmy</a></li>
-          <li><a href="kason.html">Kason</a></li>
-          <li><a href="sarah.html">Sarah</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="../index.html#services">Tattoos</a></li>
-          <li><a href="../index.html#services">Piercing</a></li>
-          <li><a href="../index.html#faq">Aftercare</a></li>
-          <li><a href="../index.html#book">Booking</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Info</h4>
-        <ul>
-          <li><a href="../index.html#about">About</a></li>
-          <li><a href="../index.html#faq">FAQ</a></li>
-          <li><a href="../index.html#studio">Studio</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="../index.html#about">About</a></li>
-          <li><a href="../index.html#news">News</a></li>
-        </ul>
-      </div>
-=======
   <footer class="footer" role="contentinfo">
     <div class="container">
         <div class="footer-content">
@@ -439,22 +470,55 @@
             <p>&copy; 2024 Valhalla Tattoo. All rights reserved.</p>
             <p>Crafted with ⚡ in Spring Hill, TN</p>
         </div>
->>>>>>> main
     </div>
 </footer>
 
 
-  <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../components/portfolio/artist-bio.js"></script>
-  <script type="module" src="../components/portfolio/style-showcase.js"></script>
-  <script type="module" src="../components/portfolio/testimonials.js"></script>
-  <script type="module">
-    import { Portfolio } from '../js/modules/portfolio.js';
-    
-    // Initialize portfolio when DOM is loaded
-    document.addEventListener('DOMContentLoaded', async () => {
-      const portfolio = new Portfolio();
-      await portfolio.init();
+  <script>
+    // Simple portfolio page functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.querySelector('.main-nav__menu');
+      
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', String(!expanded));
+          navToggle.classList.toggle('main-nav__toggle--active');
+          navMenu.classList.toggle('main-nav__menu--open');
+        });
+      }
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Form submission handling
+      const form = document.querySelector('.enhanced-booking-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          const submitBtn = form.querySelector('.booking-submit');
+          const submitText = submitBtn.querySelector('.submit-text');
+          const submitLoading = submitBtn.querySelector('.submit-loading');
+          
+          if (submitText && submitLoading) {
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+          }
+        });
+      }
     });
   </script>
 </body>
