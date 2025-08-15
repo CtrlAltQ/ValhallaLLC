@@ -53,7 +53,7 @@ images/
 ### 3. **Studio Photos** 
 **Location**: `images/studio/`
 **Current**: ✅ You have 5 studio photos already
-**Status**: Ready to use! (studio1.jpg through studio6.jpg)
+**Status**: Ready to use! (studio1_web.jpeg through studio6_web.jpeg + valhalla_exterior_web.jpeg)
 
 ## 🚀 How to Add Your Pictures
 

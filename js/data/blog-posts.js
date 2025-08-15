@@ -25,7 +25,7 @@ export const blogPosts = [
       <p>We can't wait to help bring your tattoo vision to life. Explore our artists' work and reach out when you're ready to start your next piece!</p>
     `,
     author: "Valhalla Team",
-    image: "studio/studio1.jpg",
+    image: "studio/studio1_web.jpeg",
     tags: ["website", "announcement", "studio"]
   },
   
@@ -89,7 +89,7 @@ export const blogPosts = [
       <p><strong>Questions about healing?</strong> Contact us anytime - we're here to help!</p>
     `,
     author: "Valhalla Team",
-    image: "studio/studio2.jpg",
+    image: "studio/studio2_web.jpeg",
     tags: ["aftercare", "healing", "tips"]
   }
 ];
