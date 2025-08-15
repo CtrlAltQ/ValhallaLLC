@@ -12,12 +12,14 @@ class ContactForm {
     this.fields = {};
     this.errors = {};
     this.isSubmitting = false;
-    
+    this.fileList = null;
+
     this.init();
   }
 
   init() {
     this.setupFields();
+    this.setupFileList();
     this.setupEventListeners();
     this.setupHoneypot();
   }
@@ -37,6 +39,18 @@ class ContactForm {
       referenceImages: this.form.querySelector('#contact-reference'),
       honeypot: this.form.querySelector('#contact-honeypot')
     };
+  }
+
+  setupFileList() {
+    this.fileList = this.form.querySelector('.file-upload-list');
+    if (this.fileList) {
+      this.fileList.addEventListener('click', (e) => {
+        if (e.target.closest('.file-remove')) {
+          const index = parseInt(e.target.closest('.file-remove').dataset.index);
+          this.removeFile(index);
+        }
+      });
+    }
   }
 
   setupEventListeners() {
@@ -435,11 +449,10 @@ class ContactForm {
   }
 
   updateFileUploadDisplay(files) {
-    const fileList = this.form.querySelector('.file-upload-list');
-    if (!fileList) return;
+    if (!this.fileList) return;
 
-    fileList.innerHTML = '';
-    
+    this.fileList.innerHTML = '';
+
     Array.from(files).forEach((file, index) => {
       const fileItem = document.createElement('div');
       fileItem.className = 'file-upload-item';
@@ -452,15 +465,7 @@ class ContactForm {
           </svg>
         </button>
       `;
-      fileList.appendChild(fileItem);
-    });
-
-    // Add remove file functionality
-    fileList.addEventListener('click', (e) => {
-      if (e.target.closest('.file-remove')) {
-        const index = parseInt(e.target.closest('.file-remove').dataset.index);
-        this.removeFile(index);
-      }
+      this.fileList.appendChild(fileItem);
     });
   }
 
