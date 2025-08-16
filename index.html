@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valhalla Tattoo - Professional Tattoo Studio in Spring Hill, TN</title>
-    
+
     <!-- Preload critical fonts for consistent display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
         /* Override loading screen to ensure it hides */
@@ -26,23 +29,44 @@
             z-index: 9999;
             transition: opacity 0.5s ease;
         }
+
         .loading-screen--hidden {
             opacity: 0;
             pointer-events: none;
         }
+
         .main-nav {
             opacity: 0;
             transition: opacity 0.5s ease;
         }
+
         .main-nav--visible {
             opacity: 1;
         }
+
         /* Ensure content is visible */
         main {
             opacity: 1;
         }
+
+        /* Category tag colors */
+        .category-studio-news {
+            background: #d4af37 !important;
+            color: #1a1a1a !important;
+        }
+
+        .category-artist-spotlight {
+            background: #8b4513 !important;
+            color: white !important;
+        }
+
+        .category-tattoo-care {
+            background: #2e8b57 !important;
+            color: white !important;
+        }
     </style>
 </head>
+
 <body>
     <!-- Loading Animation -->
     <div class="loading-screen" id="loadingScreen">
@@ -85,6 +109,9 @@
                             <a href="#about" class="main-nav__link" role="menuitem">About</a>
                         </li>
                         <li class="main-nav__item" role="none">
+                            <a href="#blog" class="main-nav__link" role="menuitem">News</a>
+                        </li>
+                        <li class="main-nav__item" role="none">
                             <a href="#contact" class="main-nav__link" role="menuitem">Contact</a>
                         </li>
                     </ul>
@@ -107,7 +134,8 @@
                     <source src="images/videos/hero.mp4" type="video/mp4">
                 </video>
                 <div class="hero__background-fallback">
-                    <img src="images/valhalla_heropic.jpg" alt="Valhalla Tattoo Studio interior" class="hero__background-img">
+                    <img src="images/valhalla_heropic.jpg" alt="Valhalla Tattoo Studio interior"
+                        class="hero__background-img">
                 </div>
             </div>
             <div class="hero__overlay"></div>
@@ -118,7 +146,8 @@
                         <span class="hero__title-line">FORGED IN</span>
                         <span class="hero__title-line hero__title-line--accent">INK</span>
                     </h1>
-                    <p class="hero__subtitle">Premium tattoo artistry in Spring Hill, Tennessee. Where your story becomes legendary.</p>
+                    <p class="hero__subtitle">Premium tattoo artistry in Spring Hill, Tennessee. Where your story
+                        becomes legendary.</p>
                 </div>
                 <div class="hero__cta">
                     <a href="#contact" class="btn btn-primary btn-xl">Book Consultation</a>
@@ -137,7 +166,8 @@
                 <div class="artist-grid__container">
                     <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/pagan.jpg" alt="Pagan - Professional tattoo artist" class="artist-card__img">
+                            <img src="images/gallery/pagan.jpg" alt="Pagan - Professional tattoo artist"
+                                class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Pagan</h3>
@@ -153,7 +183,8 @@
                     </article>
                     <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/jimmy.jpg" alt="Jimmy - Professional tattoo artist" class="artist-card__img">
+                            <img src="images/gallery/jimmy.jpg" alt="Jimmy - Professional tattoo artist"
+                                class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Jimmy</h3>
@@ -169,7 +200,8 @@
                     </article>
                     <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/micah.jpg" alt="Micah - Professional tattoo artist" class="artist-card__img">
+                            <img src="images/gallery/micah.jpg" alt="Micah - Professional tattoo artist"
+                                class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Micah</h3>
@@ -185,7 +217,8 @@
                     </article>
                     <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/sarah.jpg" alt="Sarah - Professional tattoo artist" class="artist-card__img">
+                            <img src="images/gallery/sarah.jpg" alt="Sarah - Professional tattoo artist"
+                                class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Sarah</h3>
@@ -201,7 +234,8 @@
                     </article>
                     <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/kason.jpg" alt="Kason - Professional tattoo artist" class="artist-card__img">
+                            <img src="images/gallery/kason.jpg" alt="Kason - Professional tattoo artist"
+                                class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Kason</h3>
@@ -217,7 +251,8 @@
                     </article>
                     <article class="artist-card">
                         <div class="artist-card__image">
-                            <img src="images/gallery/heather.jpg" alt="Heather - Shop Manager and Apprentice" class="artist-card__img">
+                            <img src="images/gallery/heather.jpg" alt="Heather - Shop Manager and Apprentice"
+                                class="artist-card__img">
                             <div class="artist-card__overlay">
                                 <div class="artist-card__content">
                                     <h3 class="artist-card__name">Heather</h3>
@@ -244,12 +279,19 @@
                 </header>
                 <div class="about-content">
                     <div class="about-text">
-                        <p class="lead">At Valhalla Tattoo, we believe every tattoo tells a story. Located in the heart of Spring Hill, Tennessee, our studio is a sanctuary where artistry meets craftsmanship, and your vision becomes a permanent masterpiece.</p>
-                        <p>Our team of master artists brings decades of combined experience, specializing in everything from traditional American tattoos to intricate realism, fine line work, and custom designs. We pride ourselves on maintaining the highest standards of cleanliness, professionalism, and artistic excellence.</p>
-                        <p>Step into our world, where Norse mythology meets modern artistry, and let us help you forge your legend in ink.</p>
+                        <p class="lead">At Valhalla Tattoo, we believe every tattoo tells a story. Located in the heart
+                            of Spring Hill, Tennessee, our studio is a sanctuary where artistry meets craftsmanship, and
+                            your vision becomes a permanent masterpiece.</p>
+                        <p>Our team of master artists brings decades of combined experience, specializing in everything
+                            from traditional American tattoos to intricate realism, fine line work, and custom designs.
+                            We pride ourselves on maintaining the highest standards of cleanliness, professionalism, and
+                            artistic excellence.</p>
+                        <p>Step into our world, where Norse mythology meets modern artistry, and let us help you forge
+                            your legend in ink.</p>
                     </div>
                     <div class="about-image">
-                        <img src="images/studio/valhalla_exterior_web.jpeg" alt="Valhalla Tattoo Studio exterior in Spring Hill, TN" class="about-studio-img">
+                        <img src="images/studio/valhalla_exterior_web.jpeg"
+                            alt="Valhalla Tattoo Studio exterior in Spring Hill, TN" class="about-studio-img">
                     </div>
                     <div class="about-stats">
                         <div class="stat-item">
@@ -282,7 +324,8 @@
                 </header>
                 <div class="portfolio-grid">
                     <article class="portfolio-item">
-                        <img src="images/portfolio/jimmy/FB_IMG_1754792253508.jpg" alt="Detailed realism tattoo artwork by Jimmy" class="portfolio-img">
+                        <img src="images/portfolio/jimmy/FB_IMG_1754792253508.jpg"
+                            alt="Detailed realism tattoo artwork by Jimmy" class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Realism Artwork</h4>
@@ -291,7 +334,8 @@
                         </div>
                     </article>
                     <article class="portfolio-item">
-                        <img src="images/portfolio/pagan/image1.jpeg" alt="Bold tattoo artwork by Pagan" class="portfolio-img">
+                        <img src="images/portfolio/pagan/image1.jpeg" alt="Bold tattoo artwork by Pagan"
+                            class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Bold Design</h4>
@@ -300,7 +344,8 @@
                         </div>
                     </article>
                     <article class="portfolio-item">
-                        <img src="images/portfolio/micah/Micah_creation_7332848750784236948.jpeg" alt="Precision tattoo artwork by Micah" class="portfolio-img">
+                        <img src="images/portfolio/micah/Micah_creation_7332848750784236948.jpeg"
+                            alt="Precision tattoo artwork by Micah" class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Precision Work</h4>
@@ -309,7 +354,8 @@
                         </div>
                     </article>
                     <article class="portfolio-item">
-                        <img src="images/portfolio/kason/kason1.jpeg" alt="Professional tattoo artwork by Kason" class="portfolio-img">
+                        <img src="images/portfolio/kason/kason1.jpeg" alt="Professional tattoo artwork by Kason"
+                            class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Professional Art</h4>
@@ -318,7 +364,8 @@
                         </div>
                     </article>
                     <article class="portfolio-item">
-                        <img src="images/portfolio/pagan/IMG_3129.jpg" alt="Creative tattoo design by Pagan" class="portfolio-img">
+                        <img src="images/portfolio/pagan/IMG_3129.jpg" alt="Creative tattoo design by Pagan"
+                            class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Creative Design</h4>
@@ -327,7 +374,8 @@
                         </div>
                     </article>
                     <article class="portfolio-item">
-                        <img src="images/portfolio/micah/Micah_creation_CCAB9748-CB96-4E28-B528-D89253D97CB4.jpeg" alt="Detailed tattoo work by Micah" class="portfolio-img">
+                        <img src="images/portfolio/micah/Micah_creation_CCAB9748-CB96-4E28-B528-D89253D97CB4.jpeg"
+                            alt="Detailed tattoo work by Micah" class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Detailed Work</h4>
@@ -336,7 +384,8 @@
                         </div>
                     </article>
                     <article class="portfolio-item">
-                        <img src="images/portfolio/jimmy/FB_IMG_1754792232185.jpg" alt="Black and grey tattoo by Jimmy" class="portfolio-img">
+                        <img src="images/portfolio/jimmy/FB_IMG_1754792232185.jpg" alt="Black and grey tattoo by Jimmy"
+                            class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Black & Grey</h4>
@@ -345,7 +394,8 @@
                         </div>
                     </article>
                     <article class="portfolio-item">
-                        <img src="images/portfolio/kason/kason4.jpeg" alt="Artistic tattoo work by Kason" class="portfolio-img">
+                        <img src="images/portfolio/kason/kason4.jpeg" alt="Artistic tattoo work by Kason"
+                            class="portfolio-img">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h4>Artistic Work</h4>
@@ -356,6 +406,124 @@
                 </div>
                 <div class="portfolio-cta">
                     <a href="#artists" class="btn btn-primary btn-lg">View All Portfolios</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="studio-news" id="blog">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Studio News & Updates</h2>
+                    <p class="section-subtitle">Stay updated with the latest from Valhalla</p>
+                </header>
+
+                <!-- Blog Categories -->
+                <div class="blog-categories" id="blogCategories">
+                    <button class="category-btn active" data-category="all">All (3)</button>
+                    <button class="category-btn" data-category="studio-news">Studio News (1)</button>
+                    <button class="category-btn" data-category="artist-spotlight">Artist Spotlight (1)</button>
+                    <button class="category-btn" data-category="tattoo-care">Tattoo Care (1)</button>
+                </div>
+
+                <!-- Blog Posts Grid -->
+                <div class="blog-posts" id="blogPosts">
+                    <article class="blog-post-card featured">
+                        <div class="blog-post-image">
+                            <img src="images/studio/valhalla_exterior_web.jpeg" alt="Welcome to Our New Website!"
+                                loading="lazy">
+                            <div class="blog-post-category">
+                                <span class="category-tag category-studio-news">Studio News</span>
+                            </div>
+                        </div>
+                        <div class="blog-post-content">
+                            <header class="blog-post-header">
+                                <h3 class="blog-post-title">Welcome to Our New Website!</h3>
+                                <div class="blog-post-meta">
+                                    <time datetime="2024-01-15">January 15, 2024</time>
+                                    <span class="author">By Valhalla Team</span>
+                                </div>
+                            </header>
+                            <div class="blog-post-excerpt">
+                                <p>We're excited to launch our brand new website featuring artist portfolios, online
+                                    booking, and the latest studio news.</p>
+                            </div>
+                            <footer class="blog-post-footer">
+                                <div class="blog-post-tags">
+                                    <span class="tag">#website</span>
+                                    <span class="tag">#announcement</span>
+                                    <span class="tag">#studio</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/gallery/jimmy.jpg" alt="Artist Spotlight: Jimmy's Realism Mastery"
+                                loading="lazy">
+                            <div class="blog-post-category">
+                                <span class="category-tag category-artist-spotlight">Artist Spotlight</span>
+                            </div>
+                        </div>
+                        <div class="blog-post-content">
+                            <header class="blog-post-header">
+                                <h3 class="blog-post-title">Artist Spotlight: Jimmy's Realism Mastery</h3>
+                                <div class="blog-post-meta">
+                                    <time datetime="2024-01-10">January 10, 2024</time>
+                                    <span class="author">By Valhalla Team</span>
+                                </div>
+                            </header>
+                            <div class="blog-post-excerpt">
+                                <p>Meet Jimmy, our master of photorealistic tattoos with over 10 years of experience
+                                    creating stunning black & grey pieces.</p>
+                            </div>
+                            <footer class="blog-post-footer">
+                                <div class="blog-post-tags">
+                                    <span class="tag">#artist-spotlight</span>
+                                    <span class="tag">#jimmy</span>
+                                    <span class="tag">#realism</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/studio/studio1_web.jpeg" alt="Tattoo Aftercare: Your Complete Guide"
+                                loading="lazy">
+                            <div class="blog-post-category">
+                                <span class="category-tag category-tattoo-care">Tattoo Care</span>
+                            </div>
+                        </div>
+                        <div class="blog-post-content">
+                            <header class="blog-post-header">
+                                <h3 class="blog-post-title">Tattoo Aftercare: Your Complete Guide</h3>
+                                <div class="blog-post-meta">
+                                    <time datetime="2024-01-05">January 5, 2024</time>
+                                    <span class="author">By Valhalla Team</span>
+                                </div>
+                            </header>
+                            <div class="blog-post-excerpt">
+                                <p>Proper aftercare is crucial for healing and maintaining the beauty of your new
+                                    tattoo. Here's our complete step-by-step guide.</p>
+                            </div>
+                            <footer class="blog-post-footer">
+                                <div class="blog-post-tags">
+                                    <span class="tag">#aftercare</span>
+                                    <span class="tag">#healing</span>
+                                    <span class="tag">#tips</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="blog-actions">
+                    <button class="btn btn-secondary btn-lg blog-load-more" id="blogLoadMore" style="display: none;">
+                        Load More Posts
+                    </button>
                 </div>
             </div>
         </section>
@@ -387,12 +555,14 @@
                         <div class="social-links">
                             <a href="https://www.instagram.com/valhallatattoollc/" class="social-link">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                 </svg>
                             </a>
                             <a href="https://www.facebook.com/Valhallatattoollc" class="social-link">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                 </svg>
                             </a>
                         </div>
@@ -435,13 +605,14 @@
         </section>
     </main>
 
+    <!-- Simple blog functionality -->
     <script>
-        // Minimal JavaScript for loading screen and basic functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        // Basic fallback functionality
+        document.addEventListener('DOMContentLoaded', function () {
             const loadingScreen = document.getElementById('loadingScreen');
             const navigation = document.getElementById('mainNav');
             const navToggle = document.getElementById('navToggle');
-            
+
             // Hide loading screen after 1.5 seconds
             setTimeout(() => {
                 if (loadingScreen) {
@@ -449,7 +620,7 @@
                     if (navigation) {
                         navigation.classList.add('main-nav--visible');
                     }
-                    
+
                     // Remove from DOM after animation
                     setTimeout(() => {
                         if (loadingScreen.parentNode) {
@@ -458,21 +629,10 @@
                     }, 1000);
                 }
             }, 1500);
-            
-            // Emergency fallback
-            setTimeout(() => {
-                if (loadingScreen && !loadingScreen.classList.contains('loading-screen--hidden')) {
-                    console.warn('Loading screen timeout - forcing hide');
-                    loadingScreen.style.display = 'none';
-                    if (navigation) {
-                        navigation.classList.add('main-nav--visible');
-                    }
-                }
-            }, 3000);
-            
+
             // Mobile menu toggle
             if (navToggle) {
-                navToggle.addEventListener('click', function() {
+                navToggle.addEventListener('click', function () {
                     const navMenu = navigation.querySelector('.main-nav__menu');
                     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
                     navToggle.setAttribute('aria-expanded', String(!expanded));
@@ -482,7 +642,7 @@
                     }
                 });
             }
-            
+
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -496,7 +656,110 @@
                     }
                 });
             });
+
+            // Simple blog fallback if modules don't load
+            setTimeout(() => {
+                const blogContainer = document.getElementById('blogPosts');
+                const categoriesContainer = document.getElementById('blogCategories');
+
+                if (blogContainer && !blogContainer.innerHTML.trim()) {
+                    // Add simple blog content as fallback
+                    categoriesContainer.innerHTML = `
+                        <button class="category-btn active" data-category="all">All (3)</button>
+                        <button class="category-btn" data-category="studio-news">Studio News (1)</button>
+                        <button class="category-btn" data-category="artist-spotlight">Artist Spotlight (1)</button>
+                        <button class="category-btn" data-category="tattoo-care">Tattoo Care (1)</button>
+                    `;
+
+                    blogContainer.innerHTML = `
+                        <article class="blog-post-card featured">
+                            <div class="blog-post-image">
+                                <img src="images/studio/valhalla_exterior_web.jpeg" alt="Welcome to Our New Website!" loading="lazy">
+                                <div class="blog-post-category">
+                                    <span class="category-tag category-studio-news">Studio News</span>
+                                </div>
+                            </div>
+                            <div class="blog-post-content">
+                                <header class="blog-post-header">
+                                    <h3 class="blog-post-title">Welcome to Our New Website!</h3>
+                                    <div class="blog-post-meta">
+                                        <time datetime="2024-01-15">January 15, 2024</time>
+                                        <span class="author">By Valhalla Team</span>
+                                    </div>
+                                </header>
+                                <div class="blog-post-excerpt">
+                                    <p>We're excited to launch our brand new website featuring artist portfolios, online booking, and the latest studio news.</p>
+                                </div>
+                                <footer class="blog-post-footer">
+                                    <div class="blog-post-tags">
+                                        <span class="tag">#website</span>
+                                        <span class="tag">#announcement</span>
+                                        <span class="tag">#studio</span>
+                                    </div>
+                                </footer>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-post-card">
+                            <div class="blog-post-image">
+                                <img src="images/gallery/jimmy.jpg" alt="Artist Spotlight: Jimmy's Realism Mastery" loading="lazy">
+                                <div class="blog-post-category">
+                                    <span class="category-tag category-artist-spotlight">Artist Spotlight</span>
+                                </div>
+                            </div>
+                            <div class="blog-post-content">
+                                <header class="blog-post-header">
+                                    <h3 class="blog-post-title">Artist Spotlight: Jimmy's Realism Mastery</h3>
+                                    <div class="blog-post-meta">
+                                        <time datetime="2024-01-10">January 10, 2024</time>
+                                        <span class="author">By Valhalla Team</span>
+                                    </div>
+                                </header>
+                                <div class="blog-post-excerpt">
+                                    <p>Meet Jimmy, our master of photorealistic tattoos with over 10 years of experience creating stunning black & grey pieces.</p>
+                                </div>
+                                <footer class="blog-post-footer">
+                                    <div class="blog-post-tags">
+                                        <span class="tag">#artist-spotlight</span>
+                                        <span class="tag">#jimmy</span>
+                                        <span class="tag">#realism</span>
+                                    </div>
+                                </footer>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-post-card">
+                            <div class="blog-post-image">
+                                <img src="images/studio/studio1_web.jpeg" alt="Tattoo Aftercare: Your Complete Guide" loading="lazy">
+                                <div class="blog-post-category">
+                                    <span class="category-tag category-tattoo-care">Tattoo Care</span>
+                                </div>
+                            </div>
+                            <div class="blog-post-content">
+                                <header class="blog-post-header">
+                                    <h3 class="blog-post-title">Tattoo Aftercare: Your Complete Guide</h3>
+                                    <div class="blog-post-meta">
+                                        <time datetime="2024-01-05">January 5, 2024</time>
+                                        <span class="author">By Valhalla Team</span>
+                                    </div>
+                                </header>
+                                <div class="blog-post-excerpt">
+                                    <p>Proper aftercare is crucial for healing and maintaining the beauty of your new tattoo. Here's our complete step-by-step guide.</p>
+                                </div>
+                                <footer class="blog-post-footer">
+                                    <div class="blog-post-tags">
+                                        <span class="tag">#aftercare</span>
+                                        <span class="tag">#healing</span>
+                                        <span class="tag">#tips</span>
+                                    </div>
+                                </footer>
+                            </div>
+                        </article>
+                    `;
+                }
+            }, 2000);
         });
     </script>
 </body>
+
 </html>
