@@ -564,10 +564,10 @@ export const artistsData = {
     id: 'kason',
     slug: 'kason',
     name: 'Kason',
-    specialty: 'Japanese & Oriental',
-    experience: '9+ years',
-    bio: 'Master of traditional Japanese tattooing techniques and oriental design aesthetics.',
-    extendedBio: 'Kason has dedicated over 9 years to studying and perfecting traditional Japanese tattooing techniques, including the art of tebori (hand-poking) and machine work. His deep respect for Japanese culture and artistic traditions shows in every piece, from small traditional motifs to full body suits. Kason combines traditional imagery with modern techniques to create tattoos that honor the rich history of Japanese tattooing.\n\nKason\'s journey into Japanese tattooing began with extensive study of the cultural significance behind every element - from the direction a dragon faces to the meaning of cherry blossom placement. He has spent years learning not just the techniques, but the stories, legends, and symbolism that make Japanese tattoos so powerful and meaningful.\n\nWhether creating a traditional dragon that wraps around the body with perfect flow, or a delicate cherry blossom branch that follows natural body contours, Kason ensures every piece respects the ancient traditions while being perfectly suited to modern life. His work is more than decoration - it\'s wearable cultural art that tells timeless stories.',
+    specialty: 'Black & Grey Realism, Portraits, Anime/Cartoon',
+    experience: '4+ years',
+    bio: 'Tattooing isn\'t just what I do—it\'s who I am. For 4 years I\'ve been perfecting my craft, specializing in black and grey realism, smooth shading, portraits, and bold anime/cartoon styles.',
+    extendedBio: 'Tattooing isn\'t just what I do—it\'s who I am. For 4 years I\'ve been perfecting my craft, specializing in black and grey realism, smooth shading, portraits, and bold anime/cartoon styles. Since 2021, Valhalla Tattoo has been my only shop, my creative home, and where I\'ve built lasting connections through ink that tells a story.\n\nEvery piece I create is about bringing visions to life—whether it\'s a lifelike portrait, striking realism, or artwork with that animated edge. My mission is simple: tattoos that don\'t just look good, but live with you.\n\nOutside the shop, I\'m a dedicated single parent to my 12-year-old son—he\'s my reason, my drive, and the source of the grind behind every tattoo I do.\n\nLet\'s create something unforgettable.',
     socialMedia: {
       instagram: '@valhallatattoo',
       facebook: 'ValhallaStudio'
