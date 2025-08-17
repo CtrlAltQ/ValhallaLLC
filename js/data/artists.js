@@ -8,10 +8,10 @@ export const artistsData = {
     id: 'pagan',
     slug: 'pagan',
     name: 'Pagan',
-    specialty: 'Traditional & Neo-Traditional',
+    specialty: 'Fine Line, Traditional, Black & Grey, Norse/Viking',
     experience: '10+ years',
-    bio: 'Specializing in bold traditional and neo-traditional tattoos with vibrant colors and timeless designs.',
-    extendedBio: 'Pagan brings over a decade of experience to traditional and neo-traditional tattooing, with a deep respect for the classic American tattoo tradition while incorporating modern techniques and color palettes. Known for bold line work, vibrant colors, and designs that will look just as good in 20 years as they do today.\n\nHis journey into tattooing began with a fascination for the rich history of American traditional work, studying under masters who taught him the importance of solid fundamentals. Over the years, Pagan has developed his signature style that bridges the gap between classic and contemporary, creating pieces that honor tradition while embracing innovation.\n\nWhether you\'re looking for a bold traditional eagle, a vibrant neo-traditional portrait, or something that blends both styles, Pagan\'s expertise ensures every tattoo tells a story that will stand the test of time.',
+    bio: 'Hi, I\'m Pagan. Originally from Murfreesboro, Tennessee, I moved to Spring Hill in 1990 and have watched this little town grow into what it is today.',
+    extendedBio: 'Hi, I\'m Pagan. Originally from Murfreesboro, Tennessee, I moved to Spring Hill, Tennessee, in 1990 and have watched this little town grow into what it is today. I learned how to tattoo in Columbia, Tennessee, and have been tattooing for about a decade. I feel tattooing chose me. Even though I drew as a kid, tattooing was never on my radar—but it quickly became my passion. I specialize in fine line work, American traditional, black-and-gray, and Norse/Viking-inspired tattoos.\n\nI love sitting down with clients to brainstorm their ideas so we\'re always on the same page, creating tattoos that tell their stories. I enjoy working on bigger pieces, but small tattoos are where the artistry really shines. My goal is to cultivate a relaxing, joyful environment for every client, making each session an experience to enjoy.\n\nOutside the studio, I love spending time outdoors, riding motorcycles, giving back to the community, and most importantly, spending time with my son.',
     socialMedia: {
       instagram: '@valhallatattoo',
       facebook: 'ValhallaStudio'
