@@ -22,6 +22,9 @@
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#d4af37">
+    <meta name="theme-color" content="#d4af37" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+    <meta name="msapplication-TileColor" content="#d4af37">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -121,34 +124,8 @@
                     <h2 class="section-title" id="portfolio-title">Kason's Portfolio</h2>
                     <p class="section-subtitle">Explore Kason's diverse tattoo artistry and craftsmanship</p>
                 </header>
-                <div class="portfolio-grid" role="grid" aria-label="Kason's tattoo portfolio">
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/kason/IMG_20250610_143911_compressed.jpeg" alt="Tattoo artwork by Kason" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Kason</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/kason/kason1.jpeg" alt="Tattoo artwork by Kason" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Kason</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/kason/kason4.jpeg" alt="Tattoo artwork by Kason" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Kason</p>
-                            </div>
-                        </div>
-                    </article>
+                <div class="portfolio-grid" id="portfolioGrid" role="grid" aria-label="Kason's tattoo portfolio">
+                    <!-- Portfolio items will be dynamically loaded by JavaScript -->
                 </div>
             </div>
         </section>

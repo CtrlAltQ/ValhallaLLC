@@ -575,136 +575,280 @@ export const artistsData = {
     portfolio: [
       {
         id: 1,
-        filename: 'japanese-dragon-back.jpg',
-        title: 'Traditional Dragon Backpiece',
-        style: 'Japanese',
-        placement: 'Full Back',
-        sessionTime: '15 hours',
-        description: 'Traditional Japanese dragon with wind bars, clouds, and perfect flow across the back',
-        tags: ['japanese', 'dragon', 'backpiece', 'traditional'],
+        filename: 'IMG_20250610_143911_compressed.jpeg',
+        title: 'Realism Portrait Work',
+        style: 'Black & Grey Realism',
+        placement: 'Arm',
+        sessionTime: '6 hours',
+        description: 'Detailed black and grey realism showcasing smooth shading technique',
+        tags: ['realism', 'black and grey', 'portrait', 'shading'],
+        isHealed: true,
+        uploadDate: new Date('2024-01-15')
+      },
+      {
+        id: 2,
+        filename: 'kason1.jpeg',
+        title: 'Character Portrait',
+        style: 'Black & Grey',
+        placement: 'Forearm',
+        sessionTime: '5 hours',
+        description: 'Detailed character work with smooth black and grey shading',
+        tags: ['character', 'black and grey', 'portrait', 'detailed'],
+        isHealed: true,
+        uploadDate: new Date('2024-01-20')
+      },
+      {
+        id: 3,
+        filename: 'kason4.jpeg',
+        title: 'Realistic Portrait',
+        style: 'Realism',
+        placement: 'Upper Arm',
+        sessionTime: '7 hours',
+        description: 'Photorealistic portrait work with incredible detail and shading',
+        tags: ['realism', 'portrait', 'photorealistic', 'detailed'],
         isHealed: true,
         uploadDate: new Date('2024-01-25')
       },
       {
-        id: 2,
-        filename: 'koi-fish-sleeve-color.jpg',
-        title: 'Koi Fish Full Sleeve',
-        style: 'Japanese',
-        placement: 'Full Sleeve',
-        sessionTime: '18 hours',
-        description: 'Full sleeve featuring swimming koi, cherry blossoms, and traditional water elements',
-        tags: ['japanese', 'koi', 'sleeve', 'cherry blossom'],
+        id: 4,
+        filename: 'Kason_Bear.jpeg',
+        title: 'Bear Portrait',
+        style: 'Black & Grey Realism',
+        placement: 'Shoulder',
+        sessionTime: '8 hours',
+        description: 'Stunning realistic bear portrait with detailed fur texture',
+        tags: ['animal', 'bear', 'realism', 'black and grey'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-01')
+      },
+      {
+        id: 5,
+        filename: 'chucky.jpeg',
+        title: 'Chucky Character',
+        style: 'Horror Character',
+        placement: 'Leg',
+        sessionTime: '6 hours',
+        description: 'Horror movie character with incredible detail and shading',
+        tags: ['horror', 'character', 'movie', 'chucky'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-05')
+      },
+      {
+        id: 6,
+        filename: 'kason_freddy.jpeg',
+        title: 'Freddy Krueger',
+        style: 'Horror Character',
+        placement: 'Forearm',
+        sessionTime: '7 hours',
+        description: 'Iconic horror character with realistic detail and texture',
+        tags: ['horror', 'freddy krueger', 'character', 'realistic'],
         isHealed: true,
         uploadDate: new Date('2024-02-10')
       },
       {
-        id: 3,
-        filename: 'japanese-tiger-thigh.jpg',
-        title: 'Traditional Tiger',
-        style: 'Japanese',
-        placement: 'Thigh',
+        id: 7,
+        filename: 'kason_jason.jpeg',
+        title: 'Jason Voorhees',
+        style: 'Horror Character',
+        placement: 'Upper Arm',
+        sessionTime: '6 hours',
+        description: 'Classic horror icon with detailed mask and shading',
+        tags: ['horror', 'jason', 'character', 'mask'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-15')
+      },
+      {
+        id: 8,
+        filename: 'kason_jesus.jpeg',
+        title: 'Religious Portrait',
+        style: 'Religious Art',
+        placement: 'Back',
         sessionTime: '10 hours',
-        description: 'Fierce traditional Japanese tiger with bamboo and wind elements',
-        tags: ['japanese', 'tiger', 'bamboo', 'traditional'],
+        description: 'Beautiful religious artwork with incredible detail and reverence',
+        tags: ['religious', 'portrait', 'detailed', 'spiritual'],
         isHealed: true,
         uploadDate: new Date('2024-02-20')
       },
       {
-        id: 4,
-        filename: 'cherry-blossom-branch.jpg',
-        title: 'Sakura Branch',
-        style: 'Japanese',
-        placement: 'Shoulder to Elbow',
-        sessionTime: '6 hours',
-        description: 'Delicate cherry blossom branch following natural arm contours',
-        tags: ['japanese', 'cherry blossom', 'sakura', 'delicate'],
+        id: 9,
+        filename: 'kason_angel.jpeg',
+        title: 'Angel Portrait',
+        style: 'Religious Art',
+        placement: 'Shoulder Blade',
+        sessionTime: '8 hours',
+        description: 'Ethereal angel artwork with soft shading and detail',
+        tags: ['angel', 'religious', 'portrait', 'ethereal'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-25')
+      },
+      {
+        id: 10,
+        filename: 'kason_tiger.jpeg',
+        title: 'Tiger Portrait',
+        style: 'Animal Realism',
+        placement: 'Thigh',
+        sessionTime: '9 hours',
+        description: 'Fierce tiger portrait with incredible fur detail and intensity',
+        tags: ['tiger', 'animal', 'realism', 'fierce'],
         isHealed: true,
         uploadDate: new Date('2024-03-01')
       },
       {
-        id: 5,
-        filename: 'japanese-phoenix-chest.jpg',
-        title: 'Phoenix Rising',
-        style: 'Japanese',
-        placement: 'Chest',
+        id: 11,
+        filename: 'kason_dragon.jpeg',
+        title: 'Dragon Artwork',
+        style: 'Fantasy Art',
+        placement: 'Back Piece',
         sessionTime: '12 hours',
-        description: 'Majestic phoenix with flowing feathers and traditional fire elements',
-        tags: ['japanese', 'phoenix', 'fire', 'majestic'],
+        description: 'Detailed dragon with incredible scale work and shading',
+        tags: ['dragon', 'fantasy', 'detailed', 'scales'],
         isHealed: true,
-        uploadDate: new Date('2024-03-08')
+        uploadDate: new Date('2024-03-05')
       },
       {
-        id: 6,
-        filename: 'oni-mask-traditional.jpg',
-        title: 'Oni Mask',
-        style: 'Japanese',
-        placement: 'Upper Arm',
+        id: 12,
+        filename: 'kason_rose.jpeg',
+        title: 'Rose Design',
+        style: 'Traditional',
+        placement: 'Forearm',
+        sessionTime: '4 hours',
+        description: 'Beautiful rose with smooth shading and natural flow',
+        tags: ['rose', 'traditional', 'shading', 'natural'],
+        isHealed: true,
+        uploadDate: new Date('2024-03-10')
+      },
+      {
+        id: 13,
+        filename: 'kason_bird.jpeg',
+        title: 'Bird Portrait',
+        style: 'Animal Art',
+        placement: 'Shoulder',
         sessionTime: '5 hours',
-        description: 'Traditional oni demon mask with authentic coloring and detail',
-        tags: ['japanese', 'oni', 'mask', 'demon'],
+        description: 'Detailed bird artwork with feather texture and natural pose',
+        tags: ['bird', 'animal', 'feathers', 'natural'],
+        isHealed: true,
+        uploadDate: new Date('2024-03-12')
+      },
+      {
+        id: 14,
+        filename: 'kason_bbasket.jpeg',
+        title: 'Basketball Theme',
+        style: 'Sports Art',
+        placement: 'Calf',
+        sessionTime: '6 hours',
+        description: 'Sports-themed artwork with dynamic composition',
+        tags: ['basketball', 'sports', 'dynamic', 'composition'],
         isHealed: true,
         uploadDate: new Date('2024-03-15')
       },
       {
-        id: 7,
-        filename: 'japanese-waves-forearm.jpg',
-        title: 'Traditional Wave Pattern',
-        style: 'Japanese',
-        placement: 'Forearm',
+        id: 15,
+        filename: 'kason_bbasket2.jpeg',
+        title: 'Basketball Art',
+        style: 'Sports Art',
+        placement: 'Leg',
+        sessionTime: '5 hours',
+        description: 'Basketball-inspired design with realistic shading',
+        tags: ['basketball', 'sports', 'realistic', 'shading'],
+        isHealed: true,
+        uploadDate: new Date('2024-03-17')
+      },
+      {
+        id: 16,
+        filename: 'kason_balance.jpeg',
+        title: 'Balance Symbol',
+        style: 'Symbolic Art',
+        placement: 'Wrist',
+        sessionTime: '3 hours',
+        description: 'Symbolic artwork representing balance and harmony',
+        tags: ['balance', 'symbolic', 'harmony', 'meaningful'],
+        isHealed: true,
+        uploadDate: new Date('2024-03-20')
+      },
+      {
+        id: 17,
+        filename: 'kason_bug.jpeg',
+        title: 'Insect Detail',
+        style: 'Nature Art',
+        placement: 'Hand',
         sessionTime: '4 hours',
-        description: 'Classic Japanese wave pattern with traditional blue gradients',
-        tags: ['japanese', 'waves', 'water', 'traditional'],
+        description: 'Detailed insect artwork with incredible fine detail work',
+        tags: ['insect', 'nature', 'detailed', 'fine work'],
         isHealed: true,
         uploadDate: new Date('2024-03-22')
       },
       {
-        id: 8,
-        filename: 'samurai-helmet-leg.jpg',
-        title: 'Samurai Kabuto Helmet',
-        style: 'Japanese',
-        placement: 'Calf',
+        id: 18,
+        filename: 'kason_clown_Large.jpeg',
+        title: 'Clown Character',
+        style: 'Character Art',
+        placement: 'Upper Arm',
         sessionTime: '7 hours',
-        description: 'Detailed samurai helmet with traditional armor elements',
-        tags: ['japanese', 'samurai', 'helmet', 'armor'],
+        description: 'Detailed clown character with expressive features',
+        tags: ['clown', 'character', 'expressive', 'detailed'],
         isHealed: true,
-        uploadDate: new Date('2024-03-28')
+        uploadDate: new Date('2024-03-25')
+      },
+      {
+        id: 19,
+        filename: 'IMG_20250816_202406_Large.jpeg',
+        title: 'Recent Character Work',
+        style: 'Character Art',
+        placement: 'Arm',
+        sessionTime: '6 hours',
+        description: 'Latest character artwork showcasing current skill level',
+        tags: ['character', 'recent', 'detailed', 'skill'],
+        isHealed: true,
+        uploadDate: new Date('2024-08-16')
+      },
+      {
+        id: 20,
+        filename: 'IMG_20250816_202438.jpeg',
+        title: 'Character Portrait',
+        style: 'Portrait Art',
+        placement: 'Forearm',
+        sessionTime: '5 hours',
+        description: 'Character portrait with smooth shading and detail',
+        tags: ['character', 'portrait', 'shading', 'smooth'],
+        isHealed: true,
+        uploadDate: new Date('2024-08-16')
       }
     ],
     testimonials: [
       {
         id: 1,
-        name: 'Daniel Suzuki',
+        name: 'Marcus Johnson',
         rating: 5,
-        text: 'Kason is the real deal when it comes to Japanese tattoos. His knowledge of the culture and traditions behind each design is incredible. My dragon backpiece is a masterpiece.',
+        text: 'Kason did an incredible portrait of my grandfather and the realism is unbelievable. The black and grey shading is so smooth and lifelike. Amazing work!',
         date: '2024-02-25',
         verified: true
       },
       {
         id: 2,
-        name: 'Maria Santos',
+        name: 'Sarah Chen',
         rating: 5,
-        text: 'Got my koi sleeve from Kason and it\'s absolutely stunning. He explained every element and its meaning. True respect for the art form.',
+        text: 'Got a horror character piece from Kason and I\'m blown away. The detail and shading on my Freddy Krueger tattoo is incredible. He really knows his stuff!',
         date: '2024-03-12',
         verified: true
       },
       {
         id: 3,
-        name: 'James Mitchell',
+        name: 'Mike Rodriguez',
         rating: 5,
-        text: 'Kason\'s attention to traditional Japanese detail is unmatched. My phoenix chest piece flows perfectly and the colors are incredible. Worth every session.',
+        text: 'Kason\'s black and grey realism is top tier. My animal portrait looks like a photograph. His attention to detail and smooth shading technique is unmatched.',
         date: '2024-03-25',
         verified: true
       }
     ],
     featuredWork: [
-      { portfolioId: 1, category: 'Traditional Excellence' },
-      { portfolioId: 2, category: 'Full Sleeve Mastery' },
-      { portfolioId: 5, category: 'Large Scale Work' }
+      { portfolioId: 3, category: 'Realism Excellence' },
+      { portfolioId: 4, category: 'Animal Portrait Mastery' },
+      { portfolioId: 8, category: 'Religious Art' }
     ],
     seoData: {
-      title: 'Kason - Japanese Tattoo Artist | Valhalla Tattoo',
-      description: 'View Kason\'s traditional Japanese and oriental tattoo portfolio at Valhalla Tattoo in Spring Hill, TN.',
-      keywords: ['japanese tattoos', 'oriental tattoos', 'tattoo artist', 'Spring Hill TN']
+      title: 'Kason - Black & Grey Realism Tattoo Artist | Valhalla Tattoo',
+      description: 'View Kason\'s black & grey realism, portrait, and character tattoo portfolio at Valhalla Tattoo in Spring Hill, TN.',
+      keywords: ['black and grey tattoos', 'realism tattoos', 'portrait tattoos', 'character tattoos', 'tattoo artist', 'Spring Hill TN']
     }
   },
 
@@ -885,15 +1029,18 @@ export function getArtistBySlug(slug) {
 }
 
 // Get artist portfolio with image URLs
-export function getArtistPortfolio(slug) {
+export function getArtistPortfolio(slug, isPortfolioPage = false) {
   const artist = getArtistBySlug(slug);
   if (!artist) return [];
 
+  const pathPrefix = isPortfolioPage ? '../' : '';
+
   return artist.portfolio.map(image => ({
     ...image,
-    src: `images/portfolio/${slug}/${image.filename}`,
-    thumbnail: `images/portfolio/${slug}/${image.filename}`, // Could be optimized thumbnails
-    placeholder: generatePlaceholder(400, 300)
+    src: `${pathPrefix}images/portfolio/${slug}/${encodeURIComponent(image.filename)}`,
+    thumbnail: `${pathPrefix}images/portfolio/${slug}/${encodeURIComponent(image.filename)}`, // Could be optimized thumbnails
+    placeholder: generatePlaceholder(400, 300),
+    artistSlug: slug
   }));
 }
 
