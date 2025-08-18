@@ -179,71 +179,7 @@
                     <h2 class="section-title" id="portfolio-title">Pagan's Portfolio</h2>
                     <p class="section-subtitle">Explore Pagan's diverse tattoo artistry and craftsmanship</p>
                 </header>
-                <div class="portfolio-grid" role="grid" aria-label="Pagan's tattoo portfolio">
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/pagan/20250729_145017.jpg" alt="Tattoo artwork by Pagan" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Pagan</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/pagan/image0(1).jpeg" alt="Tattoo artwork by Pagan" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Pagan</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/pagan/image0(3).jpeg" alt="Tattoo artwork by Pagan" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Pagan</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/pagan/image1.jpeg" alt="Tattoo artwork by Pagan" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Pagan</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/pagan/image1(2).jpeg" alt="Tattoo artwork by Pagan" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Pagan</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/pagan/IMG_3111.jpg" alt="Tattoo artwork by Pagan" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Pagan</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/pagan/IMG_3129.jpg" alt="Tattoo artwork by Pagan" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Pagan</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <div class="portfolio-gallery" aria-label="Pagan's tattoo portfolio"></div>
             </div>
         </section>
 
@@ -388,24 +324,5 @@
 
     <!-- JavaScript - Same as main site -->
     <script type="module" src="../js/main.js"></script>
-    <script type="module">
-        // Portfolio page specific initialization
-        import { ValhallaTattooApp } from '../js/main.js';
-        
-        // Initialize the app when DOM is loaded
-        document.addEventListener('DOMContentLoaded', async () => {
-            const app = new ValhallaTattooApp();
-            await app.init();
-            
-            // Portfolio page specific enhancements
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            portfolioItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    // Could add lightbox functionality here
-                    console.log('Portfolio item clicked');
-                });
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>

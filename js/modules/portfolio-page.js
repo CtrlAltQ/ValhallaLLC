@@ -269,7 +269,8 @@ export class PortfolioPageManager {
    * Initialize social links
    */
   initializeSocialLinks() {
-    if (!this.elements.socialContainer || !this.artist.socialMedia) return;
+    // Only initialize social links for Heather
+    if (this.artistSlug !== 'heather' || !this.elements.socialContainer || !this.artist.socialMedia) return;
 
     try {
       this.socialLinks = new SocialLinks(this.elements.socialContainer, {
