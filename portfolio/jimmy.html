@@ -199,98 +199,7 @@
                     <h2 class="section-title" id="portfolio-title">Jimmy's Portfolio</h2>
                     <p class="section-subtitle">Explore Jimmy's diverse tattoo artistry and craftsmanship</p>
                 </header>
-                <div class="portfolio-grid" role="grid" aria-label="Jimmy's tattoo portfolio">
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792182200.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792184630.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792186833.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792189094.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792191890.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792208078.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792232185.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/FB_IMG_1754792253508.jpg" alt="Tattoo artwork by Jimmy"
-                            class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/jimmy/Screenshot_20250529_045831_Facebook.jpg"
-                            alt="Tattoo artwork by Jimmy" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Jimmy</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <div class="portfolio-gallery" aria-label="Jimmy's tattoo portfolio"></div>
             </div>
         </section>
 
@@ -452,25 +361,6 @@
 
     <!-- JavaScript - Same as main site -->
     <script type="module" src="../js/main.js"></script>
-    <script type="module">
-        // Portfolio page specific initialization
-        import { ValhallaTattooApp } from '../js/main.js';
-
-        // Initialize the app when DOM is loaded
-        document.addEventListener('DOMContentLoaded', async () => {
-            const app = new ValhallaTattooApp();
-            await app.init();
-
-            // Portfolio page specific enhancements
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            portfolioItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    // Could add lightbox functionality here
-                    console.log('Portfolio item clicked');
-                });
-            });
-        });
-    </script>
-</body>
+    </body>
 
 </html>

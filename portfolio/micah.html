@@ -178,89 +178,7 @@
                     <h2 class="section-title" id="portfolio-title">Micah's Portfolio</h2>
                     <p class="section-subtitle">Explore Micah's diverse tattoo artistry and craftsmanship</p>
                 </header>
-                <div class="portfolio-grid" role="grid" aria-label="Micah's tattoo portfolio">
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_263C33BD-0726-46E3-8FE0-E7BD0C494296.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_3101BC6C-B9BD-4C12-AEF6-9B1667A9C184.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_4C1CC18F-1D13-4E87-8BCF-23C95B16FC2A.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_51D6B834-A69A-4429-BD20-FDFF80B50B83.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_7332848750778413037.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_7332848750782917803.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_7332848750783349603.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_7332848750784236948.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-item" role="gridcell">
-                        <img src="../images/portfolio/micah/Micah_creation_CCAB9748-CB96-4E28-B528-D89253D97CB4.jpeg" alt="Tattoo artwork by Micah" class="portfolio-img">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h4>Tattoo Artwork</h4>
-                                <p>By Micah</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <div class="portfolio-gallery" aria-label="Micah's tattoo portfolio"></div>
             </div>
         </section>
 
@@ -405,24 +323,5 @@
 
     <!-- JavaScript - Same as main site -->
     <script type="module" src="../js/main.js"></script>
-    <script type="module">
-        // Portfolio page specific initialization
-        import { ValhallaTattooApp } from '../js/main.js';
-        
-        // Initialize the app when DOM is loaded
-        document.addEventListener('DOMContentLoaded', async () => {
-            const app = new ValhallaTattooApp();
-            await app.init();
-            
-            // Portfolio page specific enhancements
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            portfolioItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    // Could add lightbox functionality here
-                    console.log('Portfolio item clicked');
-                });
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>
