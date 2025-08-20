@@ -303,34 +303,214 @@ window.ValhallaTattooArtists = {
     id: 'kason',
     slug: 'kason',
     name: 'Kason',
-    specialty: 'Japanese & Oriental',
-    experience: '9+ years',
-    bio: 'Master of traditional Japanese tattooing techniques and oriental design aesthetics.',
-    extendedBio: 'Kason has dedicated over 9 years to studying and perfecting traditional Japanese tattooing techniques, including the art of tebori (hand-poking) and machine work. His deep respect for Japanese culture and artistic traditions shows in every piece.',
+    specialty: 'Black & Grey Realism, Portraits, Anime/Cartoon',
+    experience: '4+ years',
+    bio: 'Tattooing isn\'t just what I do—it\'s who I am. For 4 years I\'ve been perfecting my craft, specializing in black and grey realism, smooth shading, portraits, and bold anime/cartoon styles.',
+    extendedBio: 'Tattooing isn\'t just what I do—it\'s who I am. For 4 years I\'ve been perfecting my craft, specializing in black and grey realism, smooth shading, portraits, and bold anime/cartoon styles. Since 2021, Valhalla Tattoo has been my only shop, my creative home, and where I\'ve built lasting connections through ink that tells a story.\n\nEvery piece I create is about bringing visions to life—whether it\'s a lifelike portrait, striking realism, or artwork with that animated edge. My mission is simple: tattoos that don\'t just look good, but live with you.\n\nOutside the shop, I\'m a dedicated single parent to my 12-year-old son—he\'s my reason, my drive, and the source of the grind behind every tattoo I do.\n\nLet\'s create something unforgettable.',
     socialMedia: {
-      instagram: '@valhallatattoollc',
-      facebook: 'Valhallatattoollc'
+      instagram: '@valhallatattoo',
+      facebook: 'ValhallaStudio'
     },
     portfolio: [
       {
         id: 1,
-        filename: 'japanese-dragon.jpg',
-        title: 'Traditional Dragon',
-        style: 'Japanese',
-        placement: '',
-        sessionTime: '',
-        description: 'Traditional Japanese dragon with wind bars and cloud motifs',
-        tags: ['japanese', 'dragon', 'traditional']
+        filename: 'IMG_20250610_143911_compressed.jpeg',
+        title: 'Realism Portrait Work',
+        style: 'Black & Grey Realism',
+        placement: 'Arm',
+        sessionTime: '6 hours',
+        description: 'Detailed black and grey realism showcasing smooth shading technique',
+        tags: ['realism', 'black and grey', 'portrait', 'shading']
       },
       {
         id: 2,
-        filename: 'koi-sleeve.jpg',
-        title: 'Koi Fish Sleeve',
-        style: 'Japanese',
-        placement: '',
-        sessionTime: '',
-        description: 'Full sleeve featuring koi fish, cherry blossoms, and water elements',
-        tags: ['japanese', 'koi', 'sleeve']
+        filename: 'kason1.jpeg',
+        title: 'Character Portrait',
+        style: 'Black & Grey',
+        placement: 'Forearm',
+        sessionTime: '5 hours',
+        description: 'Detailed character work with smooth black and grey shading',
+        tags: ['character', 'black and grey', 'portrait', 'detailed']
+      },
+      {
+        id: 3,
+        filename: 'kason4.jpeg',
+        title: 'Realistic Portrait',
+        style: 'Realism',
+        placement: 'Upper Arm',
+        sessionTime: '7 hours',
+        description: 'Photorealistic portrait work with incredible detail and shading',
+        tags: ['realism', 'portrait', 'photorealistic', 'detailed']
+      },
+      {
+        id: 4,
+        filename: 'Kason_Bear.jpeg',
+        title: 'Bear Portrait',
+        style: 'Black & Grey Realism',
+        placement: 'Shoulder',
+        sessionTime: '8 hours',
+        description: 'Stunning realistic bear portrait with detailed fur texture',
+        tags: ['animal', 'bear', 'realism', 'black and grey']
+      },
+      {
+        id: 5,
+        filename: 'chucky.jpeg',
+        title: 'Chucky Character',
+        style: 'Horror Character',
+        placement: 'Leg',
+        sessionTime: '6 hours',
+        description: 'Horror movie character with incredible detail and shading',
+        tags: ['horror', 'character', 'movie', 'chucky']
+      },
+      {
+        id: 6,
+        filename: 'kason_freddy.jpeg',
+        title: 'Freddy Krueger',
+        style: 'Horror Character',
+        placement: 'Forearm',
+        sessionTime: '7 hours',
+        description: 'Iconic horror character with realistic detail and texture',
+        tags: ['horror', 'freddy krueger', 'character', 'realistic']
+      },
+      {
+        id: 7,
+        filename: 'kason_jason.jpeg',
+        title: 'Jason Voorhees',
+        style: 'Horror Character',
+        placement: 'Upper Arm',
+        sessionTime: '6 hours',
+        description: 'Classic horror icon with detailed mask and shading',
+        tags: ['horror', 'jason', 'character', 'mask']
+      },
+      {
+        id: 8,
+        filename: 'kason_jesus.jpeg',
+        title: 'Religious Portrait',
+        style: 'Religious Art',
+        placement: 'Back',
+        sessionTime: '10 hours',
+        description: 'Beautiful religious artwork with incredible detail and reverence',
+        tags: ['religious', 'portrait', 'detailed', 'spiritual']
+      },
+      {
+        id: 9,
+        filename: 'kason_angel.jpeg',
+        title: 'Angel Portrait',
+        style: 'Religious Art',
+        placement: 'Shoulder Blade',
+        sessionTime: '8 hours',
+        description: 'Ethereal angel artwork with soft shading and detail',
+        tags: ['angel', 'religious', 'portrait', 'ethereal']
+      },
+      {
+        id: 10,
+        filename: 'kason_tiger.jpeg',
+        title: 'Tiger Portrait',
+        style: 'Animal Realism',
+        placement: 'Thigh',
+        sessionTime: '9 hours',
+        description: 'Fierce tiger portrait with incredible fur detail and intensity',
+        tags: ['tiger', 'animal', 'realism', 'fierce']
+      },
+      {
+        id: 11,
+        filename: 'kason_dragon.jpeg',
+        title: 'Dragon Artwork',
+        style: 'Fantasy Art',
+        placement: 'Back Piece',
+        sessionTime: '12 hours',
+        description: 'Detailed dragon with incredible scale work and shading',
+        tags: ['dragon', 'fantasy', 'detailed', 'scales']
+      },
+      {
+        id: 12,
+        filename: 'kason_rose.jpeg',
+        title: 'Rose Design',
+        style: 'Traditional',
+        placement: 'Forearm',
+        sessionTime: '4 hours',
+        description: 'Beautiful rose with smooth shading and natural flow',
+        tags: ['rose', 'traditional', 'shading', 'natural']
+      },
+      {
+        id: 13,
+        filename: 'kason_bird.jpeg',
+        title: 'Bird Portrait',
+        style: 'Animal Art',
+        placement: 'Shoulder',
+        sessionTime: '5 hours',
+        description: 'Detailed bird artwork with feather texture and natural pose',
+        tags: ['bird', 'animal', 'feathers', 'natural']
+      },
+      {
+        id: 14,
+        filename: 'kason_bbasket.jpeg',
+        title: 'Basketball Theme',
+        style: 'Sports Art',
+        placement: 'Calf',
+        sessionTime: '6 hours',
+        description: 'Sports-themed artwork with dynamic composition',
+        tags: ['basketball', 'sports', 'dynamic', 'composition']
+      },
+      {
+        id: 15,
+        filename: 'kason_bbasket2.jpeg',
+        title: 'Basketball Art',
+        style: 'Sports Art',
+        placement: 'Leg',
+        sessionTime: '5 hours',
+        description: 'Basketball-inspired design with realistic shading',
+        tags: ['basketball', 'sports', 'realistic', 'shading']
+      },
+      {
+        id: 16,
+        filename: 'kason_balance.jpeg',
+        title: 'Balance Symbol',
+        style: 'Symbolic Art',
+        placement: 'Wrist',
+        sessionTime: '3 hours',
+        description: 'Symbolic artwork representing balance and harmony',
+        tags: ['balance', 'symbolic', 'harmony', 'meaningful']
+      },
+      {
+        id: 17,
+        filename: 'kason_bug.jpeg',
+        title: 'Insect Detail',
+        style: 'Nature Art',
+        placement: 'Hand',
+        sessionTime: '4 hours',
+        description: 'Detailed insect artwork with incredible fine detail work',
+        tags: ['insect', 'nature', 'detailed', 'fine work']
+      },
+      {
+        id: 18,
+        filename: 'kason_clown_Large.jpeg',
+        title: 'Clown Character',
+        style: 'Character Art',
+        placement: 'Upper Arm',
+        sessionTime: '7 hours',
+        description: 'Detailed clown character with expressive features',
+        tags: ['clown', 'character', 'expressive', 'detailed']
+      },
+      {
+        id: 19,
+        filename: 'IMG_20250816_202406_Large.jpeg',
+        title: 'Recent Character Work',
+        style: 'Character Art',
+        placement: 'Arm',
+        sessionTime: '6 hours',
+        description: 'Latest character artwork showcasing current skill level',
+        tags: ['character', 'recent', 'detailed', 'skill']
+      },
+      {
+        id: 20,
+        filename: 'IMG_20250816_202438.jpeg',
+        title: 'Character Portrait',
+        style: 'Portrait Art',
+        placement: 'Forearm',
+        sessionTime: '5 hours',
+        description: 'Character portrait with smooth shading and detail',
+        tags: ['character', 'portrait', 'shading', 'smooth']
       }
     ]
   },
