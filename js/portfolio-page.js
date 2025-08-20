@@ -24,8 +24,8 @@ window.ValhallaTattooArtists = {
         filename: '20250729_145017.jpg',
         title: 'Custom Traditional Design',
         style: 'Traditional',
-        placement: 'Arm',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Custom traditional tattoo design with bold lines',
         tags: ['traditional', 'custom']
       },
@@ -34,8 +34,8 @@ window.ValhallaTattooArtists = {
         filename: 'IMG_3111.jpg',
         title: 'Black and Grey Work',
         style: 'Black & Grey',
-        placement: 'Forearm',
-        sessionTime: '3 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Detailed black and grey tattoo',
         tags: ['black-grey', 'detailed']
       },
@@ -44,8 +44,8 @@ window.ValhallaTattooArtists = {
         filename: 'IMG_3129.jpg',
         title: 'Fine Line Art',
         style: 'Fine Line',
-        placement: 'Arm',
-        sessionTime: '3 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Intricate fine line tattoo work',
         tags: ['fine-line', 'detailed']
       },
@@ -54,8 +54,8 @@ window.ValhallaTattooArtists = {
         filename: 'image0(1).jpeg',
         title: 'Traditional Piece',
         style: 'Traditional',
-        placement: 'Shoulder',
-        sessionTime: '5 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Bold traditional tattoo with vibrant colors',
         tags: ['traditional', 'color']
       },
@@ -64,8 +64,8 @@ window.ValhallaTattooArtists = {
         filename: 'image0(3).jpeg',
         title: 'Norse-Inspired Design',
         style: 'Norse/Viking',
-        placement: 'Back',
-        sessionTime: '6 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Norse-inspired tattoo with traditional elements',
         tags: ['norse', 'viking', 'traditional']
       },
@@ -74,8 +74,8 @@ window.ValhallaTattooArtists = {
         filename: 'image1(2).jpeg',
         title: 'Detailed Black Work',
         style: 'Black & Grey',
-        placement: 'Leg',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Detailed black and grey composition',
         tags: ['black-grey', 'detailed']
       },
@@ -84,8 +84,8 @@ window.ValhallaTattooArtists = {
         filename: 'image1.jpeg',
         title: 'Fine Line Portrait',
         style: 'Fine Line',
-        placement: 'Forearm',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Delicate fine line portrait work',
         tags: ['fine-line', 'portrait']
       }
@@ -110,8 +110,8 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792182200.jpg',
         title: 'Detailed Realism Work',
         style: 'Realism',
-        placement: 'Arm',
-        sessionTime: '6 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Intricate realistic tattoo showcasing fine detail work',
         tags: ['realism', 'black and grey', 'portrait']
       },
@@ -120,8 +120,8 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792184630.jpg',
         title: 'Black & Grey Portrait',
         style: 'Black & Grey',
-        placement: 'Shoulder',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Stunning black and grey portrait work',
         tags: ['portrait', 'black and grey', 'realism']
       },
@@ -130,8 +130,8 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792186833.jpg',
         title: 'Realistic Animal Portrait',
         style: 'Realism',
-        placement: 'Forearm',
-        sessionTime: '5 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Lifelike animal portrait with incredible detail',
         tags: ['animal', 'realism', 'black and grey']
       },
@@ -140,8 +140,8 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792189094.jpg',
         title: 'Detailed Character Work',
         style: 'Realism',
-        placement: 'Leg',
-        sessionTime: '7 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Complex character tattoo with fine shading',
         tags: ['character', 'realism', 'detailed']
       }
@@ -166,8 +166,8 @@ window.ValhallaTattooArtists = {
         filename: 'geometric-mandala.jpg',
         title: 'Geometric Mandala',
         style: 'Geometric',
-        placement: 'Back',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Intricate geometric mandala with precise line work',
         tags: ['geometric', 'mandala', 'precise']
       },
@@ -176,8 +176,8 @@ window.ValhallaTattooArtists = {
         filename: 'fine-line-floral.jpg',
         title: 'Fine Line Floral',
         style: 'Fine Line',
-        placement: 'Wrist',
-        sessionTime: '2 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Delicate floral design with ultra-fine line work',
         tags: ['fine line', 'floral', 'delicate']
       }
