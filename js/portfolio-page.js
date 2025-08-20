@@ -163,23 +163,123 @@ window.ValhallaTattooArtists = {
     portfolio: [
       {
         id: 1,
-        filename: 'geometric-mandala.jpg',
-        title: 'Geometric Mandala',
-        style: 'Geometric',
-        placement: '',
-        sessionTime: '',
-        description: 'Intricate geometric mandala with precise line work',
-        tags: ['geometric', 'mandala', 'precise']
+        filename: 'MIkah_creation_F51EDE92-0E39-4170-B60F-C9A4571A860D.jpeg',
+        title: 'Fine Line Creation',
+        style: 'Fine Line',
+        placement: 'Arm',
+        sessionTime: '3 hours',
+        description: 'Delicate fine line work showcasing precision and artistic detail',
+        tags: ['fine line', 'detailed', 'artistic']
       },
       {
         id: 2,
-        filename: 'fine-line-floral.jpg',
-        title: 'Fine Line Floral',
+        filename: 'Micah_creation_263C33BD-0726-46E3-8FE0-E7BD0C494296.jpeg',
+        title: 'Geometric Design',
+        style: 'Geometric',
+        placement: 'Forearm',
+        sessionTime: '4 hours',
+        description: 'Precise geometric patterns with mathematical accuracy',
+        tags: ['geometric', 'precision', 'mathematical']
+      },
+      {
+        id: 3,
+        filename: 'Micah_creation_3101BC6C-B9BD-4C12-AEF6-9B1667A9C184.jpeg',
+        title: 'Artistic Composition',
         style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Delicate floral design with ultra-fine line work',
-        tags: ['fine line', 'floral', 'delicate']
+        placement: 'Upper Arm',
+        sessionTime: '2.5 hours',
+        description: 'Artistic fine line composition with flowing elements',
+        tags: ['fine line', 'artistic', 'flowing']
+      },
+      {
+        id: 4,
+        filename: 'Micah_creation_4C1CC18F-1D13-4E87-8BCF-23C95B16FC2A.jpeg',
+        title: 'Detailed Line Work',
+        style: 'Fine Line',
+        placement: 'Wrist',
+        sessionTime: '3 hours',
+        description: 'Intricate fine line work with careful attention to detail',
+        tags: ['fine line', 'intricate', 'detailed']
+      },
+      {
+        id: 5,
+        filename: 'Micah_creation_51D6B834-A69A-4429-BD20-FDFF80B50B83.jpeg',
+        title: 'Geometric Pattern',
+        style: 'Geometric',
+        placement: 'Shoulder',
+        sessionTime: '4 hours',
+        description: 'Complex geometric pattern with perfect symmetry',
+        tags: ['geometric', 'pattern', 'symmetry']
+      },
+      {
+        id: 6,
+        filename: 'Micah_creation_7332848750778413037.jpeg',
+        title: 'Fine Line Art',
+        style: 'Fine Line',
+        placement: 'Back',
+        sessionTime: '5 hours',
+        description: 'Beautiful fine line artwork with organic flow',
+        tags: ['fine line', 'artwork', 'organic']
+      },
+      {
+        id: 7,
+        filename: 'Micah_creation_7332848750782917803.jpeg',
+        title: 'Minimalist Design',
+        style: 'Fine Line',
+        placement: 'Ankle',
+        sessionTime: '2 hours',
+        description: 'Elegant minimalist design with clean lines',
+        tags: ['fine line', 'minimalist', 'elegant']
+      },
+      {
+        id: 8,
+        filename: 'Micah_creation_7332848750783349603.jpeg',
+        title: 'Geometric Composition',
+        style: 'Geometric',
+        placement: 'Thigh',
+        sessionTime: '4 hours',
+        description: 'Sophisticated geometric composition with precise execution',
+        tags: ['geometric', 'sophisticated', 'precise']
+      },
+      {
+        id: 9,
+        filename: 'Micah_creation_7332848750784236948.jpeg',
+        title: 'Artistic Line Work',
+        style: 'Fine Line',
+        placement: 'Ribcage',
+        sessionTime: '3 hours',
+        description: 'Artistic fine line work with beautiful composition',
+        tags: ['fine line', 'artistic', 'composition']
+      },
+      {
+        id: 10,
+        filename: 'Micah_creation_CCAB9748-CB96-4E28-B528-D89253D97CB4.jpeg',
+        title: 'Detailed Creation',
+        style: 'Fine Line',
+        placement: 'Leg',
+        sessionTime: '3.5 hours',
+        description: 'Meticulously detailed creation with fine line precision',
+        tags: ['fine line', 'detailed', 'meticulous']
+      },
+      {
+        id: 11,
+        filename: 'Mikah_creation_7332848750783349603 2.jpeg',
+        title: 'Geometric Art',
+        style: 'Geometric',
+        placement: 'Forearm',
+        sessionTime: '4 hours',
+        description: 'Geometric art piece with mathematical precision',
+        tags: ['geometric', 'art', 'mathematical']
+      },
+      {
+        id: 12,
+        filename: 'Mikah_creation_D59A6904-6065-4078-A0AE-B8889D4DB6DD.jpeg',
+        title: 'Fine Line Masterpiece',
+        style: 'Fine Line',
+        placement: 'Upper Back',
+        sessionTime: '5 hours',
+        description: 'Fine line masterpiece showcasing artistic expertise',
+        tags: ['fine line', 'masterpiece', 'artistic']
       }
     ]
   },
@@ -196,28 +296,7 @@ window.ValhallaTattooArtists = {
       instagram: '@valhallatattoollc',
       facebook: 'Valhallatattoollc'
     },
-    portfolio: [
-      {
-        id: 1,
-        filename: 'watercolor-flower.jpg',
-        title: 'Watercolor Floral',
-        style: 'Watercolor',
-        placement: 'Shoulder',
-        sessionTime: '4 hours',
-        description: 'Flowing watercolor floral design with vibrant color blending',
-        tags: ['watercolor', 'floral', 'colorful']
-      },
-      {
-        id: 2,
-        filename: 'illustrative-bird.jpg',
-        title: 'Illustrative Bird',
-        style: 'Illustrative',
-        placement: 'Forearm',
-        sessionTime: '3 hours',
-        description: 'Artistic bird illustration with flowing lines and color accents',
-        tags: ['illustrative', 'bird', 'artistic']
-      }
-    ]
+    portfolio: []
   },
 
   kason: {
@@ -268,28 +347,7 @@ window.ValhallaTattooArtists = {
       instagram: '@valhallatattoollc',
       facebook: 'Valhallatattoollc'
     },
-    portfolio: [
-      {
-        id: 1,
-        filename: 'botanical-design.jpg',
-        title: 'Botanical Sleeve',
-        style: 'Botanical',
-        placement: 'Arm',
-        sessionTime: '6 hours',
-        description: 'Beautiful botanical design with natural flowing elements',
-        tags: ['botanical', 'nature', 'organic']
-      },
-      {
-        id: 2,
-        filename: 'floral-mandala.jpg',
-        title: 'Floral Mandala',
-        style: 'Nature',
-        placement: 'Back',
-        sessionTime: '5 hours',
-        description: 'Intricate floral mandala with detailed natural elements',
-        tags: ['floral', 'mandala', 'detailed']
-      }
-    ]
+    portfolio: []
   }
 };
 
