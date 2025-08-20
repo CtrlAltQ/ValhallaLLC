@@ -38,32 +38,34 @@ export class PortfolioPageManager {
    */
   async init() {
     if (this.initialized) return;
-
+  
     try {
       console.log('Initializing portfolio page...');
-
+  
       // Get artist slug from URL
       this.artistSlug = URLUtils.getArtistSlugFromURL();
+      console.log('Artist slug from URL:', this.artistSlug);
       
       if (!this.artistSlug) {
         throw new Error('No artist slug found in URL');
       }
-
+  
       console.log(`Loading portfolio for artist: ${this.artistSlug}`);
-
+  
       // Load artist data
       this.artist = getArtistBySlug(this.artistSlug);
+      console.log('Artist data loaded:', this.artist ? 'Success' : 'Failed');
       
       if (!this.artist) {
         throw new Error(`Artist not found: ${this.artistSlug}`);
       }
-
+  
       // Wait for DOM to be ready
       await this.waitForDOM();
-
+  
       // Find DOM elements
       this.findElements();
-
+  
       // Initialize components
       await this.initializeSEO();
       this.updatePageContent();
@@ -71,10 +73,10 @@ export class PortfolioPageManager {
       this.initializeSocialLinks();
       this.setupContactForm();
       this.setupNavigation();
-
+  
       this.initialized = true;
       console.log(`Portfolio page initialized successfully for ${this.artist.name}`);
-
+  
       // Dispatch event for other scripts
       document.dispatchEvent(new CustomEvent('portfolio:initialized', {
         detail: { 
@@ -82,7 +84,7 @@ export class PortfolioPageManager {
           manager: this 
         }
       }));
-
+  
     } catch (error) {
       console.error('Failed to initialize portfolio page:', error);
       this.showErrorMessage(error.message);
@@ -108,8 +110,8 @@ export class PortfolioPageManager {
    */
   findElements() {
     this.elements = {
-      heroTitle: document.querySelector('.artist-hero-title'),
-      heroSubtitle: document.querySelector('.hero-subtitle'),
+      heroTitle: document.querySelector('.hero__title'),
+      heroSubtitle: document.querySelector('.hero__subtitle'),
       specialty: document.querySelector('.artist-specialty'),
       experience: document.querySelector('.artist-experience'),
       bio: document.querySelector('.artist-bio'),
@@ -238,8 +240,8 @@ export class PortfolioPageManager {
     if (!this.elements.galleryContainer || !this.artist) return;
 
     try {
-      // Get portfolio images
-      const portfolioImages = getArtistPortfolio(this.artistSlug);
+      // Get portfolio images - FIXED: Pass true for isPortfolioPage parameter
+      const portfolioImages = getArtistPortfolio(this.artistSlug, true);
       
       if (portfolioImages.length === 0) {
         console.warn(`No portfolio images found for ${this.artistSlug}`);
@@ -433,21 +435,5 @@ export class PortfolioPageManager {
     console.log('Portfolio page destroyed');
   }
 }
-
-// Auto-initialize if this is a portfolio page
-document.addEventListener('DOMContentLoaded', async () => {
-  // Check if this is a portfolio page by looking for portfolio-specific elements
-  const isPortfolioPage = document.querySelector('.artist-hero') || 
-                         document.querySelector('.portfolio-gallery') ||
-                         window.location.pathname.includes('/portfolio/');
-  
-  if (isPortfolioPage) {
-    const portfolioManager = new PortfolioPageManager();
-    await portfolioManager.init();
-    
-    // Make globally available for debugging
-    window.PortfolioPageManager = portfolioManager;
-  }
-});
 
 export default PortfolioPageManager;

@@ -7,7 +7,7 @@ import { Homepage } from './modules/homepage.js';
 import { Portfolio } from './modules/portfolio.js';
 import { Contact } from './modules/contact.js';
 import { AnimationSystem } from './modules/animations.js';
-import { gsapLoader } from './utils/gsap-loader.js';
+import { animationLoader } from './utils/animation-loader.js';
 import { progressiveEnhancement } from './utils/progressive-enhancement.js';
 import { imageOptimizer } from './utils/image-optimizer.js';
 import browserCompatibility from './utils/browser-compatibility.js';
@@ -43,9 +43,9 @@ class ValhallaTattooMinimalApp {
       // Browser compatibility is automatically initialized on import
       console.log(`Browser detected: ${browserCompatibility.browser.name} ${browserCompatibility.browser.version}`);
 
-      // Load GSAP first for animations
-      await gsapLoader.loadGSAP();
-      console.log('GSAP loaded successfully');
+      // Load GreenSock Animation Platform first for animations
+      await animationLoader.loadGreenSockAnimationPlatform();
+      console.log('GreenSock Animation Platform loaded successfully');
 
       // Initialize modules in order
       await this.modules.animations.init();

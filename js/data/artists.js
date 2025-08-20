@@ -17,7 +17,6 @@ export const artistsData = {
       facebook: 'ValhallaStudio'
     },
     portfolio: [
-      // Sample portfolio items - will be populated with actual images
       {
         id: 1,
         filename: 'traditional-rose.jpg',
@@ -32,43 +31,30 @@ export const artistsData = {
       },
       {
         id: 2,
-        filename: 'neo-traditional-skull.jpg',
-        title: 'Neo-Traditional Skull',
-        style: 'Neo-Traditional',
-        placement: 'Upper Arm',
-        sessionTime: '5 hours',
-        description: 'Modern take on traditional skull design with enhanced shading',
-        tags: ['neo-traditional', 'skull', 'modern'],
+        filename: '20250729_145017.jpg',
+        title: 'Custom Design',
+        style: 'Traditional',
+        placement: 'Arm',
+        sessionTime: '4 hours',
+        description: 'Custom traditional tattoo design',
+        tags: ['traditional', 'custom'],
         isHealed: true,
-        uploadDate: new Date('2024-01-25')
-      }
-    ],
-    testimonials: [
-      {
-        id: 1,
-        name: 'Marcus Rodriguez',
-        rating: 5,
-        text: 'Pagan absolutely nailed my traditional eagle piece! The line work is incredibly clean and the colors are still vibrant after two years. True craftsman.',
-        date: '2024-01-15',
-        verified: true
-      },
-      {
-        id: 2,
-        name: 'Jessica Thompson',
-        rating: 5,
-        text: 'Got my neo-traditional rose from Pagan and I couldn\'t be happier. He really understands how to blend classic and modern styles perfectly.',
-        date: '2024-02-20',
-        verified: true
+        uploadDate: new Date('2024-07-29')
       },
       {
         id: 3,
-        name: 'David Chen',
-        rating: 5,
-        text: 'Professional, clean studio, and amazing artwork. Pagan is a master of his craft and made the whole experience comfortable and enjoyable.',
-        date: '2024-03-10',
-        verified: true
+        filename: 'IMG_3111.jpg',
+        title: 'Black and Grey Work',
+        style: 'Black & Grey',
+        placement: 'Forearm',
+        sessionTime: '3 hours',
+        description: 'Detailed black and grey tattoo',
+        tags: ['black-grey', 'detailed'],
+        isHealed: true,
+        uploadDate: new Date('2024-01-15')
       }
     ],
+
     featuredWork: [
       { portfolioId: 1, category: 'Best Traditional' },
       { portfolioId: 2, category: 'Neo-Traditional Excellence' }
@@ -226,32 +212,7 @@ export const artistsData = {
         uploadDate: new Date('2024-03-20')
       }
     ],
-    testimonials: [
-      {
-        id: 1,
-        name: 'Sarah Williams',
-        rating: 5,
-        text: 'Jimmy did a portrait of my late grandfather and I literally cried when I saw it. The detail and emotion he captured is unbelievable. It looks exactly like a photograph.',
-        date: '2024-01-25',
-        verified: true
-      },
-      {
-        id: 2,
-        name: 'Michael Anderson',
-        rating: 5,
-        text: 'Got a realistic wolf piece from Jimmy and people are constantly asking if it\'s real. His attention to detail is insane - worth every penny and every hour in the chair.',
-        date: '2024-02-18',
-        verified: true
-      },
-      {
-        id: 3,
-        name: 'Lisa Martinez',
-        rating: 5,
-        text: 'Jimmy is an absolute artist. His realistic work is museum quality. Professional, patient, and creates masterpieces that will last a lifetime.',
-        date: '2024-03-05',
-        verified: true
-      }
-    ],
+    testimonials: [],
     featuredWork: [
       { portfolioId: 5, category: 'Portrait Mastery' },
       { portfolioId: 11, category: 'Large Scale Realism' },
@@ -374,32 +335,7 @@ export const artistsData = {
         uploadDate: new Date('2024-03-15')
       }
     ],
-    testimonials: [
-      {
-        id: 1,
-        name: 'Emma Collins',
-        rating: 5,
-        text: 'Micah is incredible with fine line work! My delicate floral piece healed perfectly and still looks amazing. Their attention to detail is unmatched.',
-        date: '2024-02-10',
-        verified: true
-      },
-      {
-        id: 2,
-        name: 'Alexander Kim',
-        rating: 5,
-        text: 'Got a geometric mandala from Micah and I\'m blown away. The precision and symmetry is perfect. True geometric artistry.',
-        date: '2024-02-28',
-        verified: true
-      },
-      {
-        id: 3,
-        name: 'Maya Patel',
-        rating: 5,
-        text: 'Micah understands minimalism like no other artist I\'ve met. My fine line constellation tattoo is exactly what I envisioned - simple but powerful.',
-        date: '2024-03-12',
-        verified: true
-      }
-    ],
+    testimonials: [],
     featuredWork: [
       { portfolioId: 1, category: 'Geometric Excellence' },
       { portfolioId: 6, category: 'Fine Line Mastery' },
@@ -522,32 +458,7 @@ export const artistsData = {
         uploadDate: new Date('2024-03-15')
       }
     ],
-    testimonials: [
-      {
-        id: 1,
-        name: 'Rachel Johnson',
-        rating: 5,
-        text: 'Sarah created the most beautiful watercolor piece I\'ve ever seen! The colors are so vibrant and the way they blend together is like magic. Pure artistry.',
-        date: '2024-02-15',
-        verified: true
-      },
-      {
-        id: 2,
-        name: 'Christopher Lee',
-        rating: 5,
-        text: 'My illustrative forest piece from Sarah is incredible. She has such a unique artistic vision and really understands how to make tattoos look like paintings.',
-        date: '2024-03-02',
-        verified: true
-      },
-      {
-        id: 3,
-        name: 'Amanda Foster',
-        rating: 5,
-        text: 'Sarah is a true artist. My watercolor butterfly looks like it could fly right off my skin. Her attention to color and detail is phenomenal.',
-        date: '2024-03-18',
-        verified: true
-      }
-    ],
+    testimonials: [],
     featuredWork: [
       { portfolioId: 3, category: 'Watercolor Excellence' },
       { portfolioId: 6, category: 'Illustrative Mastery' },
@@ -814,32 +725,7 @@ export const artistsData = {
         uploadDate: new Date('2024-08-16')
       }
     ],
-    testimonials: [
-      {
-        id: 1,
-        name: 'Marcus Johnson',
-        rating: 5,
-        text: 'Kason did an incredible portrait of my grandfather and the realism is unbelievable. The black and grey shading is so smooth and lifelike. Amazing work!',
-        date: '2024-02-25',
-        verified: true
-      },
-      {
-        id: 2,
-        name: 'Sarah Chen',
-        rating: 5,
-        text: 'Got a horror character piece from Kason and I\'m blown away. The detail and shading on my Freddy Krueger tattoo is incredible. He really knows his stuff!',
-        date: '2024-03-12',
-        verified: true
-      },
-      {
-        id: 3,
-        name: 'Mike Rodriguez',
-        rating: 5,
-        text: 'Kason\'s black and grey realism is top tier. My animal portrait looks like a photograph. His attention to detail and smooth shading technique is unmatched.',
-        date: '2024-03-25',
-        verified: true
-      }
-    ],
+    testimonials: [],
     featuredWork: [
       { portfolioId: 3, category: 'Realism Excellence' },
       { portfolioId: 4, category: 'Animal Portrait Mastery' },
@@ -867,127 +753,18 @@ export const artistsData = {
     portfolio: [
       {
         id: 1,
-        filename: 'elegant-script-ribcage.jpg',
-        title: 'Cursive Memorial Script',
+        filename: 'heather1.jpeg',
+        title: 'Script Work Sample',
         style: 'Script',
-        placement: 'Ribcage',
-        sessionTime: '2.5 hours',
-        description: 'Elegant cursive memorial script with delicate flourishes and perfect spacing',
-        tags: ['script', 'cursive', 'memorial', 'elegant'],
-        isHealed: true,
-        uploadDate: new Date('2024-01-18')
-      },
-      {
-        id: 2,
-        filename: 'ornamental-mandala-back.jpg',
-        title: 'Sacred Ornamental Mandala',
-        style: 'Ornamental',
-        placement: 'Upper Back',
-        sessionTime: '6 hours',
-        description: 'Intricate ornamental mandala with sacred geometry and detailed line work',
-        tags: ['ornamental', 'mandala', 'sacred', 'detailed'],
-        isHealed: true,
-        uploadDate: new Date('2024-01-25')
-      },
-      {
-        id: 3,
-        filename: 'calligraphy-quote-forearm.jpg',
-        title: 'Calligraphy Quote',
-        style: 'Script',
-        placement: 'Forearm',
+        placement: 'Various',
         sessionTime: '3 hours',
-        description: 'Inspirational quote in modern calligraphy style with flowing letterforms',
-        tags: ['script', 'calligraphy', 'quote', 'inspirational'],
+        description: 'Beautiful script and ornamental work',
+        tags: ['script', 'ornamental'],
         isHealed: true,
-        uploadDate: new Date('2024-02-05')
-      },
-      {
-        id: 4,
-        filename: 'decorative-border-wrist.jpg',
-        title: 'Ornamental Wrist Band',
-        style: 'Ornamental',
-        placement: 'Wrist',
-        sessionTime: '2 hours',
-        description: 'Delicate ornamental border design wrapping around the wrist',
-        tags: ['ornamental', 'border', 'wrist', 'delicate'],
-        isHealed: true,
-        uploadDate: new Date('2024-02-12')
-      },
-      {
-        id: 5,
-        filename: 'gothic-lettering-shoulder.jpg',
-        title: 'Gothic Lettering',
-        style: 'Script',
-        placement: 'Shoulder',
-        sessionTime: '4 hours',
-        description: 'Bold gothic lettering with ornamental accents and traditional styling',
-        tags: ['script', 'gothic', 'bold', 'traditional'],
-        isHealed: true,
-        uploadDate: new Date('2024-02-20')
-      },
-      {
-        id: 6,
-        filename: 'filigree-sternum.jpg',
-        title: 'Filigree Sternum Piece',
-        style: 'Ornamental',
-        placement: 'Sternum',
-        sessionTime: '4 hours',
-        description: 'Intricate filigree design with flowing ornamental patterns',
-        tags: ['ornamental', 'filigree', 'intricate', 'flowing'],
-        isHealed: true,
-        uploadDate: new Date('2024-02-28')
-      },
-      {
-        id: 7,
-        filename: 'handwritten-script-ankle.jpg',
-        title: 'Handwritten Script',
-        style: 'Script',
-        placement: 'Ankle',
-        sessionTime: '1.5 hours',
-        description: 'Personal handwritten-style script with natural, flowing letterforms',
-        tags: ['script', 'handwritten', 'personal', 'natural'],
-        isHealed: true,
-        uploadDate: new Date('2024-03-08')
-      },
-      {
-        id: 8,
-        filename: 'ornamental-corner-shoulder.jpg',
-        title: 'Ornamental Corner Design',
-        style: 'Ornamental',
-        placement: 'Shoulder',
-        sessionTime: '3 hours',
-        description: 'Decorative corner ornament with Victorian-inspired flourishes',
-        tags: ['ornamental', 'corner', 'victorian', 'decorative'],
-        isHealed: true,
-        uploadDate: new Date('2024-03-15')
+        uploadDate: new Date('2024-01-15')
       }
     ],
-    testimonials: [
-      {
-        id: 1,
-        name: 'Jennifer Walsh',
-        rating: 5,
-        text: 'Heather did the most beautiful memorial script for my grandmother. The lettering is perfect and the flourishes are exactly what I wanted. So grateful for her artistry.',
-        date: '2024-02-22',
-        verified: true
-      },
-      {
-        id: 2,
-        name: 'Tyler Brooks',
-        rating: 5,
-        text: 'My ornamental mandala from Heather is incredible. The detail and precision in every line is amazing. She really understands how to make decorative work flow with your body.',
-        date: '2024-03-05',
-        verified: true
-      },
-      {
-        id: 3,
-        name: 'Sophia Rivera',
-        rating: 5,
-        text: 'Heather has such an eye for beautiful lettering. My quote tattoo looks like it was hand-lettered by a master calligrapher. Perfect spacing and flow.',
-        date: '2024-03-18',
-        verified: true
-      }
-    ],
+    testimonials: [],
     featuredWork: [
       { portfolioId: 2, category: 'Ornamental Excellence' },
       { portfolioId: 3, category: 'Script Mastery' },

@@ -71,7 +71,7 @@ export class PortfolioGallery {
    * @returns {string} HTML string for image item
    */
   renderImageItem(image) {
-    const imageSrc = image.src || `images/portfolio/${image.artistSlug || 'default'}/${image.filename}`;
+    const imageSrc = image.src || `../images/portfolio/${image.artistSlug || 'default'}/${image.filename}`;
     const placeholder = this.generatePlaceholder();
     
     return `
@@ -379,7 +379,7 @@ export class PortfolioGallery {
   /**
    * Setup scroll animations
    */
-  setupScrollAnimations() {
+  setupScrollAnimations() 
     if (!('IntersectionObserver' in window)) return;
     
     const observer = new IntersectionObserver((entries) => {
@@ -398,68 +398,69 @@ export class PortfolioGallery {
     setTimeout(() => {
       const items = this.container.querySelectorAll('.portfolio-item');
       items.forEach(item => observer.observe(item));
-    }, 100);
-  }
+    } // ← Ensure this closing brace exists
 
-  /**
-   * Get image data from DOM element
-   * @param {HTMLElement} element - Portfolio item element
-   * @returns {Object|null} Image data object
-   */
-  getImageDataFromElement(element) {
-    if (!element) return null;
-    
-    const title = element.querySelector('.portfolio-title')?.textContent;
-    const style = element.querySelector('.portfolio-style')?.textContent;
-    const artist = element.querySelector('.portfolio-artist')?.textContent?.replace('By ', '');
-    const description = element.querySelector('.portfolio-description')?.textContent;
-    
-    return { title, style, artist, description };
-  }
-
-  /**
-   * Generate placeholder image
-   * @returns {string} Data URL for placeholder
-   */
-  generatePlaceholder() {
-    return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="50%" y="50%" text-anchor="middle" fill="%23999" font-family="Arial" font-size="16"%3ELoading...%3C/text%3E%3C/svg%3E';
-  }
-
-  /**
-   * Capitalize filter name for display
-   * @param {string} filter - Filter name
-   * @returns {string} Capitalized filter name
-   */
-  capitalizeFilter(filter) {
-    if (filter === 'all') return 'All Work';
-    
-    return filter
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  }
-
-  /**
-   * Update gallery with new images
-   * @param {Array} newImages - New image array
-   */
-  update(newImages) {
-    this.images = newImages;
-    this.render();
-  }
-
-  /**
-   * Destroy the gallery and clean up
-   */
-  destroy() {
-    if (this.lightbox) {
-      this.closeLightbox();
+    /**
+     * Get image data from DOM element
+     * @param {HTMLElement} element - Portfolio item element
+     * @returns {Object|null} Image data object
+     */
+      
+      const title = element.querySelector('.portfolio-title')?.textContent;
+      const style = element.querySelector('.portfolio-style')?.textContent;
+      const artist = element.querySelector('.portfolio-artist')?.textContent?.replace('By ', '');
+      const description = element.querySelector('.portfolio-description')?.textContent;
+      
+      return { title, style, artist, description };
     }
-    
-    if (this.container) {
-      this.container.innerHTML = '';
+
+    /**
+     * Generate placeholder image
+     * @returns {string} Data URL for placeholder
+     */
+    generatePlaceholder() {
+      return 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f0f0f0"/><text x="50%" y="50%" text-anchor="middle" fill="#999" font-family="Arial" font-size="16">Loading...</text></svg>');
     }
-  }
+
+    /**
+     * Capitalize filter name for display
+     * @param {string} filter - Filter name
+     * @returns {string} Capitalized filter name
+     */
+    capitalizeFilter(filter) {
+      if (filter === 'all') return 'All Work';
+      
+      return filter
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+
+    /**
+     * Update gallery with new images
+     * @param {Array} newImages - New image array
+     */
+    /**
+     * Update gallery with new images
+     * @param {Array} newImages - New image array
+     */
+    update(newImages) {
+      this.images = newImages;
+      this.render();
+    }
+
+    /**
+     * Destroy the gallery and clean up
+     */
+    destroy() {
+      if (this.lightbox) {
+        this.closeLightbox();
+      }
+      
+      if (this.container) {
+        this.container.innerHTML = '';
+      }
+    }
 }
 
 export default PortfolioGallery;

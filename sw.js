@@ -373,7 +373,9 @@ async function staleWhileRevalidate(request) {
     .then((networkResponse) => {
       if (networkResponse.ok) {
         const cache = caches.open(CACHE_NAME);
-        cache.then(c => c.put(request, networkResponse.clone()));
+        // Clone BEFORE using the response
+        const responseClone = networkResponse.clone();
+        cache.then(c => c.put(request, responseClone));
       }
       return networkResponse;
     })
@@ -620,29 +622,29 @@ async function syncContactForms() {
 }
 
 /**
- * Sync newsletter signups when back online
+ * Sync newsletter subscriptions when back online
  */
-async function syncNewsletterSignups() {
+async function syncNewsletterSubscriptions() {
   try {
     const db = await openIndexedDB();
-    const signups = await getStoredNewsletterSignups(db);
+    const subscriptions = await getAllStoredNewsletterSubscriptions(db);
     
-    for (const signup of signups) {
+    for (const subscription of subscriptions) {
       try {
         const response = await fetch('/newsletter', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(signup.data)
+          body: JSON.stringify(subscription.data)
         });
         
         if (response.ok) {
-          await removeStoredNewsletterSignup(db, signup.id);
-          console.log('Newsletter signup synced successfully');
+          await removeStoredNewsletterSubscription(db, subscription.id);
+          console.log('Newsletter subscription synced successfully');
         }
       } catch (error) {
-        console.error('Failed to sync newsletter signup:', error);
+        console.error('Failed to sync newsletter subscription:', error);
       }
     }
   } catch (error) {
