@@ -19,30 +19,18 @@ export const artistsData = {
     portfolio: [
       {
         id: 1,
-        filename: 'traditional-rose.jpg',
-        title: 'Traditional Rose',
-        style: 'Traditional',
-        placement: 'Forearm',
-        sessionTime: '3 hours',
-        description: 'Classic traditional rose with bold lines and vibrant colors',
-        tags: ['traditional', 'rose', 'color'],
-        isHealed: true,
-        uploadDate: new Date('2024-01-10')
-      },
-      {
-        id: 2,
         filename: '20250729_145017.jpg',
-        title: 'Custom Design',
+        title: 'Custom Traditional Design',
         style: 'Traditional',
         placement: 'Arm',
         sessionTime: '4 hours',
-        description: 'Custom traditional tattoo design',
+        description: 'Custom traditional tattoo design with bold lines',
         tags: ['traditional', 'custom'],
         isHealed: true,
         uploadDate: new Date('2024-07-29')
       },
       {
-        id: 3,
+        id: 2,
         filename: 'IMG_3111.jpg',
         title: 'Black and Grey Work',
         style: 'Black & Grey',
@@ -52,6 +40,66 @@ export const artistsData = {
         tags: ['black-grey', 'detailed'],
         isHealed: true,
         uploadDate: new Date('2024-01-15')
+      },
+      {
+        id: 3,
+        filename: 'IMG_3129.jpg',
+        title: 'Fine Line Art',
+        style: 'Fine Line',
+        placement: 'Arm',
+        sessionTime: '3 hours',
+        description: 'Intricate fine line tattoo work',
+        tags: ['fine-line', 'detailed'],
+        isHealed: true,
+        uploadDate: new Date('2024-01-20')
+      },
+      {
+        id: 4,
+        filename: 'image0(1).jpeg',
+        title: 'Traditional Piece',
+        style: 'Traditional',
+        placement: 'Shoulder',
+        sessionTime: '5 hours',
+        description: 'Bold traditional tattoo with vibrant colors',
+        tags: ['traditional', 'color'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-01')
+      },
+      {
+        id: 5,
+        filename: 'image0(3).jpeg',
+        title: 'Norse-Inspired Design',
+        style: 'Norse/Viking',
+        placement: 'Back',
+        sessionTime: '6 hours',
+        description: 'Norse-inspired tattoo with traditional elements',
+        tags: ['norse', 'viking', 'traditional'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-10')
+      },
+      {
+        id: 6,
+        filename: 'image1(2).jpeg',
+        title: 'Detailed Black Work',
+        style: 'Black & Grey',
+        placement: 'Leg',
+        sessionTime: '4 hours',
+        description: 'Detailed black and grey composition',
+        tags: ['black-grey', 'detailed'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-15')
+      },
+      {
+        id: 7,
+        filename: 'image1.jpeg',
+        title: 'Fine Line Portrait',
+        style: 'Fine Line',
+        placement: 'Forearm',
+        sessionTime: '4 hours',
+        description: 'Delicate fine line portrait work',
+        tags: ['fine-line', 'portrait'],
+        isHealed: true,
+        uploadDate: new Date('2024-02-20')
       }
     ],
 

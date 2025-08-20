@@ -21,23 +21,73 @@ window.ValhallaTattooArtists = {
     portfolio: [
       {
         id: 1,
-        filename: 'traditional-rose.jpg',
-        title: 'Traditional Rose',
+        filename: '20250729_145017.jpg',
+        title: 'Custom Traditional Design',
         style: 'Traditional',
-        placement: 'Forearm',
-        sessionTime: '3 hours',
-        description: 'Classic traditional rose with bold lines and vibrant colors',
-        tags: ['traditional', 'rose', 'color']
+        placement: 'Arm',
+        sessionTime: '4 hours',
+        description: 'Custom traditional tattoo design with bold lines',
+        tags: ['traditional', 'custom']
       },
       {
         id: 2,
-        filename: 'neo-traditional-skull.jpg',
-        title: 'Neo-Traditional Skull',
-        style: 'Neo-Traditional',
-        placement: 'Upper Arm',
+        filename: 'IMG_3111.jpg',
+        title: 'Black and Grey Work',
+        style: 'Black & Grey',
+        placement: 'Forearm',
+        sessionTime: '3 hours',
+        description: 'Detailed black and grey tattoo',
+        tags: ['black-grey', 'detailed']
+      },
+      {
+        id: 3,
+        filename: 'IMG_3129.jpg',
+        title: 'Fine Line Art',
+        style: 'Fine Line',
+        placement: 'Arm',
+        sessionTime: '3 hours',
+        description: 'Intricate fine line tattoo work',
+        tags: ['fine-line', 'detailed']
+      },
+      {
+        id: 4,
+        filename: 'image0(1).jpeg',
+        title: 'Traditional Piece',
+        style: 'Traditional',
+        placement: 'Shoulder',
         sessionTime: '5 hours',
-        description: 'Modern take on traditional skull design with enhanced shading',
-        tags: ['neo-traditional', 'skull', 'modern']
+        description: 'Bold traditional tattoo with vibrant colors',
+        tags: ['traditional', 'color']
+      },
+      {
+        id: 5,
+        filename: 'image0(3).jpeg',
+        title: 'Norse-Inspired Design',
+        style: 'Norse/Viking',
+        placement: 'Back',
+        sessionTime: '6 hours',
+        description: 'Norse-inspired tattoo with traditional elements',
+        tags: ['norse', 'viking', 'traditional']
+      },
+      {
+        id: 6,
+        filename: 'image1(2).jpeg',
+        title: 'Detailed Black Work',
+        style: 'Black & Grey',
+        placement: 'Leg',
+        sessionTime: '4 hours',
+        description: 'Detailed black and grey composition',
+        tags: ['black-grey', 'detailed']
+      },
+      {
+        id: 7,
+        filename: 'image1.jpeg',
+        title: 'Fine Line Portrait',
+        style: 'Fine Line',
+        placement: 'Forearm',
+        sessionTime: '4 hours',
+        description: 'Delicate fine line portrait work',
+        tags: ['fine-line', 'portrait']
       }
     ]
   },
