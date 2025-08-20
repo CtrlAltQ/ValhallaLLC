@@ -675,8 +675,76 @@ window.PortfolioPageManager = {
   }
 };
 
+// Mobile Navigation functionality for portfolio pages
+function initializeMobileNavigation() {
+  // Make navigation visible
+  const mainNav = document.querySelector('.main-nav');
+  if (mainNav) {
+    mainNav.classList.add('main-nav--visible');
+  }
+
+  // Setup mobile menu functionality
+  const toggle = document.querySelector('.main-nav__toggle');
+  const menu = document.querySelector('.main-nav__menu');
+  
+  if (!toggle || !menu) return;
+
+  // Add click listener to toggle
+  toggle.addEventListener('click', function() {
+    const isOpen = menu.classList.contains('mobile-menu--open');
+    
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  // Close menu when clicking links
+  const menuLinks = document.querySelectorAll('.main-nav__link');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      closeMobileMenu();
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    const nav = document.querySelector('.main-nav');
+    if (!nav.contains(e.target) && menu.classList.contains('mobile-menu--open')) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && menu.classList.contains('mobile-menu--open')) {
+      closeMobileMenu();
+    }
+  });
+
+  function openMobileMenu() {
+    menu.classList.add('mobile-menu', 'mobile-menu--open');
+    toggle.classList.add('main-nav__toggle--active');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('mobile-menu-open');
+  }
+
+  function closeMobileMenu() {
+    menu.classList.remove('mobile-menu--open');
+    toggle.classList.remove('main-nav__toggle--active');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('mobile-menu-open');
+  }
+
+  console.log('Mobile navigation initialized for portfolio page');
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize mobile navigation first
+  initializeMobileNavigation();
+  
   if (window.PortfolioPageManager) {
     window.PortfolioPageManager.init();
   }
@@ -724,6 +792,95 @@ const lightboxCSS = `
 
 .lightbox-close:hover {
   opacity: 0.7;
+}
+
+/* Mobile menu styles for portfolio pages */
+@media (max-width: 768px) {
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(30, 30, 30, 0.98);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+    visibility: visible !important;
+  }
+  
+  .mobile-menu--open {
+    transform: translateX(0);
+    visibility: visible !important;
+  }
+  
+  .mobile-menu .main-nav__link {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    min-width: 200px;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    visibility: visible !important;
+  }
+  
+  .mobile-menu .main-nav__link:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: #d4af37;
+  }
+  
+  .mobile-menu-open {
+    overflow: hidden;
+  }
+  
+  .main-nav__toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    min-width: 48px;
+    min-height: 48px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-nav__toggle:hover {
+    transform: scale(1.05);
+  }
+  
+  .main-nav__toggle-line {
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .main-nav__toggle--active .main-nav__toggle-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .main-nav__toggle--active .main-nav__toggle-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .main-nav__toggle--active .main-nav__toggle-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
 }
 `;
 
