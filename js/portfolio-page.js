@@ -166,8 +166,8 @@ window.ValhallaTattooArtists = {
         filename: 'MIkah_creation_F51EDE92-0E39-4170-B60F-C9A4571A860D.jpeg',
         title: 'Fine Line Creation',
         style: 'Fine Line',
-        placement: 'Arm',
-        sessionTime: '3 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Delicate fine line work showcasing precision and artistic detail',
         tags: ['fine line', 'detailed', 'artistic']
       },
@@ -176,8 +176,8 @@ window.ValhallaTattooArtists = {
         filename: 'Micah_creation_263C33BD-0726-46E3-8FE0-E7BD0C494296.jpeg',
         title: 'Geometric Design',
         style: 'Geometric',
-        placement: 'Forearm',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Precise geometric patterns with mathematical accuracy',
         tags: ['geometric', 'precision', 'mathematical']
       },
@@ -186,8 +186,8 @@ window.ValhallaTattooArtists = {
         filename: 'Micah_creation_3101BC6C-B9BD-4C12-AEF6-9B1667A9C184.jpeg',
         title: 'Artistic Composition',
         style: 'Fine Line',
-        placement: 'Upper Arm',
-        sessionTime: '2.5 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Artistic fine line composition with flowing elements',
         tags: ['fine line', 'artistic', 'flowing']
       },
@@ -196,8 +196,8 @@ window.ValhallaTattooArtists = {
         filename: 'Micah_creation_4C1CC18F-1D13-4E87-8BCF-23C95B16FC2A.jpeg',
         title: 'Detailed Line Work',
         style: 'Fine Line',
-        placement: 'Wrist',
-        sessionTime: '3 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Intricate fine line work with careful attention to detail',
         tags: ['fine line', 'intricate', 'detailed']
       },
@@ -206,8 +206,8 @@ window.ValhallaTattooArtists = {
         filename: 'Micah_creation_51D6B834-A69A-4429-BD20-FDFF80B50B83.jpeg',
         title: 'Geometric Pattern',
         style: 'Geometric',
-        placement: 'Shoulder',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Complex geometric pattern with perfect symmetry',
         tags: ['geometric', 'pattern', 'symmetry']
       },
@@ -216,8 +216,8 @@ window.ValhallaTattooArtists = {
         filename: 'Micah_creation_7332848750778413037.jpeg',
         title: 'Fine Line Art',
         style: 'Fine Line',
-        placement: 'Back',
-        sessionTime: '5 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Beautiful fine line artwork with organic flow',
         tags: ['fine line', 'artwork', 'organic']
       },
@@ -227,7 +227,7 @@ window.ValhallaTattooArtists = {
         title: 'Minimalist Design',
         style: 'Fine Line',
         placement: 'Ankle',
-        sessionTime: '2 hours',
+        sessionTime: '',
         description: 'Elegant minimalist design with clean lines',
         tags: ['fine line', 'minimalist', 'elegant']
       },
@@ -237,7 +237,7 @@ window.ValhallaTattooArtists = {
         title: 'Geometric Composition',
         style: 'Geometric',
         placement: 'Thigh',
-        sessionTime: '4 hours',
+        sessionTime: '',
         description: 'Sophisticated geometric composition with precise execution',
         tags: ['geometric', 'sophisticated', 'precise']
       },
@@ -247,7 +247,7 @@ window.ValhallaTattooArtists = {
         title: 'Artistic Line Work',
         style: 'Fine Line',
         placement: 'Ribcage',
-        sessionTime: '3 hours',
+        sessionTime: '',
         description: 'Artistic fine line work with beautiful composition',
         tags: ['fine line', 'artistic', 'composition']
       },
@@ -256,8 +256,8 @@ window.ValhallaTattooArtists = {
         filename: 'Micah_creation_CCAB9748-CB96-4E28-B528-D89253D97CB4.jpeg',
         title: 'Detailed Creation',
         style: 'Fine Line',
-        placement: 'Leg',
-        sessionTime: '3.5 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Meticulously detailed creation with fine line precision',
         tags: ['fine line', 'detailed', 'meticulous']
       },
@@ -266,8 +266,8 @@ window.ValhallaTattooArtists = {
         filename: 'Mikah_creation_7332848750783349603 2.jpeg',
         title: 'Geometric Art',
         style: 'Geometric',
-        placement: 'Forearm',
-        sessionTime: '4 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Geometric art piece with mathematical precision',
         tags: ['geometric', 'art', 'mathematical']
       },
@@ -276,8 +276,8 @@ window.ValhallaTattooArtists = {
         filename: 'Mikah_creation_D59A6904-6065-4078-A0AE-B8889D4DB6DD.jpeg',
         title: 'Fine Line Masterpiece',
         style: 'Fine Line',
-        placement: 'Upper Back',
-        sessionTime: '5 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Fine line masterpiece showcasing artistic expertise',
         tags: ['fine line', 'masterpiece', 'artistic']
       }
@@ -317,8 +317,8 @@ window.ValhallaTattooArtists = {
         filename: 'japanese-dragon.jpg',
         title: 'Traditional Dragon',
         style: 'Japanese',
-        placement: 'Back',
-        sessionTime: '8 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Traditional Japanese dragon with wind bars and cloud motifs',
         tags: ['japanese', 'dragon', 'traditional']
       },
@@ -327,8 +327,8 @@ window.ValhallaTattooArtists = {
         filename: 'koi-sleeve.jpg',
         title: 'Koi Fish Sleeve',
         style: 'Japanese',
-        placement: 'Full Sleeve',
-        sessionTime: '12 hours',
+        placement: '',
+        sessionTime: '',
         description: 'Full sleeve featuring koi fish, cherry blossoms, and water elements',
         tags: ['japanese', 'koi', 'sleeve']
       }
@@ -339,10 +339,10 @@ window.ValhallaTattooArtists = {
     id: 'heather',
     slug: 'heather',
     name: 'Heather',
-    specialty: 'Botanical & Nature',
-    experience: '5+ years',
-    bio: 'Specializing in beautiful botanical work, nature-inspired designs, and organic tattoo elements.',
-    extendedBio: 'Heather has developed a reputation for creating some of the most beautiful botanical and nature-inspired work in the region. With 5+ years of focused experience in organic designs, florals, and natural elements, she brings life and growth to every piece.',
+    specialty: '',
+    experience: '',
+    bio: 'Heather is the heart of Valhalla Tattoo, serving as our Shop Manager while pursuing her passion as a tattoo apprentice.',
+    extendedBio: 'Heather is the heart of Valhalla Tattoo, serving as our Shop Manager while pursuing her passion as a tattoo apprentice. As Shop Manager, Heather ensures everything runs smoothly, from scheduling appointments to maintaining our high standards of cleanliness and professionalism. Her organizational skills and attention to detail keep the studio operating at its best. Currently training as an apprentice, Heather is learning the art of tattooing under the guidance of our experienced artists. Her dedication to both management and artistry makes her an invaluable part of the Valhalla team.',
     socialMedia: {
       instagram: '@valhallatattoollc',
       facebook: 'Valhallatattoollc'
