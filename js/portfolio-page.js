@@ -97,9 +97,9 @@ window.ValhallaTattooArtists = {
     slug: 'jimmy',
     name: 'Jimmy',
     specialty: 'Realism & Black & Grey',
-    experience: '8+ years',
-    bio: 'Master of photorealistic tattoos and intricate black and grey work that brings images to life on skin.',
-    extendedBio: 'Jimmy has spent over 8 years perfecting the art of realistic tattooing, specializing in portraits, nature scenes, and detailed black and grey compositions. His meticulous attention to detail and understanding of light, shadow, and skin texture allows him to create tattoos that look like photographs.',
+    experience: '4.5 years',
+    bio: 'Black-and-gray specialist with 4.5 years of experience, dialed in on realism.',
+    extendedBio: 'Black-and-gray specialist with 4.5 years of experience, dialed in on realism. Based in Columbia, I work closely with clients to design tattoos they\'ll be proud to wear for life. Dayton, Ohio born. I\'m big on clean lines, smooth shading, and taking the extra time to nail the details—from consult to aftercare. Motorcycles, good humor in the shop, and a never-stop-learning mindset—aiming to be the best artist I can be.',
     socialMedia: {
       instagram: '@valhallatattoollc',
       facebook: 'Valhallatattoollc'
@@ -296,7 +296,68 @@ window.ValhallaTattooArtists = {
       instagram: '@valhallatattoollc',
       facebook: 'Valhallatattoollc'
     },
-    portfolio: []
+    portfolio: [
+      {
+        id: 1,
+        filename: 'tattoo-01-md.jpg',
+        title: 'Colorful Traditional Design',
+        style: 'Watercolor & Traditional',
+        placement: '',
+        sessionTime: '',
+        description: 'Vibrant watercolor tattoo showcasing bold colors and artistic flair',
+        tags: ['watercolor', 'traditional', 'colorful']
+      },
+      {
+        id: 2,
+        filename: 'tattoo-02-md.jpg',
+        title: 'Illustrative Art Piece',
+        style: 'Illustrative',
+        placement: '',
+        sessionTime: '',
+        description: 'Detailed illustrative tattoo with artistic composition',
+        tags: ['illustrative', 'artistic', 'detailed']
+      },
+      {
+        id: 3,
+        filename: 'tattoo-03-md.jpg',
+        title: 'Watercolor Creation',
+        style: 'Watercolor',
+        placement: '',
+        sessionTime: '',
+        description: 'Beautiful watercolor technique creating paint-like effects on skin',
+        tags: ['watercolor', 'artistic', 'creative']
+      },
+      {
+        id: 4,
+        filename: 'tattoo-04-md.jpg',
+        title: 'Bold Color Work',
+        style: 'Watercolor & Illustrative',
+        placement: '',
+        sessionTime: '',
+        description: 'Bold, vibrant colors blended with illustrative elements',
+        tags: ['colorful', 'bold', 'illustrative']
+      },
+      {
+        id: 5,
+        filename: 'tattoo-05-md.jpg',
+        title: 'Artistic Expression',
+        style: 'Illustrative',
+        placement: '',
+        sessionTime: '',
+        description: 'Expressive artwork that blurs the line between tattoo and fine art',
+        tags: ['artistic', 'expressive', 'fine art']
+      },
+      {
+        id: 6,
+        filename: 'tattoo-06-md.jpg',
+        title: 'Watercolor Masterpiece',
+        style: 'Watercolor',
+        placement: '',
+        sessionTime: '',
+        description: 'Masterful watercolor technique creating a painting-like effect',
+        tags: ['watercolor', 'masterpiece', 'painting-like']
+      }
+    ]
   },
 
   kason: {
