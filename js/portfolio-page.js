@@ -97,12 +97,12 @@ window.ValhallaTattooArtists = {
     slug: 'jimmy',
     name: 'Jimmy',
     specialty: 'Realism & Black & Grey',
-    experience: '4.5 years',
-    bio: 'Black-and-gray specialist with 4.5 years of experience, dialed in on realism.',
-    extendedBio: 'Black-and-gray specialist with 4.5 years of experience, dialed in on realism. Based in Columbia, I work closely with clients to design tattoos they\'ll be proud to wear for life. Dayton, Ohio born. I\'m big on clean lines, smooth shading, and taking the extra time to nail the details—from consult to aftercare. Motorcycles, good humor in the shop, and a never-stop-learning mindset—aiming to be the best artist I can be.',
+    experience: '8+ years',
+    bio: 'Master of photorealistic tattoos and intricate black and grey work that brings images to life on skin.',
+    extendedBio: 'Jimmy has spent over 8 years perfecting the art of realistic tattooing, specializing in portraits, nature scenes, and detailed black and grey compositions. His meticulous attention to detail and understanding of light, shadow, and skin texture allows him to create tattoos that look like photographs. Each piece is carefully planned and executed over multiple sessions to achieve the highest level of realism.\n\nWhat sets Jimmy apart is his background in fine arts and his obsession with capturing emotion in every piece. He approaches each tattoo like a painting, considering composition, lighting, and the natural flow of the skin. His clients often say their tattoos look so realistic that people think they\'re looking at actual photographs.\n\nFrom memorial portraits to wildlife scenes, Jimmy\'s work speaks to the soul. He believes that realistic tattoos should not only capture a likeness but also tell a story and evoke the same emotions as the original subject.',
     socialMedia: {
-      instagram: '@valhallatattoollc',
-      facebook: 'Valhallatattoollc'
+      instagram: '@valhallatattoo',
+      facebook: 'ValhallaStudio'
     },
     portfolio: [
       {
@@ -110,8 +110,8 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792182200.jpg',
         title: 'Detailed Realism Work',
         style: 'Realism',
-        placement: '',
-        sessionTime: '',
+        placement: 'Arm',
+        sessionTime: '6 hours',
         description: 'Intricate realistic tattoo showcasing fine detail work',
         tags: ['realism', 'black and grey', 'portrait']
       },
@@ -120,8 +120,8 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792184630.jpg',
         title: 'Black & Grey Portrait',
         style: 'Black & Grey',
-        placement: '',
-        sessionTime: '',
+        placement: 'Shoulder',
+        sessionTime: '4 hours',
         description: 'Stunning black and grey portrait work',
         tags: ['portrait', 'black and grey', 'realism']
       },
@@ -130,8 +130,8 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792186833.jpg',
         title: 'Realistic Animal Portrait',
         style: 'Realism',
-        placement: '',
-        sessionTime: '',
+        placement: 'Forearm',
+        sessionTime: '5 hours',
         description: 'Lifelike animal portrait with incredible detail',
         tags: ['animal', 'realism', 'black and grey']
       },
@@ -140,10 +140,80 @@ window.ValhallaTattooArtists = {
         filename: 'FB_IMG_1754792189094.jpg',
         title: 'Detailed Character Work',
         style: 'Realism',
-        placement: '',
-        sessionTime: '',
+        placement: 'Leg',
+        sessionTime: '7 hours',
         description: 'Complex character tattoo with fine shading',
         tags: ['character', 'realism', 'detailed']
+      },
+      {
+        id: 5,
+        filename: 'FB_IMG_1754792191890.jpg',
+        title: 'Photorealistic Portrait',
+        style: 'Realism',
+        placement: 'Back',
+        sessionTime: '8 hours',
+        description: 'Photorealistic portrait showcasing technical skill',
+        tags: ['portrait', 'photorealism', 'black and grey']
+      },
+      {
+        id: 6,
+        filename: 'FB_IMG_1754792208078.jpg',
+        title: 'Intricate Detail Work',
+        style: 'Black & Grey',
+        placement: 'Chest',
+        sessionTime: '6 hours',
+        description: 'Highly detailed black and grey composition',
+        tags: ['detailed', 'black and grey', 'composition']
+      },
+      {
+        id: 7,
+        filename: 'FB_IMG_1754792232185.jpg',
+        title: 'Realistic Scene',
+        style: 'Realism',
+        placement: 'Thigh',
+        sessionTime: '9 hours',
+        description: 'Complex realistic scene with multiple elements',
+        tags: ['scene', 'realism', 'complex']
+      },
+      {
+        id: 8,
+        filename: 'FB_IMG_1754792253508.jpg',
+        title: 'Fine Line Realism',
+        style: 'Realism',
+        placement: 'Arm',
+        sessionTime: '5 hours',
+        description: 'Delicate realistic work with fine line details',
+        tags: ['fine line', 'realism', 'delicate']
+      },
+      {
+        id: 9,
+        filename: 'FB_IMG_1754792255949.jpg',
+        title: 'Portrait Study',
+        style: 'Black & Grey',
+        placement: 'Forearm',
+        sessionTime: '4 hours',
+        description: 'Beautiful portrait study in black and grey',
+        tags: ['portrait', 'study', 'black and grey']
+      },
+      {
+        id: 10,
+        filename: 'FB_IMG_1754792270756.jpg',
+        title: 'Detailed Character',
+        style: 'Realism',
+        placement: 'Calf',
+        sessionTime: '6 hours',
+        description: 'Detailed character work with shading mastery',
+        tags: ['character', 'detailed', 'shading']
+      },
+      {
+        id: 11,
+        filename: 'FB_IMG_1754792295914.jpg',
+        title: 'Masterpiece Realism',
+        style: 'Realism',
+        placement: 'Back Piece',
+        sessionTime: '12 hours',
+        description: 'Large-scale realistic masterpiece showcasing technical excellence',
+        tags: ['masterpiece', 'large scale', 'realism']
       }
     ]
   },
