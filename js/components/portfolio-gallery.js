@@ -371,7 +371,10 @@ export class PortfolioGallery {
         ${imageData.style ? `<p class="lightbox-style">${imageData.style}</p>` : ''}
         ${imageData.artist ? `<p class="lightbox-artist">By ${imageData.artist}</p>` : ''}
         ${imageData.description ? `<p class="lightbox-description">${imageData.description}</p>` : ''}`;
-      this.lightbox.querySelector('.lightbox-content').insertBefore(infoContainer, this.lightbox.querySelector('.lightbox-close'))
+      this.lightbox
+        .querySelector('.lightbox-content')
+        .insertBefore(infoContainer, this.lightbox.querySelector('.lightbox-close'));
+    }
 
     this.currentImageIndex = newIndex;
   }
@@ -379,9 +382,9 @@ export class PortfolioGallery {
   /**
    * Setup scroll animations
    */
-  setupScrollAnimations() 
+  setupScrollAnimations() {
     if (!('IntersectionObserver' in window)) return;
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -393,74 +396,71 @@ export class PortfolioGallery {
       threshold: 0.1,
       rootMargin: '50px'
     });
-    
+
     // Observe portfolio items
     setTimeout(() => {
       const items = this.container.querySelectorAll('.portfolio-item');
       items.forEach(item => observer.observe(item));
-    } // ← Ensure this closing brace exists
+    }, 100);
+  }
 
-    /**
-     * Get image data from DOM element
-     * @param {HTMLElement} element - Portfolio item element
-     * @returns {Object|null} Image data object
-     */
-      
-      const title = element.querySelector('.portfolio-title')?.textContent;
-      const style = element.querySelector('.portfolio-style')?.textContent;
-      const artist = element.querySelector('.portfolio-artist')?.textContent?.replace('By ', '');
-      const description = element.querySelector('.portfolio-description')?.textContent;
-      
-      return { title, style, artist, description };
+  /**
+   * Get image data from DOM element
+   * @param {HTMLElement} element - Portfolio item element
+   * @returns {Object|null} Image data object
+   */
+  getImageDataFromElement(element) {
+    const title = element.querySelector('.portfolio-title')?.textContent;
+    const style = element.querySelector('.portfolio-style')?.textContent;
+    const artist = element.querySelector('.portfolio-artist')?.textContent?.replace('By ', '');
+    const description = element.querySelector('.portfolio-description')?.textContent;
+
+    return { title, style, artist, description };
+  }
+
+  /**
+   * Generate placeholder image
+   * @returns {string} Data URL for placeholder
+   */
+  generatePlaceholder() {
+    return 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f0f0f0"/><text x="50%" y="50%" text-anchor="middle" fill="#999" font-family="Arial" font-size="16">Loading...</text></svg>');
+  }
+
+  /**
+   * Capitalize filter name for display
+   * @param {string} filter - Filter name
+   * @returns {string} Capitalized filter name
+   */
+  capitalizeFilter(filter) {
+    if (filter === 'all') return 'All Work';
+
+    return filter
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  /**
+   * Update gallery with new images
+   * @param {Array} newImages - New image array
+   */
+  update(newImages) {
+    this.images = newImages;
+    this.render();
+  }
+
+  /**
+   * Destroy the gallery and clean up
+   */
+  destroy() {
+    if (this.lightbox) {
+      this.closeLightbox();
     }
 
-    /**
-     * Generate placeholder image
-     * @returns {string} Data URL for placeholder
-     */
-    generatePlaceholder() {
-      return 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f0f0f0"/><text x="50%" y="50%" text-anchor="middle" fill="#999" font-family="Arial" font-size="16">Loading...</text></svg>');
+    if (this.container) {
+      this.container.innerHTML = '';
     }
-
-    /**
-     * Capitalize filter name for display
-     * @param {string} filter - Filter name
-     * @returns {string} Capitalized filter name
-     */
-    capitalizeFilter(filter) {
-      if (filter === 'all') return 'All Work';
-      
-      return filter
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-    }
-
-    /**
-     * Update gallery with new images
-     * @param {Array} newImages - New image array
-     */
-    /**
-     * Update gallery with new images
-     * @param {Array} newImages - New image array
-     */
-    update(newImages) {
-      this.images = newImages;
-      this.render();
-    }
-
-    /**
-     * Destroy the gallery and clean up
-     */
-    destroy() {
-      if (this.lightbox) {
-        this.closeLightbox();
-      }
-      
-      if (this.container) {
-        this.container.innerHTML = '';
-      }
-    }
+  }
 }
 
 export default PortfolioGallery;
