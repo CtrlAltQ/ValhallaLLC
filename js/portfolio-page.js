@@ -669,9 +669,20 @@ window.PortfolioPageManager = {
   // Initialize the portfolio page
   init: function() {
     // Get artist slug from URL
-    const urlPath = window.location.pathname;
-    const artistSlug = urlPath.split('/').pop().replace('.html', '');
-    
+    const currentUrl = new URL(window.location.href);
+    const pathSegments = currentUrl.pathname.split('/').filter(Boolean);
+    let artistSlug = pathSegments.pop() || '';
+
+    if (!artistSlug && pathSegments.length) {
+      artistSlug = pathSegments.pop() || '';
+    }
+
+    if (!artistSlug && currentUrl.searchParams.has('artist')) {
+      artistSlug = currentUrl.searchParams.get('artist') || '';
+    }
+
+    artistSlug = artistSlug.replace(/\.html$/i, '').toLowerCase();
+
     this.currentArtist = window.ValhallaTattooArtists[artistSlug];
     
     if (this.currentArtist) {
