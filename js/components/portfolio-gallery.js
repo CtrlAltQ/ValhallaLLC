@@ -22,6 +22,7 @@ export class PortfolioGallery {
     this.boundHandleLightboxKeydown = null;
     this.portfolioItems = [];
     this.currentImageIndex = 0;
+    this.lazyObserver = null;
   }
 
   /**
@@ -57,12 +58,16 @@ export class PortfolioGallery {
     }
 
     const galleryHTML = this.images.map(image => this.renderImageItem(image)).join('');
-    
+
     this.container.innerHTML = `
       <div class="portfolio-gallery-grid" role="grid" aria-label="Portfolio gallery">
         ${galleryHTML}
       </div>
     `;
+
+    if (this.options.lazyLoading) {
+      this.setupLazyLoading();
+    }
   }
 
   /**
@@ -140,6 +145,48 @@ export class PortfolioGallery {
         this.handleFilterClick(e.target);
       }
     });
+  }
+
+  /**
+   * Setup lazy loading for gallery images
+   */
+  setupLazyLoading() {
+    if (!this.container) return;
+
+    const images = this.container.querySelectorAll('img.lazy[data-src]');
+    if (images.length === 0) return;
+
+    const loadImage = (img) => {
+      const dataSrc = img.getAttribute('data-src');
+      if (!dataSrc) return;
+
+      img.src = dataSrc;
+      img.removeAttribute('data-src');
+      img.classList.remove('lazy');
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      images.forEach(loadImage);
+      return;
+    }
+
+    if (this.lazyObserver) {
+      this.lazyObserver.disconnect();
+    }
+
+    this.lazyObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        loadImage(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, {
+      rootMargin: '200px 0px',
+      threshold: 0.1
+    });
+
+    images.forEach(img => this.lazyObserver.observe(img));
   }
 
   /**
@@ -455,6 +502,11 @@ export class PortfolioGallery {
   destroy() {
     if (this.lightbox) {
       this.closeLightbox();
+    }
+
+    if (this.lazyObserver) {
+      this.lazyObserver.disconnect();
+      this.lazyObserver = null;
     }
 
     if (this.container) {
