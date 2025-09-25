@@ -21,31 +21,19 @@
 /* 5. Animation System */
 @import url('./animations.css');
 
-/* 6. Consent Banner */
-@import url('./consent-banner.css');
-
-/* 7. Social Media Components */
+/* 6. Social Media Components */
 @import url('./social.css');
 
-/* 8. Image Optimization System */
+/* 7. Image Optimization System */
 @import url('./image-optimization.css');
 
-/* 9. Accessibility Enhancements */
+/* 8. Accessibility Enhancements */
 @import url('./accessibility.css');
 
-/* 10. Browser Compatibility Fixes */
-@import url('./browser-fixes.css');
-
-/* 11. Mobile Optimization */
-@import url('./mobile-optimization.css');
-
-/* 12. Progressive Web App */
-@import url('./pwa-styles.css');
-
-/* 13. Utility Classes */
+/* 9. Utility Classes */
 @import url('./utilities.css');
 
-/* 9. Responsive Styles */
+/* 10. Responsive Styles */
 @media (max-width: 768px) {
   .main-nav__menu {
     position: fixed;
