@@ -251,7 +251,7 @@ export class PortfolioPageManager {
 
       // Initialize gallery component
       this.gallery = new PortfolioGallery(this.elements.galleryContainer, {
-        showFilters: true,
+        showFilters: false,
         showArtistNames: false,
         lightboxEnabled: true,
         lazyLoading: true,

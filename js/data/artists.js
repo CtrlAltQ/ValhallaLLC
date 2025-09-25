@@ -915,5 +915,13 @@ class PortfolioCache {
 
 export const portfolioCache = new PortfolioCache();
 
+// Expose helpers for legacy scripts or debugging without modules
+if (typeof window !== 'undefined') {
+  window.ValhallaArtistsData = artistsData;
+  window.ValhallaGetArtistBySlug = getArtistBySlug;
+  window.ValhallaGetArtistPortfolio = getArtistPortfolio;
+  window.ValhallaGeneratePortfolioPlaceholder = generatePlaceholder;
+}
+
 // Provide default export for convenience when importing the entire dataset
 export default artistsData;

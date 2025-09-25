@@ -1,7 +1,7 @@
 /**
  * Portfolio Gallery Component (patched)
  */
-export class PortfolioGallery {
+class PortfolioGallery {
   constructor(container, options = {}) {
     this.container = container;
     this.options = {
@@ -484,4 +484,117 @@ export class PortfolioGallery {
   }
 }
 
-export default PortfolioGallery;
+(function initPortfolioFallback(global) {
+  if (typeof global === 'undefined' || !global.document) {
+    return;
+  }
+
+  // Expose the gallery so existing scripts can reach it if needed
+  global.ValhallaPortfolioGallery = PortfolioGallery;
+
+  const LOG_PREFIX = '[Portfolio Fallback]';
+
+  const getArtistSlugFromURL = () => {
+    const path = global.location?.pathname || '';
+    if (!path) return null;
+
+    const segments = path.split('/').filter(Boolean);
+    if (!segments.length) return null;
+
+    const filename = segments[segments.length - 1];
+    const slug = filename.replace('.html', '');
+
+    if (!slug || slug === 'index' || slug.includes('.')) {
+      return null;
+    }
+
+    return slug;
+  };
+
+  const showNoImagesMessage = (container, artistName) => {
+    if (!container) return;
+
+    container.innerHTML = `
+      <div class="portfolio-empty">
+        <p>Portfolio images coming soon! Check back later to see ${artistName || 'this artist'}'s latest work.</p>
+        <a href="../index.html#contact" class="btn btn-primary">Contact for More Info</a>
+      </div>
+    `;
+  };
+
+  const bootstrapFallback = () => {
+    // If the modern module-driven manager already ran, respect it
+    if (global.PortfolioPageManager || global.ValhallaFallbackInitialized) {
+      return;
+    }
+
+    const getArtist = global.ValhallaGetArtistBySlug;
+    const getPortfolio = global.ValhallaGetArtistPortfolio;
+
+    if (typeof getArtist !== 'function' || typeof getPortfolio !== 'function') {
+      console.warn(`${LOG_PREFIX} Artist data helpers unavailable; skipping fallback initialization.`);
+      return;
+    }
+
+    const slug = getArtistSlugFromURL();
+    if (!slug) {
+      console.warn(`${LOG_PREFIX} Unable to determine artist slug from URL.`);
+      return;
+    }
+
+    const artist = getArtist(slug);
+    if (!artist) {
+      console.warn(`${LOG_PREFIX} No artist data found for slug "${slug}".`);
+      return;
+    }
+
+    const galleryContainer = global.document.querySelector('.portfolio-gallery');
+    if (!galleryContainer) {
+      return;
+    }
+
+    // If another script already rendered the gallery, no need to continue
+    if (galleryContainer.querySelector('.portfolio-item')) {
+      return;
+    }
+
+    const images = getPortfolio(slug, true);
+    if (!images || images.length === 0) {
+      showNoImagesMessage(galleryContainer, artist.name);
+      return;
+    }
+
+    try {
+      const gallery = new PortfolioGallery(galleryContainer, {
+        showFilters: false,
+        showArtistNames: false,
+        lightboxEnabled: true,
+        lazyLoading: true,
+        animateOnScroll: true
+      });
+
+      gallery.init(images);
+      global.ValhallaFallbackGallery = gallery;
+      global.ValhallaFallbackInitialized = true;
+      console.info(`${LOG_PREFIX} Initialized with ${images.length} images for ${artist.name || slug}.`);
+    } catch (error) {
+      console.error(`${LOG_PREFIX} Failed to initialize gallery:`, error);
+      showNoImagesMessage(galleryContainer, artist.name);
+    }
+  };
+
+  const scheduleBootstrap = () => {
+    const execute = () => {
+      // Ensure module-based setup had a chance to run first
+      global.setTimeout(bootstrapFallback, 120);
+    };
+
+    if (global.document.readyState === 'loading') {
+      global.document.addEventListener('DOMContentLoaded', execute, { once: true });
+    } else {
+      execute();
+    }
+  };
+
+  scheduleBootstrap();
+})(typeof window !== 'undefined' ? window : undefined);
