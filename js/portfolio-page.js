@@ -1,1032 +1,487 @@
 /**
- * Portfolio Page JavaScript
- * Handles individual artist portfolio pages without ES6 modules
- * Compatible with <script src=""> loading
+ * Portfolio Gallery Component (patched)
  */
+export class PortfolioGallery {
+  constructor(container, options = {}) {
+    this.container = container;
+    this.options = {
+      showFilters: false,
+      showArtistNames: false,
+      lightboxEnabled: true,
+      lazyLoading: true,
+      animateOnScroll: true,
+      ...options
+    };
 
-// Artist data (copied from artists.js but without ES6 export)
-window.ValhallaTattooArtists = {
-  pagan: {
-    id: 'pagan',
-    slug: 'pagan',
-    name: 'Pagan',
-    specialty: 'Traditional & Neo-Traditional',
-    experience: '10+ years',
-    bio: 'Specializing in bold traditional and neo-traditional tattoos with vibrant colors and timeless designs.',
-    extendedBio: 'Pagan brings over a decade of experience to traditional and neo-traditional tattooing, with a deep respect for the classic American tattoo tradition while incorporating modern techniques and color palettes. Known for bold line work, vibrant colors, and designs that will look just as good in 20 years as they do today.',
-    socialMedia: {
-      instagram: '@valhallatattoollc',
-      facebook: 'Valhallatattoollc'
-    },
-    portfolio: [
-      {
-        id: 1,
-        filename: '20250729_145017.jpg',
-        title: 'Custom Traditional Design',
-        style: 'Traditional',
-        placement: '',
-        sessionTime: '',
-        description: 'Custom traditional tattoo design with bold lines',
-        tags: ['traditional', 'custom']
-      },
-      {
-        id: 2,
-        filename: 'IMG_3111.jpg',
-        title: 'Black and Grey Work',
-        style: 'Black & Grey',
-        placement: '',
-        sessionTime: '',
-        description: 'Detailed black and grey tattoo',
-        tags: ['black-grey', 'detailed']
-      },
-      {
-        id: 3,
-        filename: 'IMG_3129.jpg',
-        title: 'Fine Line Art',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Intricate fine line tattoo work',
-        tags: ['fine-line', 'detailed']
-      },
-      {
-        id: 4,
-        filename: 'image0(1).jpeg',
-        title: 'Traditional Piece',
-        style: 'Traditional',
-        placement: '',
-        sessionTime: '',
-        description: 'Bold traditional tattoo with vibrant colors',
-        tags: ['traditional', 'color']
-      },
-      {
-        id: 5,
-        filename: 'image0(3).jpeg',
-        title: 'Norse-Inspired Design',
-        style: 'Norse/Viking',
-        placement: '',
-        sessionTime: '',
-        description: 'Norse-inspired tattoo with traditional elements',
-        tags: ['norse', 'viking', 'traditional']
-      },
-      {
-        id: 6,
-        filename: 'image1(2).jpeg',
-        title: 'Detailed Black Work',
-        style: 'Black & Grey',
-        placement: '',
-        sessionTime: '',
-        description: 'Detailed black and grey composition',
-        tags: ['black-grey', 'detailed']
-      },
-      {
-        id: 7,
-        filename: 'image1.jpeg',
-        title: 'Fine Line Portrait',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Delicate fine line portrait work',
-        tags: ['fine-line', 'portrait']
-      }
-    ]
-  },
-  
-  jimmy: {
-    id: 'jimmy',
-    slug: 'jimmy',
-    name: 'Jimmy',
-    specialty: 'Realism & Black & Grey',
-    experience: '8+ years',
-    bio: 'Master of photorealistic tattoos and intricate black and grey work that brings images to life on skin.',
-    extendedBio: 'Jimmy has spent over 8 years perfecting the art of realistic tattooing, specializing in portraits, nature scenes, and detailed black and grey compositions. His meticulous attention to detail and understanding of light, shadow, and skin texture allows him to create tattoos that look like photographs. Each piece is carefully planned and executed over multiple sessions to achieve the highest level of realism.\n\nWhat sets Jimmy apart is his background in fine arts and his obsession with capturing emotion in every piece. He approaches each tattoo like a painting, considering composition, lighting, and the natural flow of the skin. His clients often say their tattoos look so realistic that people think they\'re looking at actual photographs.\n\nFrom memorial portraits to wildlife scenes, Jimmy\'s work speaks to the soul. He believes that realistic tattoos should not only capture a likeness but also tell a story and evoke the same emotions as the original subject.',
-    socialMedia: {
-      instagram: '@valhallatattoo',
-      facebook: 'ValhallaStudio'
-    },
-    portfolio: [
-      {
-        id: 1,
-        filename: 'FB_IMG_1754792182200.jpg',
-        title: 'Detailed Realism Work',
-        style: 'Realism',
-        placement: 'Arm',
-        sessionTime: '6 hours',
-        description: 'Intricate realistic tattoo showcasing fine detail work',
-        tags: ['realism', 'black and grey', 'portrait']
-      },
-      {
-        id: 2,
-        filename: 'FB_IMG_1754792184630.jpg',
-        title: 'Black & Grey Portrait',
-        style: 'Black & Grey',
-        placement: 'Shoulder',
-        sessionTime: '4 hours',
-        description: 'Stunning black and grey portrait work',
-        tags: ['portrait', 'black and grey', 'realism']
-      },
-      {
-        id: 3,
-        filename: 'FB_IMG_1754792186833.jpg',
-        title: 'Realistic Animal Portrait',
-        style: 'Realism',
-        placement: 'Forearm',
-        sessionTime: '5 hours',
-        description: 'Lifelike animal portrait with incredible detail',
-        tags: ['animal', 'realism', 'black and grey']
-      },
-      {
-        id: 4,
-        filename: 'FB_IMG_1754792189094.jpg',
-        title: 'Detailed Character Work',
-        style: 'Realism',
-        placement: 'Leg',
-        sessionTime: '7 hours',
-        description: 'Complex character tattoo with fine shading',
-        tags: ['character', 'realism', 'detailed']
-      },
-      {
-        id: 5,
-        filename: 'FB_IMG_1754792191890.jpg',
-        title: 'Photorealistic Portrait',
-        style: 'Realism',
-        placement: 'Back',
-        sessionTime: '8 hours',
-        description: 'Photorealistic portrait showcasing technical skill',
-        tags: ['portrait', 'photorealism', 'black and grey']
-      },
-      {
-        id: 6,
-        filename: 'FB_IMG_1754792208078.jpg',
-        title: 'Intricate Detail Work',
-        style: 'Black & Grey',
-        placement: 'Chest',
-        sessionTime: '6 hours',
-        description: 'Highly detailed black and grey composition',
-        tags: ['detailed', 'black and grey', 'composition']
-      },
-      {
-        id: 7,
-        filename: 'FB_IMG_1754792232185.jpg',
-        title: 'Realistic Scene',
-        style: 'Realism',
-        placement: 'Thigh',
-        sessionTime: '9 hours',
-        description: 'Complex realistic scene with multiple elements',
-        tags: ['scene', 'realism', 'complex']
-      },
-      {
-        id: 8,
-        filename: 'FB_IMG_1754792253508.jpg',
-        title: 'Fine Line Realism',
-        style: 'Realism',
-        placement: 'Arm',
-        sessionTime: '5 hours',
-        description: 'Delicate realistic work with fine line details',
-        tags: ['fine line', 'realism', 'delicate']
-      },
-      {
-        id: 9,
-        filename: 'FB_IMG_1754792255949.jpg',
-        title: 'Portrait Study',
-        style: 'Black & Grey',
-        placement: 'Forearm',
-        sessionTime: '4 hours',
-        description: 'Beautiful portrait study in black and grey',
-        tags: ['portrait', 'study', 'black and grey']
-      },
-      {
-        id: 10,
-        filename: 'FB_IMG_1754792270756.jpg',
-        title: 'Detailed Character',
-        style: 'Realism',
-        placement: 'Calf',
-        sessionTime: '6 hours',
-        description: 'Detailed character work with shading mastery',
-        tags: ['character', 'detailed', 'shading']
-      },
-      {
-        id: 11,
-        filename: 'FB_IMG_1754792295914.jpg',
-        title: 'Masterpiece Realism',
-        style: 'Realism',
-        placement: 'Back Piece',
-        sessionTime: '12 hours',
-        description: 'Large-scale realistic masterpiece showcasing technical excellence',
-        tags: ['masterpiece', 'large scale', 'realism']
-      }
-    ]
-  },
-
-  micah: {
-    id: 'micah',
-    slug: 'micah',
-    name: 'Micah',
-    specialty: 'Fine Line & Geometric',
-    experience: '6+ years',
-    bio: 'Creating delicate fine line work and precise geometric designs with mathematical precision and artistic flair.',
-    extendedBio: 'Micah specializes in the delicate art of fine line tattooing and geometric designs, bringing mathematical precision to organic forms. With 6+ years of experience, Micah has developed a signature style that combines minimalist aesthetics with complex geometric patterns.',
-    socialMedia: {
-      instagram: '@valhallatattoollc',
-      facebook: 'Valhallatattoollc'
-    },
-    portfolio: [
-      {
-        id: 1,
-        filename: 'MIkah_creation_F51EDE92-0E39-4170-B60F-C9A4571A860D.jpeg',
-        title: 'Fine Line Creation',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Delicate fine line work showcasing precision and artistic detail',
-        tags: ['fine line', 'detailed', 'artistic']
-      },
-      {
-        id: 2,
-        filename: 'Micah_creation_263C33BD-0726-46E3-8FE0-E7BD0C494296.jpeg',
-        title: 'Geometric Design',
-        style: 'Geometric',
-        placement: '',
-        sessionTime: '',
-        description: 'Precise geometric patterns with mathematical accuracy',
-        tags: ['geometric', 'precision', 'mathematical']
-      },
-      {
-        id: 3,
-        filename: 'Micah_creation_3101BC6C-B9BD-4C12-AEF6-9B1667A9C184.jpeg',
-        title: 'Artistic Composition',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Artistic fine line composition with flowing elements',
-        tags: ['fine line', 'artistic', 'flowing']
-      },
-      {
-        id: 4,
-        filename: 'Micah_creation_4C1CC18F-1D13-4E87-8BCF-23C95B16FC2A.jpeg',
-        title: 'Detailed Line Work',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Intricate fine line work with careful attention to detail',
-        tags: ['fine line', 'intricate', 'detailed']
-      },
-      {
-        id: 5,
-        filename: 'Micah_creation_51D6B834-A69A-4429-BD20-FDFF80B50B83.jpeg',
-        title: 'Geometric Pattern',
-        style: 'Geometric',
-        placement: '',
-        sessionTime: '',
-        description: 'Complex geometric pattern with perfect symmetry',
-        tags: ['geometric', 'pattern', 'symmetry']
-      },
-      {
-        id: 6,
-        filename: 'Micah_creation_7332848750778413037.jpeg',
-        title: 'Fine Line Art',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Beautiful fine line artwork with organic flow',
-        tags: ['fine line', 'artwork', 'organic']
-      },
-      {
-        id: 7,
-        filename: 'Micah_creation_7332848750782917803.jpeg',
-        title: 'Minimalist Design',
-        style: 'Fine Line',
-        placement: 'Ankle',
-        sessionTime: '',
-        description: 'Elegant minimalist design with clean lines',
-        tags: ['fine line', 'minimalist', 'elegant']
-      },
-      {
-        id: 8,
-        filename: 'Micah_creation_7332848750783349603.jpeg',
-        title: 'Geometric Composition',
-        style: 'Geometric',
-        placement: 'Thigh',
-        sessionTime: '',
-        description: 'Sophisticated geometric composition with precise execution',
-        tags: ['geometric', 'sophisticated', 'precise']
-      },
-      {
-        id: 9,
-        filename: 'Micah_creation_7332848750784236948.jpeg',
-        title: 'Artistic Line Work',
-        style: 'Fine Line',
-        placement: 'Ribcage',
-        sessionTime: '',
-        description: 'Artistic fine line work with beautiful composition',
-        tags: ['fine line', 'artistic', 'composition']
-      },
-      {
-        id: 10,
-        filename: 'Micah_creation_CCAB9748-CB96-4E28-B528-D89253D97CB4.jpeg',
-        title: 'Detailed Creation',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Meticulously detailed creation with fine line precision',
-        tags: ['fine line', 'detailed', 'meticulous']
-      },
-      {
-        id: 11,
-        filename: 'Mikah_creation_7332848750783349603 2.jpeg',
-        title: 'Geometric Art',
-        style: 'Geometric',
-        placement: '',
-        sessionTime: '',
-        description: 'Geometric art piece with mathematical precision',
-        tags: ['geometric', 'art', 'mathematical']
-      },
-      {
-        id: 12,
-        filename: 'Mikah_creation_D59A6904-6065-4078-A0AE-B8889D4DB6DD.jpeg',
-        title: 'Fine Line Masterpiece',
-        style: 'Fine Line',
-        placement: '',
-        sessionTime: '',
-        description: 'Fine line masterpiece showcasing artistic expertise',
-        tags: ['fine line', 'masterpiece', 'artistic']
-      }
-    ]
-  },
-
-  sarah: {
-    id: 'sarah',
-    slug: 'sarah',
-    name: 'Sarah',
-    specialty: 'Watercolor & Illustrative',
-    experience: '7+ years',
-    bio: 'Creating vibrant watercolor tattoos and illustrative designs that blur the line between art and skin.',
-    extendedBio: 'Sarah brings a unique artistic perspective to tattooing with her background in fine arts and illustration. Specializing in watercolor techniques and illustrative styles, she creates tattoos that look like paintings on skin.',
-    socialMedia: {
-      instagram: '@valhallatattoollc',
-      facebook: 'Valhallatattoollc'
-    },
-    portfolio: [
-      {
-        id: 1,
-        filename: 'tattoo-01-md.jpg',
-        title: 'Colorful Traditional Design',
-        style: 'Watercolor & Traditional',
-        placement: '',
-        sessionTime: '',
-        description: 'Vibrant watercolor tattoo showcasing bold colors and artistic flair',
-        tags: ['watercolor', 'traditional', 'colorful']
-      },
-      {
-        id: 2,
-        filename: 'tattoo-02-md.jpg',
-        title: 'Illustrative Art Piece',
-        style: 'Illustrative',
-        placement: '',
-        sessionTime: '',
-        description: 'Detailed illustrative tattoo with artistic composition',
-        tags: ['illustrative', 'artistic', 'detailed']
-      },
-      {
-        id: 3,
-        filename: 'tattoo-03-md.jpg',
-        title: 'Watercolor Creation',
-        style: 'Watercolor',
-        placement: '',
-        sessionTime: '',
-        description: 'Beautiful watercolor technique creating paint-like effects on skin',
-        tags: ['watercolor', 'artistic', 'creative']
-      },
-      {
-        id: 4,
-        filename: 'tattoo-04-md.jpg',
-        title: 'Bold Color Work',
-        style: 'Watercolor & Illustrative',
-        placement: '',
-        sessionTime: '',
-        description: 'Bold, vibrant colors blended with illustrative elements',
-        tags: ['colorful', 'bold', 'illustrative']
-      },
-      {
-        id: 5,
-        filename: 'tattoo-05-md.jpg',
-        title: 'Artistic Expression',
-        style: 'Illustrative',
-        placement: '',
-        sessionTime: '',
-        description: 'Expressive artwork that blurs the line between tattoo and fine art',
-        tags: ['artistic', 'expressive', 'fine art']
-      },
-      {
-        id: 6,
-        filename: 'tattoo-06-md.jpg',
-        title: 'Watercolor Masterpiece',
-        style: 'Watercolor',
-        placement: '',
-        sessionTime: '',
-        description: 'Masterful watercolor technique creating a painting-like effect',
-        tags: ['watercolor', 'masterpiece', 'painting-like']
-      }
-    ]
-  },
-
-  kason: {
-    id: 'kason',
-    slug: 'kason',
-    name: 'Kason',
-    specialty: 'Black & Grey Realism, Portraits, Anime/Cartoon',
-    experience: '4+ years',
-    bio: 'Tattooing isn\'t just what I do—it\'s who I am. For 4 years I\'ve been perfecting my craft, specializing in black and grey realism, smooth shading, portraits, and bold anime/cartoon styles.',
-    extendedBio: 'Tattooing isn\'t just what I do—it\'s who I am. For 4 years I\'ve been perfecting my craft, specializing in black and grey realism, smooth shading, portraits, and bold anime/cartoon styles. Since 2021, Valhalla Tattoo has been my only shop, my creative home, and where I\'ve built lasting connections through ink that tells a story.\n\nEvery piece I create is about bringing visions to life—whether it\'s a lifelike portrait, striking realism, or artwork with that animated edge. My mission is simple: tattoos that don\'t just look good, but live with you.\n\nOutside the shop, I\'m a dedicated single parent to my 12-year-old son—he\'s my reason, my drive, and the source of the grind behind every tattoo I do.\n\nLet\'s create something unforgettable.',
-    socialMedia: {
-      instagram: '@valhallatattoo',
-      facebook: 'ValhallaStudio'
-    },
-    portfolio: [
-      {
-        id: 1,
-        filename: 'IMG_20250610_143911_compressed.jpeg',
-        title: 'Realism Portrait Work',
-        style: 'Black & Grey Realism',
-        placement: 'Arm',
-        sessionTime: '6 hours',
-        description: 'Detailed black and grey realism showcasing smooth shading technique',
-        tags: ['realism', 'black and grey', 'portrait', 'shading']
-      },
-      {
-        id: 2,
-        filename: 'kason1.jpeg',
-        title: 'Character Portrait',
-        style: 'Black & Grey',
-        placement: 'Forearm',
-        sessionTime: '5 hours',
-        description: 'Detailed character work with smooth black and grey shading',
-        tags: ['character', 'black and grey', 'portrait', 'detailed']
-      },
-      {
-        id: 3,
-        filename: 'kason4.jpeg',
-        title: 'Realistic Portrait',
-        style: 'Realism',
-        placement: 'Upper Arm',
-        sessionTime: '7 hours',
-        description: 'Photorealistic portrait work with incredible detail and shading',
-        tags: ['realism', 'portrait', 'photorealistic', 'detailed']
-      },
-      {
-        id: 4,
-        filename: 'Kason_Bear.jpeg',
-        title: 'Bear Portrait',
-        style: 'Black & Grey Realism',
-        placement: 'Shoulder',
-        sessionTime: '8 hours',
-        description: 'Stunning realistic bear portrait with detailed fur texture',
-        tags: ['animal', 'bear', 'realism', 'black and grey']
-      },
-      {
-        id: 5,
-        filename: 'chucky.jpeg',
-        title: 'Chucky Character',
-        style: 'Horror Character',
-        placement: 'Leg',
-        sessionTime: '6 hours',
-        description: 'Horror movie character with incredible detail and shading',
-        tags: ['horror', 'character', 'movie', 'chucky']
-      },
-      {
-        id: 6,
-        filename: 'kason_freddy.jpeg',
-        title: 'Freddy Krueger',
-        style: 'Horror Character',
-        placement: 'Forearm',
-        sessionTime: '7 hours',
-        description: 'Iconic horror character with realistic detail and texture',
-        tags: ['horror', 'freddy krueger', 'character', 'realistic']
-      },
-      {
-        id: 7,
-        filename: 'kason_jason.jpeg',
-        title: 'Jason Voorhees',
-        style: 'Horror Character',
-        placement: 'Upper Arm',
-        sessionTime: '6 hours',
-        description: 'Classic horror icon with detailed mask and shading',
-        tags: ['horror', 'jason', 'character', 'mask']
-      },
-      {
-        id: 8,
-        filename: 'kason_jesus.jpeg',
-        title: 'Religious Portrait',
-        style: 'Religious Art',
-        placement: 'Back',
-        sessionTime: '10 hours',
-        description: 'Beautiful religious artwork with incredible detail and reverence',
-        tags: ['religious', 'portrait', 'detailed', 'spiritual']
-      },
-      {
-        id: 9,
-        filename: 'kason_angel.jpeg',
-        title: 'Angel Portrait',
-        style: 'Religious Art',
-        placement: 'Shoulder Blade',
-        sessionTime: '8 hours',
-        description: 'Ethereal angel artwork with soft shading and detail',
-        tags: ['angel', 'religious', 'portrait', 'ethereal']
-      },
-      {
-        id: 10,
-        filename: 'kason_tiger.jpeg',
-        title: 'Tiger Portrait',
-        style: 'Animal Realism',
-        placement: 'Thigh',
-        sessionTime: '9 hours',
-        description: 'Fierce tiger portrait with incredible fur detail and intensity',
-        tags: ['tiger', 'animal', 'realism', 'fierce']
-      },
-      {
-        id: 11,
-        filename: 'kason_dragon.jpeg',
-        title: 'Dragon Artwork',
-        style: 'Fantasy Art',
-        placement: 'Back Piece',
-        sessionTime: '12 hours',
-        description: 'Detailed dragon with incredible scale work and shading',
-        tags: ['dragon', 'fantasy', 'detailed', 'scales']
-      },
-      {
-        id: 12,
-        filename: 'kason_rose.jpeg',
-        title: 'Rose Design',
-        style: 'Traditional',
-        placement: 'Forearm',
-        sessionTime: '4 hours',
-        description: 'Beautiful rose with smooth shading and natural flow',
-        tags: ['rose', 'traditional', 'shading', 'natural']
-      },
-      {
-        id: 13,
-        filename: 'kason_bird.jpeg',
-        title: 'Bird Portrait',
-        style: 'Animal Art',
-        placement: 'Shoulder',
-        sessionTime: '5 hours',
-        description: 'Detailed bird artwork with feather texture and natural pose',
-        tags: ['bird', 'animal', 'feathers', 'natural']
-      },
-      {
-        id: 14,
-        filename: 'kason_bbasket.jpeg',
-        title: 'Basketball Theme',
-        style: 'Sports Art',
-        placement: 'Calf',
-        sessionTime: '6 hours',
-        description: 'Sports-themed artwork with dynamic composition',
-        tags: ['basketball', 'sports', 'dynamic', 'composition']
-      },
-      {
-        id: 15,
-        filename: 'kason_bbasket2.jpeg',
-        title: 'Basketball Art',
-        style: 'Sports Art',
-        placement: 'Leg',
-        sessionTime: '5 hours',
-        description: 'Basketball-inspired design with realistic shading',
-        tags: ['basketball', 'sports', 'realistic', 'shading']
-      },
-      {
-        id: 16,
-        filename: 'kason_balance.jpeg',
-        title: 'Balance Symbol',
-        style: 'Symbolic Art',
-        placement: 'Wrist',
-        sessionTime: '3 hours',
-        description: 'Symbolic artwork representing balance and harmony',
-        tags: ['balance', 'symbolic', 'harmony', 'meaningful']
-      },
-      {
-        id: 17,
-        filename: 'kason_bug.jpeg',
-        title: 'Insect Detail',
-        style: 'Nature Art',
-        placement: 'Hand',
-        sessionTime: '4 hours',
-        description: 'Detailed insect artwork with incredible fine detail work',
-        tags: ['insect', 'nature', 'detailed', 'fine work']
-      },
-      {
-        id: 18,
-        filename: 'kason_clown_Large.jpeg',
-        title: 'Clown Character',
-        style: 'Character Art',
-        placement: 'Upper Arm',
-        sessionTime: '7 hours',
-        description: 'Detailed clown character with expressive features',
-        tags: ['clown', 'character', 'expressive', 'detailed']
-      },
-      {
-        id: 19,
-        filename: 'IMG_20250816_202406_Large.jpeg',
-        title: 'Recent Character Work',
-        style: 'Character Art',
-        placement: 'Arm',
-        sessionTime: '6 hours',
-        description: 'Latest character artwork showcasing current skill level',
-        tags: ['character', 'recent', 'detailed', 'skill']
-      },
-      {
-        id: 20,
-        filename: 'IMG_20250816_202438.jpeg',
-        title: 'Character Portrait',
-        style: 'Portrait Art',
-        placement: 'Forearm',
-        sessionTime: '5 hours',
-        description: 'Character portrait with smooth shading and detail',
-        tags: ['character', 'portrait', 'shading', 'smooth']
-      }
-    ]
-  },
-
-  heather: {
-    id: 'heather',
-    slug: 'heather',
-    name: 'Heather',
-    specialty: '',
-    experience: '',
-    bio: 'Heather is the heart of Valhalla Tattoo, serving as our Shop Manager while pursuing her passion as a tattoo apprentice.',
-    extendedBio: 'Heather is the heart of Valhalla Tattoo, serving as our Shop Manager while pursuing her passion as a tattoo apprentice. As Shop Manager, Heather ensures everything runs smoothly, from scheduling appointments to maintaining our high standards of cleanliness and professionalism. Her organizational skills and attention to detail keep the studio operating at its best. Currently training as an apprentice, Heather is learning the art of tattooing under the guidance of our experienced artists. Her dedication to both management and artistry makes her an invaluable part of the Valhalla team.',
-    socialMedia: {
-      instagram: '@valhallatattoollc',
-      facebook: 'Valhallatattoollc'
-    },
-    portfolio: []
+    this.images = [];
+    this.currentFilter = 'all';
+    this.lightbox = null;
+    this.boundHandleLightboxKeydown = null;
+    this.boundTrapFocus = null;
+    this.portfolioItems = [];
+    this.currentImageIndex = 0;
+    this.lazyObserver = null;
   }
-};
 
-// Portfolio Page Manager
-window.PortfolioPageManager = {
-  currentArtist: null,
-  
-  // Initialize the portfolio page
-  init: function() {
-    // Get artist slug from URL
-    const currentUrl = new URL(window.location.href);
-    const pathSegments = currentUrl.pathname.split('/').filter(Boolean);
-    let artistSlug = pathSegments.pop() || '';
+  /** Utils */
+  _norm = (s) => (s || '').toLowerCase().trim().replace(/\s+/g, '-');
+  _safe = (s) => (s == null ? '' : String(s));
 
-    if (!artistSlug && pathSegments.length) {
-      artistSlug = pathSegments.pop() || '';
+  /** Initialize */
+  init(images) {
+    this.images = images;
+    this.render();
+
+    if (this.options.showFilters) {
+      this.renderFilters();
     }
 
-    if (!artistSlug && currentUrl.searchParams.has('artist')) {
-      artistSlug = currentUrl.searchParams.get('artist') || '';
+    if (this.options.lightboxEnabled) {
+      this.setupLightbox();
     }
 
-    artistSlug = artistSlug.replace(/\.html$/i, '').toLowerCase();
-
-    this.currentArtist = window.ValhallaTattooArtists[artistSlug];
-    
-    if (this.currentArtist) {
-      this.loadArtistData();
-      this.setupPortfolioGallery();
-      this.setupContactForm();
-    } else {
-      console.error('Artist not found:', artistSlug);
-    }
-  },
-
-  // Load artist data into the page
-  loadArtistData: function() {
-    const artist = this.currentArtist;
-    
-    // Update page title if element exists
-    const titleElement = document.querySelector('.artist-hero-title');
-    if (titleElement) {
-      titleElement.textContent = artist.name + "'s Portfolio";
-    }
-    
-    // Update artist bio
-    const bioElement = document.querySelector('.artist-bio');
-    if (bioElement) {
-      bioElement.textContent = artist.extendedBio || artist.bio;
-    }
-    
-    // Update specialty
-    const specialtyElement = document.querySelector('.artist-specialty');
-    if (specialtyElement) {
-      specialtyElement.textContent = artist.specialty;
-    }
-    
-    // Update experience
-    const experienceElement = document.querySelector('.artist-experience');
-    if (experienceElement) {
-      experienceElement.textContent = artist.experience;
+    if (this.options.animateOnScroll) {
+      this.setupScrollAnimations();
     }
 
-    // Update social media links
-    this.updateSocialLinks();
-  },
+    console.log(`Portfolio gallery initialized with ${images.length} images`);
+  }
 
-  // Update social media links
-  updateSocialLinks: function() {
-    const artist = this.currentArtist;
-    
-    const instagramLink = document.querySelector('.social-instagram');
-    if (instagramLink && artist.socialMedia.instagram) {
-      instagramLink.href = 'https://instagram.com/' + artist.socialMedia.instagram.replace('@', '');
+  /** Render gallery */
+  render() {
+    if (!this.container) {
+      console.error('Gallery container not found');
+      return;
     }
-    
-    const facebookLink = document.querySelector('.social-facebook');
-    if (facebookLink && artist.socialMedia.facebook) {
-      facebookLink.href = 'https://facebook.com/' + artist.socialMedia.facebook;
-    }
-  },
 
-  // Setup portfolio gallery
-  setupPortfolioGallery: function() {
-    const galleryContainer = document.querySelector('.portfolio-gallery');
-    if (!galleryContainer) return;
-    
-    const artist = this.currentArtist;
-    let galleryHTML = '';
-    
-    artist.portfolio.forEach(image => {
-      const imageSrc = `../images/portfolio/${artist.slug}/${image.filename}`;
-      galleryHTML += `
-        <div class="portfolio-item" data-style="${image.style}">
-          <img src="${imageSrc}" alt="${image.title}" class="portfolio-img" loading="lazy">
-          <div class="portfolio-overlay">
-            <div class="portfolio-info">
-              <h4>${image.title}</h4>
-              <p class="portfolio-style">${image.style}</p>
-              <p class="portfolio-placement">${image.placement}</p>
-              <p class="portfolio-time">${image.sessionTime}</p>
-              <p class="portfolio-description">${image.description}</p>
-            </div>
+    const galleryHTML = this.images.map(img => this.renderImageItem(img)).join('');
+
+    this.container.innerHTML = `
+      <div class="portfolio-gallery-grid" role="grid" aria-label="Portfolio gallery">
+        ${galleryHTML}
+      </div>
+    `;
+
+    if (this.options.lazyLoading) {
+      this.setupLazyLoading();
+    }
+  }
+
+  /** Render one item (store normalized attrs for filtering) */
+  renderImageItem(image) {
+    const imageSrc = image.src || `../images/portfolio/${image.artistSlug || 'default'}/${image.filename}`;
+    const placeholder = this.generatePlaceholder();
+    const normStyle = this._norm(image.style);
+    const normTags = (image.tags || []).map(this._norm).join(',');
+
+    return `
+      <article class="portfolio-item"
+               data-style="${normStyle}"
+               data-tags="${normTags}"
+               data-artist="${this._safe(image.artistSlug)}"
+               role="gridcell">
+        <div class="portfolio-item__image">
+          <img src="${this.options.lazyLoading ? placeholder : imageSrc}" 
+               ${this.options.lazyLoading ? `data-src="${imageSrc}"` : ''}
+               alt="${this._safe(image.title) || 'Portfolio image'}" 
+               class="portfolio-img ${this.options.lazyLoading ? 'lazy' : ''}"
+               loading="${this.options.lazyLoading ? 'lazy' : 'eager'}"
+               tabindex="0">
+        </div>
+
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4 class="portfolio-title">${this._safe(image.title) || 'Untitled'}</h4>
+            ${image.style ? `<p class="portfolio-style">${this._safe(image.style)}</p>` : ''}
+            ${this.options.showArtistNames && image.artist ? `<p class="portfolio-artist">By ${this._safe(image.artist)}</p>` : ''}
+            ${image.placement ? `<p class="portfolio-placement">${this._safe(image.placement)}</p>` : ''}
+            ${image.sessionTime ? `<p class="portfolio-time">${this._safe(image.sessionTime)}</p>` : ''}
+            ${image.description ? `<p class="portfolio-description">${this._safe(image.description)}</p>` : ''}
+            ${image.tags && image.tags.length ? 
+              `<div class="portfolio-tags">${image.tags.map(tag => 
+                `<span class="portfolio-tag">${this._safe(tag)}</span>`
+              ).join('')}</div>` : ''}
           </div>
         </div>
-      `;
-    });
-    
-    galleryContainer.innerHTML = galleryHTML;
-    
-    // Setup lightbox/modal functionality
-    this.setupLightbox();
-  },
+      </article>
+    `;
+  }
 
-  // Setup lightbox functionality
-  setupLightbox: function() {
-    const portfolioItems = document.querySelectorAll('.portfolio-item img');
-    
-    portfolioItems.forEach(img => {
-      img.addEventListener('click', function() {
-        // Simple lightbox implementation
-        const lightbox = document.createElement('div');
-        lightbox.className = 'lightbox-overlay';
-        lightbox.innerHTML = `
-          <div class="lightbox-content">
-            <img src="${this.src}" alt="${this.alt}" class="lightbox-img">
-            <button class="lightbox-close">&times;</button>
-          </div>
-        `;
-        
-        document.body.appendChild(lightbox);
-        document.body.style.overflow = 'hidden';
-        
-        // Close lightbox
-        lightbox.querySelector('.lightbox-close').addEventListener('click', function() {
-          document.body.removeChild(lightbox);
-          document.body.style.overflow = '';
-        });
-        
-        lightbox.addEventListener('click', function(e) {
-          if (e.target === lightbox) {
-            document.body.removeChild(lightbox);
-            document.body.style.overflow = '';
-          }
-        });
+  /** Filters UI */
+  renderFilters() {
+    const filterContainer = document.createElement('div');
+    filterContainer.className = 'portfolio-filters';
+
+    const filters = this.getUniqueFilters();
+    const filterButtons = filters.map(filter => `
+      <button class="filter-btn ${filter === 'all' ? 'active' : ''}" 
+              data-filter="${filter}"
+              aria-pressed="${filter === 'all' ? 'true' : 'false'}">
+        ${this.capitalizeFilter(filter)}
+      </button>
+    `).join('');
+
+    filterContainer.innerHTML = filterButtons;
+    this.container.insertBefore(filterContainer, this.container.firstChild);
+
+    // Scoped listener
+    filterContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (btn) this.handleFilterClick(btn);
+    });
+  }
+
+  /** Lazy loading */
+  setupLazyLoading() {
+    if (!this.container) return;
+
+    const images = this.container.querySelectorAll('img.lazy[data-src]');
+    if (!images.length) return;
+
+    const loadImage = (img) => {
+      const dataSrc = img.getAttribute('data-src');
+      if (!dataSrc) return;
+      img.src = dataSrc;
+      img.removeAttribute('data-src');
+      img.classList.remove('lazy');
+    };
+
+    // Fallback
+    if (!('IntersectionObserver' in window)) {
+      images.forEach(loadImage);
+      return;
+    }
+
+    if (this.lazyObserver) this.lazyObserver.disconnect();
+
+    this.lazyObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        loadImage(entry.target);
+        observer.unobserve(entry.target);
       });
+    }, { rootMargin: '200px 0px', threshold: 0.1 });
+
+    images.forEach(img => {
+      // Optional: error fallback
+      img.onerror = () => { img.src = this.generatePlaceholder(); };
+      this.lazyObserver.observe(img);
     });
-  },
-
-  // Setup contact form with artist pre-selected
-  setupContactForm: function() {
-    const artistSelect = document.querySelector('#contact-artist');
-    if (artistSelect && this.currentArtist) {
-      artistSelect.value = this.currentArtist.slug;
-    }
-  }
-};
-
-// Mobile Navigation functionality for portfolio pages
-function initializeMobileNavigation() {
-  // Make navigation visible
-  const mainNav = document.querySelector('.main-nav');
-  if (mainNav) {
-    mainNav.classList.add('main-nav--visible');
   }
 
-  // Setup mobile menu functionality
-  const toggle = document.querySelector('.main-nav__toggle');
-  const menu = document.querySelector('.main-nav__menu');
-  
-  if (!toggle || !menu) return;
-
-  // Add click listener to toggle
-  toggle.addEventListener('click', function() {
-    const isOpen = menu.classList.contains('mobile-menu--open');
-    
-    if (isOpen) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
-  });
-
-  // Close menu when clicking links
-  const menuLinks = document.querySelectorAll('.main-nav__link');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      closeMobileMenu();
+  /** Collect unique normalized filters */
+  getUniqueFilters() {
+    const filters = new Set(['all']);
+    this.images.forEach(image => {
+      if (image.style) filters.add(this._norm(image.style));
+      (image.tags || []).forEach(tag => filters.add(this._norm(tag)));
     });
-  });
+    return Array.from(filters);
+  }
 
-  // Close menu when clicking outside
-  document.addEventListener('click', function(e) {
-    const nav = document.querySelector('.main-nav');
-    if (!nav.contains(e.target) && menu.classList.contains('mobile-menu--open')) {
-      closeMobileMenu();
+  /** Filter button click (scoped) */
+  handleFilterClick(button) {
+    const filter = button.getAttribute('data-filter') || 'all';
+    const filterWrap = this.container.querySelector('.portfolio-filters');
+
+    filterWrap?.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-pressed', 'false');
+    });
+
+    button.classList.add('active');
+    button.setAttribute('aria-pressed', 'true');
+
+    this.filterImages(filter);
+    this.currentFilter = filter;
+  }
+
+  /** Apply filter (compare normalized equality) */
+  filterImages(filter) {
+    const f = (filter || '').toLowerCase();
+    const items = this.container.querySelectorAll('.portfolio-item');
+
+    items.forEach(item => {
+      const style = item.getAttribute('data-style') || '';
+      const tags = (item.getAttribute('data-tags') || '').split(',').filter(Boolean);
+      const show = f === 'all' || style === f || tags.includes(f);
+
+      item.style.display = show ? '' : 'none';
+      item.setAttribute('aria-hidden', show ? 'false' : 'true');
+    });
+  }
+
+  /** Lightbox setup (delegated) */
+  setupLightbox() {
+    this.container.addEventListener('click', (e) => {
+      const img = e.target.closest('.portfolio-img');
+      if (img) {
+        e.preventDefault();
+        this.openLightbox(img);
+      }
+    });
+
+    // Keyboard activation on focused image
+    this.container.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList?.contains('portfolio-img')) {
+        e.preventDefault();
+        this.openLightbox(e.target);
+      }
+    });
+  }
+
+  /** Open lightbox */
+  openLightbox(imgElement) {
+    if (!imgElement) return;
+
+    const portfolioItem = imgElement.closest('.portfolio-item');
+    if (!portfolioItem) return;
+
+    const src = imgElement.getAttribute('data-src') || imgElement.src;
+    const alt = imgElement.alt || '';
+
+    // Visible items for navigation
+    this.portfolioItems = Array.from(this.container.querySelectorAll('.portfolio-item'))
+      .filter(item => item.style.display !== 'none');
+
+    this.currentImageIndex = Math.max(0, this.portfolioItems.indexOf(portfolioItem));
+
+    this.lightbox = document.createElement('div');
+    this.lightbox.className = 'lightbox-overlay';
+    this.lightbox.setAttribute('role', 'dialog');
+    this.lightbox.setAttribute('aria-modal', 'true');
+
+    const imageData = this.getImageDataFromElement(portfolioItem);
+
+    this.lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <div class="lightbox-image-container">
+          <img src="${src}" alt="${alt}" class="lightbox-img">
+        </div>
+
+        ${imageData ? `
+          <div class="lightbox-info">
+            <h3 class="lightbox-title">${this._safe(imageData.title)}</h3>
+            ${imageData.style ? `<p class="lightbox-style">${this._safe(imageData.style)}</p>` : ''}
+            ${imageData.artist ? `<p class="lightbox-artist">By ${this._safe(imageData.artist)}</p>` : ''}
+            ${imageData.description ? `<p class="lightbox-description">${this._safe(imageData.description)}</p>` : ''}
+          </div>
+        ` : ''}
+
+        <button class="lightbox-close" aria-label="Close lightbox" type="button">&times;</button>
+        <button class="lightbox-prev" aria-label="Previous image" type="button">‹</button>
+        <button class="lightbox-next" aria-label="Next image" type="button">›</button>
+      </div>
+    `;
+
+    document.body.appendChild(this.lightbox);
+    document.body.style.overflow = 'hidden';
+
+    this.setupLightboxEvents();
+    this.lightbox.querySelector('.lightbox-close')?.focus();
+  }
+
+  /** Lightbox events: close, nav, keyboard, focus trap */
+  setupLightboxEvents() {
+    if (!this.lightbox) return;
+
+    const closeBtn = this.lightbox.querySelector('.lightbox-close');
+    const prevBtn  = this.lightbox.querySelector('.lightbox-prev');
+    const nextBtn  = this.lightbox.querySelector('.lightbox-next');
+
+    closeBtn?.addEventListener('click', () => this.closeLightbox());
+    prevBtn?.addEventListener('click', () => this.navigateLightbox(-1));
+    nextBtn?.addEventListener('click', () => this.navigateLightbox(1));
+
+    // Click outside content to close
+    this.lightbox.addEventListener('click', (e) => {
+      if (e.target === this.lightbox) this.closeLightbox();
+    });
+
+    // Keyboard navigation
+    if (!this.boundHandleLightboxKeydown) {
+      this.boundHandleLightboxKeydown = this.handleLightboxKeydown.bind(this);
     }
-  });
+    document.addEventListener('keydown', this.boundHandleLightboxKeydown);
 
-  // Close menu on escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && menu.classList.contains('mobile-menu--open')) {
-      closeMobileMenu();
+    // Basic focus trap (Tab cycles inside the dialog)
+    if (!this.boundTrapFocus) {
+      this.boundTrapFocus = (e) => {
+        if (!this.lightbox) return;
+        if (e.key !== 'Tab') return;
+
+        const focusables = this.lightbox.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      };
     }
-  });
-
-  function openMobileMenu() {
-    menu.classList.add('mobile-menu', 'mobile-menu--open');
-    toggle.classList.add('main-nav__toggle--active');
-    toggle.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('mobile-menu-open');
+    this.lightbox.addEventListener('keydown', this.boundTrapFocus);
   }
 
-  function closeMobileMenu() {
-    menu.classList.remove('mobile-menu--open');
-    toggle.classList.remove('main-nav__toggle--active');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('mobile-menu-open');
+  /** Keyboard handler */
+  handleLightboxKeydown(e) {
+    if (!this.lightbox) return;
+
+    switch (e.key) {
+      case 'Escape':
+        this.closeLightbox();
+        break;
+      case 'ArrowLeft':
+        this.navigateLightbox(-1);
+        break;
+      case 'ArrowRight':
+        this.navigateLightbox(1);
+        break;
+    }
   }
 
-  console.log('Mobile navigation initialized for portfolio page');
+  /** Close lightbox */
+  closeLightbox() {
+    if (!this.lightbox) return;
+
+    this.lightbox.removeEventListener('keydown', this.boundTrapFocus);
+    this.boundTrapFocus = null;
+
+    document.body.removeChild(this.lightbox);
+    document.body.style.overflow = '';
+
+    if (this.boundHandleLightboxKeydown) {
+      document.removeEventListener('keydown', this.boundHandleLightboxKeydown);
+    }
+
+    this.lightbox = null;
+  }
+
+  /** Navigate images */
+  navigateLightbox(direction) {
+    if (!this.portfolioItems.length || !this.lightbox) return;
+
+    const total = this.portfolioItems.length;
+    let newIndex = (this.currentImageIndex + direction + total) % total;
+
+    const nextItem = this.portfolioItems[newIndex];
+    const nextImg = nextItem.querySelector('.portfolio-img');
+    if (!nextImg) return;
+
+    const src = nextImg.getAttribute('data-src') || nextImg.src;
+    const alt = nextImg.alt || '';
+    const imageData = this.getImageDataFromElement(nextItem);
+
+    const lightboxImg = this.lightbox.querySelector('.lightbox-img');
+    if (lightboxImg) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+    }
+
+    // Update info panel (remove if no data)
+    const info = this.lightbox.querySelector('.lightbox-info');
+    if (imageData) {
+      const html = `
+        <h3 class="lightbox-title">${this._safe(imageData.title)}</h3>
+        ${imageData.style ? `<p class="lightbox-style">${this._safe(imageData.style)}</p>` : ''}
+        ${imageData.artist ? `<p class="lightbox-artist">By ${this._safe(imageData.artist)}</p>` : ''}
+        ${imageData.description ? `<p class="lightbox-description">${this._safe(imageData.description)}</p>` : ''}`;
+      if (info) {
+        info.innerHTML = html;
+      } else {
+        const infoContainer = document.createElement('div');
+        infoContainer.className = 'lightbox-info';
+        infoContainer.innerHTML = html;
+        this.lightbox.querySelector('.lightbox-content')
+          .insertBefore(infoContainer, this.lightbox.querySelector('.lightbox-close'));
+      }
+    } else if (info) {
+      info.remove();
+    }
+
+    this.currentImageIndex = newIndex;
+  }
+
+  /** Scroll animations */
+  setupScrollAnimations() {
+    if (!('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '50px' });
+
+    setTimeout(() => {
+      const items = this.container.querySelectorAll('.portfolio-item');
+      items.forEach(item => observer.observe(item));
+    }, 100);
+  }
+
+  /** Extract info for lightbox from DOM */
+  getImageDataFromElement(element) {
+    if (!element) return null;
+    const title = element.querySelector('.portfolio-title')?.textContent || '';
+    const style = element.querySelector('.portfolio-style')?.textContent || '';
+    const artist = (element.querySelector('.portfolio-artist')?.textContent || '').replace(/^By\s+/, '');
+    const description = element.querySelector('.portfolio-description')?.textContent || '';
+    return { title, style, artist, description };
+  }
+
+  /** Placeholder */
+  generatePlaceholder() {
+    return 'data:image/svg+xml,' + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f0f0f0"/><text x="50%" y="50%" text-anchor="middle" fill="#999" font-family="Arial" font-size="16">Loading...</text></svg>'
+    );
+  }
+
+  /** Human label for filter */
+  capitalizeFilter(filter) {
+    if (filter === 'all') return 'All Work';
+    return filter.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  }
+
+  /** Update images + refresh filters and behaviors */
+  update(newImages) {
+    this.images = newImages;
+    this.render();
+
+    if (this.options.showFilters) {
+      const old = this.container.querySelector('.portfolio-filters');
+      if (old) old.remove();
+      this.renderFilters();
+    }
+
+    // Reattach lightbox delegation in case DOM replaced
+    if (this.options.lightboxEnabled) {
+      // no-op: delegation remains on container; if container was replaced,
+      // ensure you passed the same node in ctor. If not, re-bind here.
+    }
+
+    if (this.options.animateOnScroll) {
+      this.setupScrollAnimations();
+    }
+  }
+
+  /** Destroy */
+  destroy() {
+    if (this.lightbox) this.closeLightbox();
+    if (this.lazyObserver) {
+      this.lazyObserver.disconnect();
+      this.lazyObserver = null;
+    }
+    if (this.container) this.container.innerHTML = '';
+  }
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize mobile navigation first
-  initializeMobileNavigation();
-  
-  if (window.PortfolioPageManager) {
-    window.PortfolioPageManager.init();
-  }
-});
-
-// Simple CSS for lightbox (can be moved to main.css)
-const lightboxCSS = `
-.lightbox-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-}
-
-.lightbox-img {
-  max-width: 100%;
-  max-height: 90vh;
-  object-fit: contain;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0;
-  line-height: 1;
-}
-
-.lightbox-close:hover {
-  opacity: 0.7;
-}
-
-/* Mobile menu styles for portfolio pages */
-@media (max-width: 768px) {
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(30, 30, 30, 0.98);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 1000;
-    visibility: visible !important;
-  }
-  
-  .mobile-menu--open {
-    transform: translateX(0);
-    visibility: visible !important;
-  }
-  
-  .mobile-menu .main-nav__link {
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    min-width: 200px;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    visibility: visible !important;
-  }
-  
-  .mobile-menu .main-nav__link:hover {
-    background: rgba(212, 175, 55, 0.2);
-    color: #d4af37;
-  }
-  
-  .mobile-menu-open {
-    overflow: hidden;
-  }
-  
-  .main-nav__toggle {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    min-width: 48px;
-    min-height: 48px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .main-nav__toggle:hover {
-    transform: scale(1.05);
-  }
-  
-  .main-nav__toggle-line {
-    width: 24px;
-    height: 2px;
-    background: currentColor;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-  
-  .main-nav__toggle--active .main-nav__toggle-line:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-  
-  .main-nav__toggle--active .main-nav__toggle-line:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .main-nav__toggle--active .main-nav__toggle-line:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-}
-`;
-
-// Inject CSS
-const styleSheet = document.createElement('style');
-styleSheet.textContent = lightboxCSS;
-document.head.appendChild(styleSheet);
+export default PortfolioGallery;
